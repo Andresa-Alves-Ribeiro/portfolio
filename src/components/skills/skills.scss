@@ -1,0 +1,107 @@
+.stack-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ff6d00;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px #5e5e5e;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      margin: 1rem;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(to right, #ff6d00, #ff8f00);
+      border-radius: 1rem;
+      text-shadow: 2px 2px #5e5e5e;
+      box-shadow: 3px 3px #5e5e5e;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+  }
+}
+
+@mixin glitchCopy {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.glitch2 {
+  position: relative;
+  color: white;
+  font-size: 5em;
+  letter-spacing: 0.5em;
+  margin-top: 60vh;
+  margin-bottom: 20vh;
+
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+
+  &::before {
+    @include glitchCopy;
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+
+  &::after {
+    @include glitchCopy;
+    left: -2px;
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+  }
+}
+
+
+@keyframes glitch-anim {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+      transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+@keyframes glitch-anim2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+      transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+@keyframes glitch-skew {
+  $steps: 10;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      transform: skew((random(10) - 5) + deg);
+    }
+  }
+}

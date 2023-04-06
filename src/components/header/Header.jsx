@@ -9,7 +9,6 @@ const Header = () => {
         <h5 className='title-primary'>Hello!! I'm</h5>
         <div className='title'><span>Andresa</span> Alves Ribeiro</div>
         <h5 className='subtitle'>Front-End / Fullstack Developer</h5>
-        <CTA />
       </div>
     </header>
   )
