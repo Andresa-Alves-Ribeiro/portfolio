@@ -20,22 +20,22 @@ const Skills = () => {
     return (
         <div className="stack-list">
             <h1 className="glitch2" data-text="My Skills">My Skills</h1>
-            <div>
-                <img src={ReactLogo} alt="ReactJS Logo" />
-                <img src={Typescript} alt="Typescript Logo" />
-                <img src={Javascript} alt="Javascript Logo" />
-                <img src={Vite} alt="Vite Logo" />
-                <img src={Next} alt="Next Logo" />
-                <img src={Sass} alt="Sass Logo" />
-                <img src={Tailwind} alt="Tailwind Logo" />
-                <img src={Bootstrap} alt="Bootstrap Logo" />
-                <img src={Figma} alt="Figma Logo" />
-                <img src={StyledComponents} alt="Styled Components Logo" />
-                <img src={Postman} alt="Postman Logo" />
-                <img src={Node} alt="NodeJS Logo" />
-                <img src={Mysql} alt="MySQL Logo" />
-                <img src={Git} alt="Git Logo" />
-                <img src={VSCode} alt="VSCode Logo" />
+            <div className='stacks-logo'>
+                <img src={ReactLogo} alt="ReactJS Logo" className='logo' />
+                <img src={Typescript} alt="Typescript Logo" className='logo'/>
+                <img src={Javascript} alt="Javascript Logo" className='logo'/>
+                <img src={Vite} alt="Vite Logo" className='logo'/>
+                <img src={Next} alt="Next Logo" className='logo'/>
+                <img src={Sass} alt="Sass Logo" className='logo'/>
+                <img src={Tailwind} alt="Tailwind Logo" className='logo'/>
+                <img src={Bootstrap} alt="Bootstrap Logo" className='logo'/>
+                <img src={Figma} alt="Figma Logo" className='logo'/>
+                <img src={StyledComponents} alt="Styled Components Logo" className='logo'/>
+                <img src={Postman} alt="Postman Logo" className='logo'/>
+                <img src={Node} alt="NodeJS Logo" className='logo'/>
+                <img src={Mysql} alt="MySQL Logo" className='logo'/>
+                <img src={Git} alt="Git Logo" className='logo'/>
+                <img src={VSCode} alt="VSCode Logo" className='logo'/>
             </div>
         </div>
     );
