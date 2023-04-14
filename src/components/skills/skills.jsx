@@ -19,7 +19,7 @@ import VSCode from '../../assets/visual-studio-code.svg'
 const Skills = () => {
     return (
         <div className="stack-list">
-            <h1 className="glitch2" data-text="My Skills">My Skills</h1>
+            <h1 className="glitch-skills" data-text="My Skills">My Skills</h1>
             <section className="wave-top"></section>
             <div className='stacks-logo'>
                 <a href="https://www.reactjs.org" target="_blank" rel="noreferrer">
