@@ -22,13 +22,13 @@ const App = () => {
               <About />
               <Skills />
               <Portfolio />
+              <Contact />
             </>
           }
           index
         />
         <Route path="/project/:title" element={<ProjectDetails />} />
       </Routes>
-      <Contact />
       <Footer />
     </Router>
   );
