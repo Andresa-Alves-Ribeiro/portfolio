@@ -29,7 +29,7 @@ $primary-font: 'Roboto', sans-serif;
   color: white;
   font-size: 5em;
   letter-spacing: 0.5em;
-  margin-top: 40vh;
+  margin-top: 15vh;
   margin-bottom: 7vh;
 
   animation: glitch-skew 1s infinite linear alternate-reverse;
@@ -118,6 +118,7 @@ $primary-font: 'Roboto', sans-serif;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-top: 4px solid #ff00c1;
 
   h2 {
     font-size: 36px;
@@ -284,6 +285,16 @@ $primary-font: 'Roboto', sans-serif;
         font-size: 16px;
         padding: 8px 16px;
       }
+    }
+
+    .form__status--success {
+      margin-top: 5vh;
+      color: green;
+    }
+
+    .form__status--error {
+      margin-top: 5vh;
+      color: red;
     }
 
   }

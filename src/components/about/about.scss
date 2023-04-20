@@ -133,7 +133,12 @@ h1 {
   }
 }
 
-.cv {
-  margin-top: -3rem;
+.cv a {
+  color: var(--color-primary);
   margin-left: 30rem;
+}
+
+.cv a:hover {
+  color: #ff00c1;
+  opacity: 1;
 }

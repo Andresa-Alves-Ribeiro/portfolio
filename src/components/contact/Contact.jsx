@@ -12,7 +12,7 @@ const Contact = () => {
       await axios.post('http://localhost:3001/enviar-email', data);
       setFormStatus('success');
     } catch (error) {
-      console.error(error);
+      console.error(error.response.data);
       setFormStatus('error');
     }
   };
