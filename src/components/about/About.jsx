@@ -33,13 +33,13 @@ const About = () => {
   return (
     <div id="app">
       <div id="wrapper">
-        <h1 className="glitch-about" data-text="About Me">About Me</h1>
+        <h1 className="glitch-about" data-text="Sobre Mim">Sobre Mim</h1>
       </div>
 
       <div className='about' ref={aboutRef}>
         <img src={MyPicture} alt='My picture' />
         <div className="react-random-reveal">
-          <RandomReveal isPlaying={isPlaying} duration={2} characters="I'm Andresa and I've been working with web development for 2 years. I have knowledge of front-end and back-end development web, carrying out several practical projects aiming to increase my skills." />
+          <RandomReveal isPlaying={isPlaying} duration={2} characters="Eu sou Andresa e trabalho com desenvolvimento web há 2 anos. Possuo conhecimento em desenvolvimento web front-end e back-end, realizando diversos projetos práticos visando aumentar minhas habilidades." />
         </div>
       </div>
       <div className='cv'>
