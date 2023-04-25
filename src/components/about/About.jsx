@@ -43,7 +43,7 @@ const About = () => {
         </div>
       </div>
       <div className='cv'>
-        <a href={CV} download>Download my CV here</a>
+        <a href={CV} download>Download meu CV aqui</a>
       </div>
     </div>
   );

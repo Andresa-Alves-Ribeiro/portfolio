@@ -13,7 +13,7 @@ const Footer = () => {
                 <a href="#home" className="footer__item link">Home</a>
               </li>
               <li>
-                <a href="#quem-sou" className="footer__item link">Quem sou eu</a>
+                <a href="#quem-sou" className="footer__item link">Sobre Mim</a>
               </li>
               <li>
                 <a href="#skills" className="footer__item link">Minhas skills</a>
