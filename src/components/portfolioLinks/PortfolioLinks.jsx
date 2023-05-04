@@ -65,11 +65,19 @@ export const portfolioLinks = [
     },
     {
         title: 'Labe Ecommerce',
-        image: 'https://user-images.githubusercontent.com/94997593/161450654-81c9058f-f3dc-41c4-bd87-03f0fec1b382.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236059529-153c3ab5-91c4-4bcb-b2e4-23c3424babcd.png',
         stacks: ['REACT', 'JAVASCRIPT', 'STYLED-COMPONENTS', 'CSS'],
         description: 'Labe Ecommerce é uma página de simulação de uma lojinha de compras com a temática espacial.',
         liveDemoUrl: 'https://utter-map.surge.sh/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Labe-commerce'
+    },
+    {
+        title: 'DevFinder',
+        image: 'https://user-images.githubusercontent.com/94997593/224514310-9d3c2b2f-8063-49ae-ac21-ffa15b746439.png',
+        stacks: ['REACT', 'STYLED-COMPONENTS'],
+        description: 'DevFinder é um buscador de usuários do gitHub, uitlizando a API disponibilizada pelo próprio gitHub.',
+        liveDemoUrl: 'https://devfinder-seven.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/devfinder'
     },
     {
         title: 'Pokédex',
@@ -113,7 +121,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Beauty Salon',
-        image: 'https://user-images.githubusercontent.com/94997593/172251751-14f6e7ab-cdf5-41e4-aeeb-13603aa8a5fa.jpg',
+        image: 'https://user-images.githubusercontent.com/94997593/236079649-7faf5325-70e8-4a45-8e85-56585ac24284.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'SWIPEJS', 'SCROLLREVEAL', 'RANDOMUSER.ME', 'ICONMOON'],
         description: 'Beauty Salon é uma página institucional de um salão de beleza.',
         liveDemoUrl: 'https://beauty-salon-nu.vercel.app/',
@@ -121,23 +129,23 @@ export const portfolioLinks = [
     },
     {
         title: 'Gelateria',
-        image: 'https://github.com/Andresa-Alves-Ribeiro/projeto-sorveteria/raw/main/sorveteria.gif',
+        image: 'https://user-images.githubusercontent.com/94997593/236078998-efc846a8-ce31-4762-9581-c12f16a28ff6.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'REACT'],
         description: 'Gelateria é uma aplicação de uma página de uma sorveteria para apresentar seus produtos.',
         liveDemoUrl: 'http://projeto-sorveteria-nu.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/projeto-sorveteria'
     },
     {
-        title: 'LabeX',
-        image: 'https://user-images.githubusercontent.com/94997593/166162261-39123c6c-f1cf-4487-bb72-232db3a76024.png',
-        stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'REACT'],
-        description: 'O projeto consiste na criação de um pseudo site de viagens interplanetárias.',
-        liveDemoUrl: 'https://helpless-jam.surge.sh/',
-        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/LabeX'
+        title: 'JSExpertMax Gesture Controller',
+        image: 'https://user-images.githubusercontent.com/94997593/236073011-a7924154-b77c-45b2-b079-5ac245211bf9.png',
+        stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'NODE', 'TENSORFLOW'],
+        description: 'Controlando plataformas de streaming usando detecção de olhos e mãos.',
+        liveDemoUrl: 'https://andresa-alves-ribeiro.github.io/js-expert/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/js-expert'
     },
     {
         title: 'Barber Shop',
-        image: 'https://github.com/Andresa-Alves-Ribeiro/landing-barbearia/raw/main/barbearia.gif',
+        image: 'https://user-images.githubusercontent.com/94997593/236072649-0818fca9-bf27-4002-bb11-8d83af50ec40.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'REACT'],
         description: 'Barber Shop é uma landing Page com a funcionalidade de alterar o tema de fundo, com base na ação feita pelo usuário (evento de clique).',
         liveDemoUrl: 'https://landing-barbearia.vercel.app/',
@@ -145,7 +153,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Resgate',
-        image: 'https://user-images.githubusercontent.com/94997593/177055878-fa93685e-bab9-4b1a-8d60-6f771a75bce9.jpg',
+        image: 'https://user-images.githubusercontent.com/94997593/236071601-f5651f23-601d-4515-a067-ffdbdaf1768b.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'JQUERY'],
         description: 'Resgate é um jogo para navegadores que consite em resgatar reféns que estão no solo.',
         liveDemoUrl: 'https://jogo-de-naves-ruddy.vercel.app/',
@@ -153,11 +161,19 @@ export const portfolioLinks = [
     },
     {
         title: 'Recriando Netfilx',
-        image: 'https://user-images.githubusercontent.com/94997593/177021263-a0600344-68f2-4ee6-ac9b-10d4d680d301.jpg',
+        image: 'https://user-images.githubusercontent.com/94997593/236069192-b205e217-5ea2-4c44-975d-72dd40d61bb2.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'JQUERY', 'CAROUSEL'],
         description: 'Recriando Netfilx é uma página clone do design do streaming Netflix.',
         liveDemoUrl: 'https://recriando-netflix-sand.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Recriando-Netflix'
+    },
+    {
+        title: 'IP Address Tracker',
+        image: 'https://user-images.githubusercontent.com/94997593/236068603-8b04db1f-3476-477a-981b-a09df159fa0b.png',
+        stacks: ['HTML', 'SASS', 'JAVASCRIPT'],
+        description: 'WhatsLab é uma página que mostra a sua localização pelo seu IP e permite buscas por outros IPs.',
+        liveDemoUrl: 'https://ip-tracker-ashen.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/ip-tracker'
     },
     {
         title: 'Mulheres em Tech',
@@ -169,7 +185,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Revelador de Destino',
-        image: 'https://user-images.githubusercontent.com/94997593/174227478-43c7e036-6c48-4d15-b34a-0419eb77436b.jpg',
+        image: 'https://user-images.githubusercontent.com/94997593/236068035-b7754f07-bcde-4e1a-a57a-4bfc8e3bda37.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT'],
         description: 'Revelador de destino é uma página que responde o seu destino baseado em uma pergunta.',
         liveDemoUrl: 'https://andresa-alves-ribeiro.github.io/Revelador-de-destino/',
@@ -177,23 +193,15 @@ export const portfolioLinks = [
     },
     {
         title: 'WhatsLab',
-        image: 'https://user-images.githubusercontent.com/94997593/235800802-411b6cf2-539d-44ee-adca-3603c8e0875a.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236066974-e847c4f5-1306-48ee-bc74-e3447c4a63ea.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT'],
         description: 'WhatsLab é uma página de simulação de um chat.',
         liveDemoUrl: 'https://projeto-whats-lab-seven.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Projeto-WhatsLab'
     },
     {
-        title: 'IP Address Tracker',
-        image: 'https://camo.githubusercontent.com/662337f93c68357001d8ce5fb531bc4abccdad944f42c91b1aff259b96da3d19/68747470733a2f2f692e706f7374696d672e63632f7831784752796b742f53637265656e73686f742d323032312d30382d33312d61742d30322d30362d32372d46726f6e74656e642d4d656e746f722d49502d416464726573732d547261636b65722e706e67',
-        stacks: ['HTML', 'SASS', 'JAVASCRIPT'],
-        description: 'WhatsLab é uma página que mostra a sua localização pelo seu IP e permite buscas por outros IPs.',
-        liveDemoUrl: 'https://ip-tracker-ashen.vercel.app/',
-        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/ip-tracker'
-    },
-    {
         title: 'Astromatch',
-        image: 'https://user-images.githubusercontent.com/94997593/188524680-36bb316f-7de7-4f54-85a0-64d1c5d4e692.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236065816-aa1ce51a-3c3e-4876-a1da-edee4c72d74e.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT'],
         description: 'Astromatch é uma página de simulação de um site de namoro online.',
         liveDemoUrl: 'https://astromatch-beta.vercel.app/',
@@ -217,7 +225,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Agência de viagens',
-        image: 'https://user-images.githubusercontent.com/94997593/188252911-ed40392a-da73-4534-9364-0fc8c25b8446.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236062829-1e56aec8-fe80-4a43-8af7-95a7e1e67ccf.png',
         stacks: ['HTML', 'CSS'],
         description: 'Agência de viagens é um site criado para práticas de HTML e CSS, com formulário de contatos e diversos tipos de campos, com action e envio para back-end.',
         liveDemoUrl: 'https://agencia-de-viagens-six.vercel.app/',
@@ -225,7 +233,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Barbearia Stylus',
-        image: 'https://user-images.githubusercontent.com/94997593/234729414-575183f3-0114-452b-81fc-5b74d65ff19e.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236060550-b8752489-6dde-49b8-b910-f985ae310409.png',
         stacks: ['HTML', 'CSS'],
         description: 'Uma página de um site de barbearia com o formato One Page, criada para solidificação dos conhecimentos em CSS.',
         liveDemoUrl: 'http://barbearia-stylus-ashen.vercel.app/',
@@ -239,5 +247,5 @@ export const portfolioLinks = [
         liveDemoUrl: 'https://pousada-secreta-ten.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Pousada-secreta'
     },
-    
+
 ];
