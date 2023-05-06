@@ -57,7 +57,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Busca Carnaval',
-        image: 'https://github.com/Andresa-Alves-Ribeiro/busca-carnaval/raw/main/.github/preview.jpg',
+        image: 'https://user-images.githubusercontent.com/94997593/236588417-9b769eb5-fbb1-4329-b758-defee9366136.png',
         stacks: ['REACT', 'VITE', 'JAVASCRIPT', 'CSS', 'FIGMA', 'PHOSPHOR ICONS', 'LEAFLET', 'CONFETTI'],
         description: 'Busca Carnaval é uma página que busca blocos de carnaval fictícios.',
         liveDemoUrl: 'https://busca-carnaval.vercel.app/',
@@ -73,7 +73,7 @@ export const portfolioLinks = [
     },
     {
         title: 'DevFinder',
-        image: 'https://user-images.githubusercontent.com/94997593/224514310-9d3c2b2f-8063-49ae-ac21-ffa15b746439.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236587858-95ab532f-c93a-4f30-81e2-6a1ce8d76c6e.png',
         stacks: ['REACT', 'STYLED-COMPONENTS'],
         description: 'DevFinder é um buscador de usuários do gitHub, uitlizando a API disponibilizada pelo próprio gitHub.',
         liveDemoUrl: 'https://devfinder-seven.vercel.app/',
@@ -81,7 +81,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Pokédex',
-        image: 'https://user-images.githubusercontent.com/94997593/167355575-d1884057-e525-4aba-aa31-b0e1c85abea0.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236587165-29aaf68c-fcb2-41e8-a4e1-1a07f2f64032.png',
         stacks: ['REACT', 'STYLED-COMPONENTS', 'API', 'AXIOS', 'REACT ROUTER DOM', 'MATERIAL UI'],
         description: 'A Pokédex foi feita utilizando a API pública de Pokémon, a PokéAPI.',
         liveDemoUrl: 'https://itchy-house.surge.sh/',
@@ -89,7 +89,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Brainnco Front-End Challenge',
-        image: 'https://github.com/Andresa-Alves-Ribeiro/Brainnco/raw/main/public/desktop-home.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236586796-e5846b34-d7c5-41a8-8afa-6783004d2092.png',
         stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'STYLED-COMPONENTS', 'ESLINT', 'PRETTIER', 'HUSKY'],
         description: 'É um desafio de desenvolvimento front-end proposto pela Brainn. Uma aplicação web front-end que simula os Resultados das loterias.',
         liveDemoUrl: 'https://brainnco-andresa-alves-ribeiro.vercel.app/',
@@ -97,7 +97,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Rocketpay',
-        image: 'https://user-images.githubusercontent.com/94997593/198858435-073a6f03-17f5-41f4-8162-c54287495c64.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236585921-a838ab3c-3c07-4359-81e6-bcc2b56a593d.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'JSON', 'VITE', 'iMASK'],
         description: 'Rocketpay é uma página que simula o formulário de preenchimento de cartão de crédito.',
         liveDemoUrl: 'https://rocketpay-beryl.vercel.app/',
@@ -105,7 +105,7 @@ export const portfolioLinks = [
     },
     {
         title: 'DoctorCare',
-        image: 'https://user-images.githubusercontent.com/94997593/172490241-13df3150-bf1b-49fc-84ef-c8d431345f67.jpg',
+        image: 'https://user-images.githubusercontent.com/94997593/236585616-8d9efff3-c5c2-4ed3-aefe-0000bc38705d.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'SCROLLREVEAL'],
         description: 'DoctorCare é uma página institucional de uma empresa de assistência médica.',
         liveDemoUrl: 'https://doctor-care-cyan.vercel.app/',
@@ -113,7 +113,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Ótica Vida',
-        image: 'https://github.com/Andresa-Alves-Ribeiro/site-otica/raw/main/otica.gif',
+        image: 'https://user-images.githubusercontent.com/94997593/236583594-b6697ffa-33fb-40b2-aaa7-4a2479071686.png',
         stacks: ['HTML', 'CSS', 'JAVASCRIPT', 'REACT'],
         description: 'Ótica Vida é uma aplicação de uma página de uma loja virtual de óculos.',
         liveDemoUrl: 'http://site-otica-brown.vercel.app/',
