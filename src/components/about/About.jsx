@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import ScrollReveal from 'scrollreveal';
 import './about.scss';
 import { RandomReveal } from 'react-random-reveal'
 import MyPicture from '../../assets/sem fundo.png'
@@ -7,6 +8,18 @@ import CV from '../../assets/cv.pdf'
 const About = () => {
   const aboutRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const scrollReveal = ScrollReveal();
+    scrollReveal.reveal(aboutRef.current, {
+      duration: 2000,
+      delay: 500,
+      easing: 'ease',
+      distance: '20px',
+      origin: 'bottom',
+      opacity: 0,
+    });
+  }, []);
 
   useEffect(() => {
     const options = {

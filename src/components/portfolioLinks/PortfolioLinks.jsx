@@ -1,7 +1,7 @@
 export const portfolioLinks = [
     {
         title: 'Conversor de Moedas',
-        image: 'https://user-images.githubusercontent.com/94997593/229310261-6d710a62-2e61-4a37-850f-7082d5ede2e8.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236955303-9ebd716b-a13a-4e11-b288-0a9f943c8e29.png',
         stacks: ['REACT', 'SASS', 'AXIOS'],
         description: 'Esse projeto é um sistema web que utiliza a API exchangerate.host para mostrar gráficos com a cotação do real em relação a outras moedas (dólar, euro e libra) ao longo de uma semana.',
         liveDemoUrl: 'https://conversor-moedas-wine.vercel.app/',
@@ -9,7 +9,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Recriando ChatGPT',
-        image: 'https://user-images.githubusercontent.com/94997593/227315882-be76973e-0e0f-48d0-9a4d-382bd8cf133c.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236954945-8278eac6-ac64-4e98-8816-4965eb164897.png',
         stacks: ['REACT', 'CSS', 'AXIOS'],
         description: 'O objetivo deste projeto é recriar o layout do site ChatGPT e fazer a integração de API com preenchimento de texto openIA (ChatGPT) com Node.',
         liveDemoUrl: 'https://recriando-chatgpt.vercel.app/',
@@ -25,7 +25,7 @@ export const portfolioLinks = [
     },
     {
         title: 'IMC Project',
-        image: 'https://user-images.githubusercontent.com/94997593/215937980-8df1fc86-0107-4a9a-9146-60918c813e1f.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236954420-9949eeec-6991-4b0a-b1b9-7ee4f5944658.png',
         stacks: ['REACT', 'JAVASCRIPT', 'TYPESCRIPT', 'CSS'],
         description: 'IMC Project é uma página que calcula o IMC de uma pessoa de acordo com a altura e peso do usuário.',
         liveDemoUrl: 'https://projeto-imc-seven.vercel.app/',
@@ -33,15 +33,15 @@ export const portfolioLinks = [
     },
     {
         title: 'Habits',
-        image: 'https://github.com/Andresa-Alves-Ribeiro/Setup/raw/main/habits.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236953707-fd3fd077-1f18-4e5c-b888-a49097da7ec7.png',
         stacks: ['REACT', 'EXPO', 'PRISMA', 'TAILWIND', 'TYPESCRIPT', 'NATIVEWIND', 'NODE', 'AXIOS', 'FIGMA', 'ESLINT', 'PRETTIER'],
         description: 'Habits é uma página com a funcionalidade de mostrar o resultado de uma gestão de tarefas baseado nos projetos criados e selecionados em cada dia.',
-        liveDemoUrl: 'https://habits-setup.vercel.app/',
+        liveDemoUrl: 'Em produção, mas é possível visualizar fazendo clone do projeto',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Project-Habits'
     },
     {
         title: 'Feedback Widget',
-        image: 'https://user-images.githubusercontent.com/94997593/177079336-be766c5c-150b-4c55-8147-eb002230b89c.gif',
+        image: 'https://user-images.githubusercontent.com/94997593/236944681-f0437a51-20c7-495d-91b0-afdc1c5cd878.png',
         stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWIND', 'AXIOS'],
         description: 'Projeto de um widget para permitir que os usuários enviem um feedback.',
         liveDemoUrl: 'http://nlw-return-impulse-web-gold.vercel.app/',
@@ -49,7 +49,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Calculadora',
-        image: 'https://user-images.githubusercontent.com/94997593/219519129-cd74ba2d-12b1-4337-b8b3-d601523a8553.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236942914-bb961fa0-1d23-45d6-98e1-cf21ebca0f31.png',
         stacks: ['REACT', 'VITE', 'JAVASCRIPT', 'CSS'],
         description: 'Projeto de uma calculadora que faz cálculos básicos.',
         liveDemoUrl: 'https://calculadora-psi-ebon.vercel.app/',
@@ -225,7 +225,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Agência de viagens',
-        image: 'https://user-images.githubusercontent.com/94997593/236062829-1e56aec8-fe80-4a43-8af7-95a7e1e67ccf.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236955909-2ee8122b-e835-415f-a4b1-61b0a4bcca62.png',
         stacks: ['HTML', 'CSS'],
         description: 'Agência de viagens é um site criado para práticas de HTML e CSS, com formulário de contatos e diversos tipos de campos, com action e envio para back-end.',
         liveDemoUrl: 'https://agencia-de-viagens-six.vercel.app/',
@@ -241,7 +241,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Pousada secreta',
-        image: 'https://user-images.githubusercontent.com/94997593/234730907-79688d7c-6d73-4a75-8156-165bafc083f5.png',
+        image: 'https://user-images.githubusercontent.com/94997593/236955670-7253c8fd-94c1-4489-86d7-8a527e1f8dc2.png',
         stacks: ['HTML', 'CSS'],
         description: 'Pousada secreta é uma página de uma pousada no formato One Page, responsiva, criada para solidificação dos conhecimentos em CSS.',
         liveDemoUrl: 'https://pousada-secreta-ten.vercel.app/',
