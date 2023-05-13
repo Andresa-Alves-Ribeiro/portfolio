@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import ScrollReveal from 'scrollreveal';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { portfolioLinks } from '../portfolioLinks/PortfolioLinks'
 import './portfolio.scss';
 
 const Portfolio = () => {
-  const handleVerDetalhesClick = (project) => {
-    window.open(`/project/${project.title}`, '_blank');
-  };
+  const aboutRef = useRef(null);
+
+  useEffect(() => {
+    const scrollReveal = ScrollReveal();
+    scrollReveal.reveal(aboutRef.current, {
+      duration: 1000,
+      delay: 500,
+      easing: 'ease-in-out',
+      distance: '20px',
+      origin: 'bottom',
+      opacity: 0,
+    });
+  }, []);
 
   return (
     <div className='portfolio'>
@@ -16,7 +27,7 @@ const Portfolio = () => {
         <h1 className="glitch-portfolio" data-text="Portfolio">Portfolio</h1>
       </div>
 
-      <div>
+      <div ref={aboutRef}>
         <Carousel
         showStatus={false}
         showThumbs={false}

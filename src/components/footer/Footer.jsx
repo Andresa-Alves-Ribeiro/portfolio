@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import ScrollReveal from 'scrollreveal';
 import './footer.scss';
 
 const Footer = () => {
+  const aboutRef = useRef(null);
+
+  useEffect(() => {
+    const scrollReveal = ScrollReveal();
+    scrollReveal.reveal(aboutRef.current, {
+      duration: 1000,
+      delay: 500,
+      easing: 'ease-in-out',
+      distance: '20px',
+      origin: 'bottom',
+      opacity: 0,
+    });
+  }, []);
+
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="container" ref={aboutRef}>
         <div className="row">
           <div className="column-contact">
             <h4 className="footer__title">Menu</h4>

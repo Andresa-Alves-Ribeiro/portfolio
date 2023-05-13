@@ -14,7 +14,12 @@ const About = () => {
     scrollReveal.reveal(aboutRef.current, {
       duration: 2000,
       delay: 500,
-      easing: 'ease',
+      rotate: {
+        x: 100,
+        y: 0,
+        z:0
+      },
+      easing: 'ease-in-out',
       distance: '20px',
       origin: 'bottom',
       opacity: 0,

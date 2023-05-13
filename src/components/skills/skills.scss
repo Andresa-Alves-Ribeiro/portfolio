@@ -3,41 +3,6 @@
   flex-direction: column;
   align-items: center;
   margin-top: 3rem;
-
-  h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #ff6d00;
-    text-align: center;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px #5e5e5e;
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      margin: 1rem;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #fff;
-      background: linear-gradient(to right, #ff6d00, #ff8f00);
-      border-radius: 1rem;
-      text-shadow: 2px 2px #5e5e5e;
-      box-shadow: 3px 3px #5e5e5e;
-
-      &:hover {
-        transform: scale(1.1);
-        transition: transform 0.2s ease-in-out;
-      }
-    }
-  }
 }
 
 @mixin glitchCopy {
@@ -161,4 +126,11 @@
 
 .logo:hover {
   transform: scale(1.1) rotate(360deg);
+}
+
+.text-logo {
+  text-align: right;
+  color: #ff00c1;
+  font-weight: 500;
+  margin-top: 1vh;
 }

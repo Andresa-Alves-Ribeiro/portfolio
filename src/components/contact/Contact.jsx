@@ -15,7 +15,7 @@ const Contact = () => {
     scrollReveal.reveal(aboutRef.current, {
       duration: 2000,
       delay: 500,
-      easing: 'ease',
+      easing: 'ease-in-out',
       distance: '20px',
       origin: 'bottom',
       opacity: 0,
@@ -33,13 +33,13 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-form" ref={aboutRef}>
+    <div className="contact-form">
         <div id="wrapper">
           <h1 className="glitch-contact" data-text="Fale Comigo">Fale Comigo</h1>
         </div>
         <p>Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados e entre em contato comigo.</p>
 
-        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <form className="form" onSubmit={handleSubmit(onSubmit)} ref={aboutRef}>
           <label class="form__label">
             <input className="form__input" type="text" {...register('nome', { required: true })} placeholder='Seu nome aqui' />
             <span className="form__error">{errors.nome && 'Este campo é obrigatório'}</span>

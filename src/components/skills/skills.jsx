@@ -24,48 +24,63 @@ const Skills = () => {
             <div className='stacks-logo'>
                 <a href="https://www.reactjs.org" target="_blank" rel="noreferrer">
                     <img src={ReactLogo} alt="ReactJS Logo" className='logo' />
+                    <span className='text-logo'>React</span>
                 </a>
                 <a href="https://www.typescriptlang.org" target="_blank" rel="noreferrer">
                     <img src={Typescript} alt="Typescript Logo" className='logo' />
+                    <span className='text-logo'>Typescript</span>
                 </a>
                 <a href="https://www.javascript.com" target="_blank" rel="noreferrer">
                     <img src={Javascript} alt="Javascript Logo" className='logo' />
+                    <span className='text-logo'>Javascript</span>
                 </a>
                 <a href="https://www.vitejs.dev" target="_blank" rel="noreferrer">
                     <img src={Vite} alt="Vite Logo" className='logo' />
+                    <span className='text-logo'>Vite</span>
                 </a>
                 <a href="https://nextjs.org" target="_blank" rel="noreferrer">
                     <img src={Next} alt="Next Logo" className='logo' />
+                    <span className='text-logo'>Next</span>
                 </a>
                 <a href="https://sass-lang.com" target="_blank" rel="noreferrer">
                     <img src={Sass} alt="Sass Logo" className='logo' />
+                    <span className='text-logo'>SASS</span>
                 </a>
                 <a href="https://tailwindcss.com" target="_blank" rel="noreferrer">
                     <img src={Tailwind} alt="Tailwind Logo" className='logo' />
+                    <span className='text-logo'>Tailwind CSS</span>
                 </a>
                 <a href="https://getbootstrap.com" target="_blank" rel="noreferrer">
                     <img src={Bootstrap} alt="Bootstrap Logo" className='logo' />
+                    <span className='text-logo'>Bootstrap</span>
                 </a>
                 <a href="https://www.figma.com" target="_blank" rel="noreferrer">
                     <img src={Figma} alt="Figma Logo" className='logo' />
+                    <span className='text-logo'>Figma</span>
                 </a>
                 <a href="https://styled-components.com" target="_blank" rel="noreferrer">
                     <img src={StyledComponents} alt="Styled Components Logo" className='logo' />
+                    <span className='text-logo'>Styled Components</span>
                 </a>
                 <a href="https://www.postman.com" target="_blank" rel="noreferrer">
                     <img src={Postman} alt="Postman Logo" className='logo' />
+                    <span className='text-logo'>Postman</span>
                 </a>
                 <a href="https://nodejs.org" target="_blank" rel="noreferrer">
                     <img src={Node} alt="NodeJS Logo" className='logo' />
+                    <span className='text-logo'>Node</span>
                 </a>
                 <a href="https://www.mysql.com" target="_blank" rel="noreferrer">
                     <img src={Mysql} alt="MySQL Logo" className='logo' />
+                    <span className='text-logo'>MySQL</span>
                 </a>
                 <a href="https://git-scm.com" target="_blank" rel="noreferrer">
                     <img src={Git} alt="Git Logo" className='logo' />
+                    <span className='text-logo'>Git</span>
                 </a>
                 <a href="https://code.visualstudio.com" target="_blank" rel="noreferrer">
                     <img src={VSCode} alt="VSCode Logo" className='logo' />
+                    <span className='text-logo'>VSCode</span>
                 </a>
             </div>
 
