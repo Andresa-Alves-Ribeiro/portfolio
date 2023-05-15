@@ -22,9 +22,9 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <div className='portfolio'>
+    <div className='portfolio' id='projects'>
       <div id="wrapper">
-        <h1 className="glitch-portfolio" data-text="Portfolio">Portfolio</h1>
+        <h1 className="glitch-portfolio" data-text="Projetos">Projetos</h1>
       </div>
 
       <div ref={aboutRef}>

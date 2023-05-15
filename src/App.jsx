@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
@@ -10,6 +10,7 @@ import Footer from './components/footer/Footer';
 import ProjectDetails from './components/ProjectDetails/ProjectDetails';
 
 const App = () => {
+
   return (
     <Router>
       <Nav />
@@ -33,5 +34,6 @@ const App = () => {
     </Router>
   );
 };
+
 
 export default App;

@@ -8,7 +8,7 @@ const Footer = () => {
   useEffect(() => {
     const scrollReveal = ScrollReveal();
     scrollReveal.reveal(aboutRef.current, {
-      duration: 1000,
+      duration: 2000,
       delay: 500,
       easing: 'ease-in-out',
       distance: '20px',

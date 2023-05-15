@@ -11,7 +11,7 @@ $form-border-color-dark: $form-accent-dark;
 
 .project-details {
     height: 100vh;
-    margin-top: 1vh;
+    margin-top: 10vh;
     margin-bottom: -15vh;
     display: flex;
     justify-content: center;
@@ -212,4 +212,71 @@ $form-border-color-dark: $form-accent-dark;
   &:hover {
     animation: pulseProject 0.5s infinite alternate;
   }
+}
+
+.go-back-button {
+  background-color: #ff00c1;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    top: -8.4vh;
+    display: flex;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.go-back-button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background: linear-gradient(to bottom, #ff3ad2, #ff88e4, #ff00c1);
+  transform: rotateX(60deg) rotateY(45deg) scale(0);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.go-back-button:hover::before {
+  transform: rotateX(0deg) rotateY(0deg) scale(1);
+  opacity: 1;
+}
+
+.go-back-button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background: linear-gradient(to bottom, #ff88e4, #ff3ad2, #ff00c1);
+  transform: rotateX(60deg) rotateY(-45deg) scale(0);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.go-back-button:hover::after {
+  transform: rotateX(0deg) rotateY(0deg) scale(1);
+  opacity: 1;
+}
+
+.go-back-button:hover {
+  background-color: #ff3ad2;
+  text-decoration: none;
+  transform: translateY(-1px) rotateX(2deg) rotateY(2deg);
 }

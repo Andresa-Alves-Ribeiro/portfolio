@@ -33,7 +33,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-form">
+    <div className="contact-form" id='contact'>
         <div id="wrapper">
           <h1 className="glitch-contact" data-text="Fale Comigo">Fale Comigo</h1>
         </div>

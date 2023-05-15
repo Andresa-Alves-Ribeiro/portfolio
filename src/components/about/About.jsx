@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ScrollReveal from 'scrollreveal';
 import './about.scss';
 import { RandomReveal } from 'react-random-reveal'
-import MyPicture from '../../assets/sem fundo.png'
+import MyPicture from '../../assets/minha-foto.png'
 import CV from '../../assets/cv.pdf'
 
 const About = () => {
@@ -12,13 +12,8 @@ const About = () => {
   useEffect(() => {
     const scrollReveal = ScrollReveal();
     scrollReveal.reveal(aboutRef.current, {
-      duration: 2000,
+      duration: 1000,
       delay: 500,
-      rotate: {
-        x: 100,
-        y: 0,
-        z:0
-      },
       easing: 'ease-in-out',
       distance: '20px',
       origin: 'bottom',
@@ -49,18 +44,18 @@ const About = () => {
   }, []);
 
   return (
-    <div id="app">
+    <div className="app" id='about'>
       <div id="wrapper">
         <h1 className="glitch-about" data-text="Sobre Mim">Sobre Mim</h1>
       </div>
 
       <div className='about' ref={aboutRef}>
-        <img src={MyPicture} alt='My picture' />
+        <img src={MyPicture} alt='Minha foto' />
         <div className="react-random-reveal">
           <RandomReveal isPlaying={isPlaying} duration={2} characters="Eu sou Andresa e trabalho com desenvolvimento web há 2 anos. Possuo conhecimento em desenvolvimento web front-end e back-end, realizando diversos projetos práticos visando aumentar minhas habilidades." />
         </div>
       </div>
-      <div className='cv'>
+      <div className='cv' ref={aboutRef}>
         <a href={CV} download>Baixe meu CV aqui</a>
       </div>
     </div>

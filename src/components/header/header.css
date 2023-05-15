@@ -1,5 +1,5 @@
 header {
-  margin-top: 20vh;
+  margin-top: 35vh;
 }
 
 .title-primary {
@@ -36,7 +36,6 @@ header {
 }
 
 .title_loop .title {
-  font-family: "Share Tech Mono", monospace;
   font-size: 5em;
   color: #fff;
   text-shadow: 0 -50px 100px, 0 0 2px, 0 0 1em #ff00c1, 0 0 0.5em #ff5e5e,
@@ -46,7 +45,6 @@ header {
 .title_loop .title span {
   animation: blink linear infinite 2s;
   font-weight: bold;
-  font-family: "Share Tech Mono", monospace;
 }
 
 .title_loop .title span:nth-of-type(2) {

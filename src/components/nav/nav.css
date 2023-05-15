@@ -1,11 +1,26 @@
 .nav {
-  padding: 1rem;
+  position: fixed;
+  background-color: var(--color-bg);
+  width: 100%;
+  z-index: 999;
+  top: 0vh;
+  padding: 1.5rem 0 0.2rem 0;
 }
 
 .nav__list {
   list-style: none;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+}
+
+.nav__icons {
+  display: flex;
+  align-items: center; /* Alinhar os ícones verticalmente */
+}
+
+.nav__links {
+  display: flex;
+  align-items: center; /* Alinhar os links de texto verticalmente */
 }
 
 .nav__item {
