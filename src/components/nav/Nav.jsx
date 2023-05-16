@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
 import { ReactComponent as GithubIcon } from '../../assets/github-nav.svg';
 import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
 import './nav.css'
+import { FaBars } from 'react-icons/fa';
 
 const Nav = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  function toggleMenu() {
+    setShowMenu(!showMenu);
+  }
+
   return (
     <nav className="nav">
       <ul className="nav__list">
@@ -28,7 +35,7 @@ const Nav = () => {
 
         <div className="nav__links">
           <li className="nav__item">
-            <a href="#about" className="nav__link">Sobre Mim</a>
+            <a href="#about" className="nav__link">Sobre</a>
           </li>
           <li className="nav__item">
             <a href="#skills" className="nav__link">Skills</a>

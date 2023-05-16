@@ -55,7 +55,7 @@ const About = () => {
           <RandomReveal isPlaying={isPlaying} duration={2} characters="Eu sou Andresa e trabalho com desenvolvimento web há 2 anos. Possuo conhecimento em desenvolvimento web front-end e back-end, realizando diversos projetos práticos visando aumentar minhas habilidades." />
         </div>
       </div>
-      <div className='cv' ref={aboutRef}>
+      <div className='cv'>
         <a href={CV} download>Baixe meu CV aqui</a>
       </div>
     </div>
