@@ -34,7 +34,7 @@ export const portfolioLinks = [
     {
         title: 'Habits',
         image: 'https://user-images.githubusercontent.com/94997593/236953707-fd3fd077-1f18-4e5c-b888-a49097da7ec7.png',
-        stacks: ['REACT', 'EXPO', 'PRISMA', 'TAILWIND', 'TYPESCRIPT', 'NATIVEWIND', 'NODE', 'AXIOS', 'FIGMA', 'ESLINT', 'PRETTIER'],
+        stacks: ['REACT', 'EXPO', 'PRISMA', 'TAILWINDCSS', 'TYPESCRIPT', 'NATIVEWIND', 'NODE', 'AXIOS', 'FIGMA', 'ESLINT', 'PRETTIER'],
         description: 'Habits é uma página com a funcionalidade de mostrar o resultado de uma gestão de tarefas baseado nos projetos criados e selecionados em cada dia.',
         liveDemoUrl: 'Em produção, mas é possível visualizar fazendo clone do projeto',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Project-Habits'
@@ -42,7 +42,7 @@ export const portfolioLinks = [
     {
         title: 'Feedback Widget',
         image: 'https://user-images.githubusercontent.com/94997593/236944681-f0437a51-20c7-495d-91b0-afdc1c5cd878.png',
-        stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWIND', 'AXIOS'],
+        stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWINDCSS', 'AXIOS'],
         description: 'Projeto de um widget para permitir que os usuários enviem um feedback.',
         liveDemoUrl: 'http://nlw-return-impulse-web-gold.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Feedback-widget'
@@ -62,6 +62,14 @@ export const portfolioLinks = [
         description: 'Busca Carnaval é uma página que busca blocos de carnaval fictícios.',
         liveDemoUrl: 'https://busca-carnaval.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/busca-carnaval'
+    },
+    {
+        title: 'Senhor Contábil',
+        image: 'https://user-images.githubusercontent.com/94997593/237794337-085a6d32-05a0-4f09-9024-a3632c9b90bf.png',
+        stacks: ['REACT', 'VITE', 'JAVASCRIPT', 'TYPESCRIPT', 'CSS', 'BOOTSTRAP', 'TAILWINDCSS', 'REACT ROUTER DOM', 'TOASTIFY'],
+        description: 'Projeto simples criado com o objetivo de demonstrar como criar um formulário com validação de campos e um modal de confirmação utilizando o framework React.',
+        liveDemoUrl: 'https://senhor-contabil.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/senhor-contabil'
     },
     {
         title: 'Labe Ecommerce',

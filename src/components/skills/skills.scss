@@ -43,6 +43,7 @@
 
 @keyframes glitch-anim {
   $steps: 20;
+
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
       clip: rect(random(100) + px, 9999px, random(100) + px, 0);
@@ -53,6 +54,7 @@
 
 @keyframes glitch-anim2 {
   $steps: 20;
+
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
       clip: rect(random(100) + px, 9999px, random(100) + px, 0);
@@ -63,6 +65,7 @@
 
 @keyframes glitch-skew {
   $steps: 10;
+
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
       transform: skew((random(10) - 5) + deg);
@@ -85,7 +88,7 @@
   height: 90vh;
   background: url(../../assets/wave-top.svg);
   background-size: cover;
-  background-repeat: no-repeat;  
+  background-repeat: no-repeat;
 }
 
 .wave-bottom {
@@ -103,7 +106,7 @@
   height: 90vh;
   background: url(../../assets/wave-bottom.svg);
   background-size: cover;
-  background-repeat: no-repeat;  
+  background-repeat: no-repeat;
 }
 
 .stacks-logo {
@@ -114,6 +117,9 @@
   gap: 3rem;
   padding-top: 10vh;
   padding-left: 8vw;
+  padding-bottom: 2vh;
+  margin-top: -1vh;
+    margin-bottom: -1vh;
 }
 
 .logo {
@@ -143,4 +149,57 @@
   align-items: center;
   justify-content: center;
   margin-left: 2.5rem;
+}
+
+@media screen and (min-width: 576px) and (max-width: 850px) {
+  .glitch-skills {
+    font-size: 4.2em;
+    letter-spacing: 0.5em;
+    margin-top: 40vh;
+    margin-left: 2rem;
+  }
+
+  .stacks-logo {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rem;
+    padding-top: 10vh;
+    padding-left: 14vw;
+  }
+
+  .logo {
+  width: 100px;
+  height: 100px;
+  align-items: center;
+}
+
+  .logo-StyledComponents {
+    margin-left: 0rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .glitch-skills {
+    font-size: 3em;
+    letter-spacing: 0.5em;
+    margin-top: 50vh;
+    margin-left: 3rem;
+    word-break: break-word;
+  }
+
+  .stacks-logo {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    padding-top: 10vh;
+    padding-left: 10vw;
+  }
+
+  .logo-StyledComponents {
+    margin-left: 0rem;
+  }
 }

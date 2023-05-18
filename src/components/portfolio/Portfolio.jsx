@@ -40,7 +40,8 @@ const Portfolio = () => {
             <div key={index} className="carousel-item">
               <Link to={`/project/${item.title}`}>
                 <div className="project-item">
-                  {item.image && <img src={item.image} alt={item.title} />}
+                {item.image && <img src={item.image} alt={item.title} className="mobile-image" />}
+
 
                   <div className="project-links">
                     <h2 className='title-card'>{item.title}</h2>

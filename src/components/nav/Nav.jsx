@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
 import { ReactComponent as GithubIcon } from '../../assets/github-nav.svg';
 import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
-import './nav.css'
+import './nav.scss'
 import { FaBars } from 'react-icons/fa';
 
 const Nav = () => {

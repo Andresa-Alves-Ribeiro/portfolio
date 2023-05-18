@@ -19,7 +19,7 @@ import VSCode from '../../assets/visual-studio-code.svg'
 const Skills = () => {
     return (
         <div className="stack-list" id='skills'>
-            <h1 className="glitch-skills" data-text="Minhas Skills">Minhas Skills</h1>
+            <h1 className="glitch-skills" data-text="Habilidades">Habilidades</h1>
             <section className="wave-top"></section>
             <div className='stacks-logo'>
                 <a href="https://www.reactjs.org" target="_blank" rel="noreferrer">
@@ -48,7 +48,7 @@ const Skills = () => {
                 </a>
                 <a href="https://tailwindcss.com" target="_blank" rel="noreferrer">
                     <img src={Tailwind} alt="Tailwind Logo" className='logo' />
-                    <p className='text-logo'>Tailwind CSS</p>
+                    <p className='text-logo'>Tailwind</p>
                 </a>
                 <a href="https://getbootstrap.com" target="_blank" rel="noreferrer">
                     <img src={Bootstrap} alt="Bootstrap Logo" className='logo' />
@@ -60,7 +60,7 @@ const Skills = () => {
                 </a>
                 <a href="https://styled-components.com" target="_blank" rel="noreferrer">
                     <img src={StyledComponents} alt="Styled Components Logo" className='logo logo-StyledComponents' />
-                    <p className='text-logo'>Styled Components</p>
+                    <p className='text-logo'>Styled Comp.</p>
                 </a>
                 <a href="https://www.postman.com" target="_blank" rel="noreferrer">
                     <img src={Postman} alt="Postman Logo" className='logo' />

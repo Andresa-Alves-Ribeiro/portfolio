@@ -280,3 +280,90 @@ $form-border-color-dark: $form-accent-dark;
   text-decoration: none;
   transform: translateY(-1px) rotateX(2deg) rotateY(2deg);
 }
+
+
+@media screen and (min-width: 576px) and (max-width: 850px) {
+  .go-back-button {
+    top: -17.6vh;
+    margin: 10px 0 0 0;
+  }
+
+  .project-details__title {
+    font-size: 34px;
+  }
+
+  .project-details__stacks {
+    width: 90%;
+    margin: 10px 15px;
+    font-size: 1.2em;
+  }
+
+  .project-details__description {
+    font-size: 1.4em;
+  }
+
+  .logo-project-vercel {
+    width: 80%;
+    gap: 3vw;
+  }
+  
+  .logo-project-github {
+    width: 50%;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .project-details {
+    margin-top: 20vh;
+    padding-bottom: 20vh;
+    padding-top: 24vh;
+  }
+  
+  .project-details__content {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+  
+  .project-details__image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 20px;
+  }
+  
+  .project-details__info {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .project-details__stacks {
+    width: auto;
+    margin: 10px 0;
+  }
+  
+  .project-details__description {
+    padding: 10px 0;
+  }
+  
+  .project-details__link {
+    margin: 10px;
+    margin-left: 15vw;
+  }
+  
+  .logo-project-vercel {
+    width: 50%;
+  }
+  
+  .logo-project-github {
+    width: 40%;
+  }
+  
+  .go-back-button {
+    top: -5.5vh;
+    margin: 0px 0 0 -12vw;
+    font-size: 10px;
+  }
+
+}
