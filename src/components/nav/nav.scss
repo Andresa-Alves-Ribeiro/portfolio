@@ -61,7 +61,7 @@
 
 @media (max-width: 576px) {
   .nav {
-    position: sticky;
+    position: absolute;
   }
   .nav__list {
     display: flex;
@@ -74,13 +74,13 @@
 
   .nav__links {
     border-top: none;
-    margin-top: 2.5vh;
+    margin-top: 2vh;
     padding-left: 3rem;
   }
 
   .nav__icons {
     margin-bottom: 1vh;
-    padding-left: 9rem;
+    padding-left: 7rem;
   }
 
   .nav__item {
