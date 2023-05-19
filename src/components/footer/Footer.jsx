@@ -28,16 +28,16 @@ const Footer = () => {
                 <a href="#home" className="footer__item link">Home</a>
               </li>
               <li>
-                <a href="#quem-sou" className="footer__item link">Sobre Mim</a>
+                <a href="#about" className="footer__item link">Sobre Mim</a>
               </li>
               <li>
-                <a href="#skills" className="footer__item link">Minhas skills</a>
+                <a href="#skills" className="footer__item link">Skills</a>
               </li>
               <li>
-                <a href="#portfolio" className="footer__item link">Portfólio</a>
+                <a href="#projects" className="footer__item link">Portfólio</a>
               </li>
               <li>
-                <a href="#contato" className="footer__item link">Contato</a>
+                <a href="#contact" className="footer__item link">Contato</a>
               </li>
             </ul>
           </div>

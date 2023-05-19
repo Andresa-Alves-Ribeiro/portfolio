@@ -4,7 +4,7 @@ import './header.css'
 const Header = () => {
 
   return (
-    <header>
+    <header id='home'>
         <div className='title_loop'>
           <h5 className='title-primary'>Olá!! Eu sou</h5>
           <div className='title'><span>Andresa</span> Alves</div>
