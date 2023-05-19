@@ -15,12 +15,12 @@
 
 .nav__icons {
   display: flex;
-  align-items: center; /* Alinhar os ícones verticalmente */
+  align-items: center;
 }
 
 .nav__links {
   display: flex;
-  align-items: center; /* Alinhar os links de texto verticalmente */
+  align-items: center;
 }
 
 .nav__item {
@@ -60,20 +60,27 @@
 
 
 @media (max-width: 576px) {
+  .nav {
+    position: sticky;
+  }
   .nav__list {
     display: flex;
     flex-wrap: wrap;
   }
 
+  .nav__link {
+    font-size: 0.9rem;
+  }
+
   .nav__links {
-    border-top: 1px solid #ff00c1;
-    margin-top: -0.5vh;
-    padding-left: 1rem;
+    border-top: none;
+    margin-top: 2.5vh;
+    padding-left: 3rem;
   }
 
   .nav__icons {
     margin-bottom: 1vh;
-    padding-left: 7rem;
+    padding-left: 9rem;
   }
 
   .nav__item {
