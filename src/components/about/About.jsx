@@ -39,7 +39,9 @@ const About = () => {
     observer.observe(aboutRef.current);
 
     return () => {
-      observer.unobserve(aboutRef.current);
+      if (aboutRef.current) {
+        observer.unobserve(aboutRef.current);
+      }
     };
   }, []);
 

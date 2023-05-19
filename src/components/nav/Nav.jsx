@@ -1,16 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
 import { ReactComponent as GithubIcon } from '../../assets/github-nav.svg';
 import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
 import './nav.scss'
-import { FaBars } from 'react-icons/fa';
 
 const Nav = () => {
-  const [showMenu, setShowMenu] = useState(false);
-
-  function toggleMenu() {
-    setShowMenu(!showMenu);
-  }
 
   return (
     <nav className="nav">

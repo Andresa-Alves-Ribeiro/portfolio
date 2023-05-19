@@ -16,6 +16,7 @@
 .nav__icons {
   display: flex;
   align-items: center;
+  margin-left: 1rem;
 }
 
 .nav__links {
@@ -58,6 +59,25 @@
   transform: scaleX(1);
 }
 
+@media screen and (min-width: 1380px) {
+  .nav {
+    padding: 1.5rem 0 2.1rem 0;
+  }
+
+  .project-details__stacks {
+    margin-left: 7.5vw;
+  }
+
+  .project-details__link {
+    margin-left: 7vw;
+    margin-top: 2vh;
+  }
+
+  .go-back-button {
+    top: -15.4vh;
+    margin: 10px 0 0 0;
+  }
+}
 
 @media (max-width: 576px) {
   .nav {
@@ -74,7 +94,7 @@
 
   .nav__links {
     border-top: none;
-    margin-top: 1.5vh;
+    margin-top: 1vh;
     padding-left: 2.5rem;
   }
 

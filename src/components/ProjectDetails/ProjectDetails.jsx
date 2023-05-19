@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { portfolioLinks } from '../portfolioLinks/PortfolioLinks';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProjectDetails.scss';
@@ -7,13 +7,28 @@ import Vercel from '../../assets/vercel.svg'
 
 const ProjectDetails = () => {
   const { title } = useParams();
+  const [project, setProject] = useState(null);
+
+  useEffect(() => {
+    // Simulando uma chamada assíncrona para buscar os detalhes do projeto
+    const fetchProjectDetails = async () => {
+      // Pode ser uma chamada de API ou qualquer outra forma de obter os detalhes do projeto
+      const fetchedProject = portfolioLinks.find((project) => project.title === title);
+      setProject(fetchedProject);
+    };
+
+    fetchProjectDetails();
+  }, [title]);
+
   const navigate = useNavigate();
 
   const handleGoBack = () => {
     navigate(-1);
   };
 
-  const project = portfolioLinks.find((project) => project.title === title);
+  if (!project) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <div className="project-details">
