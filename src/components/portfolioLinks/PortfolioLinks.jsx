@@ -40,14 +40,6 @@ export const portfolioLinks = [
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Project-Habits'
     },
     {
-        title: 'Feedback Widget',
-        image: 'https://user-images.githubusercontent.com/94997593/236944681-f0437a51-20c7-495d-91b0-afdc1c5cd878.png',
-        stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWINDCSS', 'AXIOS'],
-        description: 'Projeto de um widget para permitir que os usuários enviem um feedback.',
-        liveDemoUrl: 'http://nlw-return-impulse-web-gold.vercel.app/',
-        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Feedback-widget'
-    },
-    {
         title: 'Calculadora',
         image: 'https://user-images.githubusercontent.com/94997593/236942914-bb961fa0-1d23-45d6-98e1-cf21ebca0f31.png',
         stacks: ['REACT', 'VITE', 'JAVASCRIPT', 'CSS'],
@@ -65,7 +57,7 @@ export const portfolioLinks = [
     },
     {
         title: 'Senhor Contábil',
-        image: 'https://user-images.githubusercontent.com/94997593/237794337-085a6d32-05a0-4f09-9024-a3632c9b90bf.png',
+        image: 'https://user-images.githubusercontent.com/94997593/241341005-395a9627-c78f-409e-8983-9f11ebb43867.png',
         stacks: ['REACT', 'VITE', 'JAVASCRIPT', 'TYPESCRIPT', 'CSS', 'BOOTSTRAP', 'TAILWINDCSS', 'REACT ROUTER DOM', 'TOASTIFY'],
         description: 'Projeto simples criado com o objetivo de demonstrar como criar um formulário com validação de campos e um modal de confirmação utilizando o framework React.',
         liveDemoUrl: 'https://senhor-contabil.vercel.app/',
@@ -86,6 +78,14 @@ export const portfolioLinks = [
         description: 'DevFinder é um buscador de usuários do gitHub, uitlizando a API disponibilizada pelo próprio gitHub.',
         liveDemoUrl: 'https://devfinder-seven.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/devfinder'
+    },
+    {
+        title: 'Feedback Widget',
+        image: 'https://user-images.githubusercontent.com/94997593/236944681-f0437a51-20c7-495d-91b0-afdc1c5cd878.png',
+        stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWINDCSS', 'AXIOS'],
+        description: 'Projeto de um widget para permitir que os usuários enviem um feedback.',
+        liveDemoUrl: 'http://nlw-return-impulse-web-gold.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Feedback-widget'
     },
     {
         title: 'Pokédex',
