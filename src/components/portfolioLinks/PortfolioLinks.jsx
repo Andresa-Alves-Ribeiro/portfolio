@@ -64,6 +64,14 @@ export const portfolioLinks = [
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/senhor-contabil'
     },
     {
+        title: 'Dropmail',
+        image: 'https://user-images.githubusercontent.com/94997593/244180625-349d096a-9bff-4bf1-8e8c-34e636dcbd15.png',
+        stacks: ['REACT', 'VITE', 'JAVASCRIPT', 'CSS', 'TAILWINDCSS', 'MATERIAL UI', 'GRAPHQL', 'APOLLO', 'REACT ROUTER DOM'],
+        description: 'O Dropmail é um projeto de aplicativo da web que permite gerar e visualizar emails temporários.',
+        liveDemoUrl: 'https://drop-mail-challenge-rust.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/DropMail-Challenge'
+    },
+    {
         title: 'Labe Ecommerce',
         image: 'https://user-images.githubusercontent.com/94997593/236059529-153c3ab5-91c4-4bcb-b2e4-23c3424babcd.png',
         stacks: ['REACT', 'JAVASCRIPT', 'STYLED-COMPONENTS', 'CSS'],
