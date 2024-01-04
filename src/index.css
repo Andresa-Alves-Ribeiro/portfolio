@@ -149,10 +149,6 @@ img {
 /* ================== MEDIA QUERIES ==================== */
 
 @media screen and (max-width: 600px) {
-  html {
-  overflow: hidden;
-}
-
   .container {
     width: var(--container-width-sm);
   }
