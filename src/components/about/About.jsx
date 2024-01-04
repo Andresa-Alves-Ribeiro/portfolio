@@ -54,7 +54,10 @@ const About = () => {
       <div className='about' ref={aboutRef}>
         <img src={MyPicture} alt='Minha foto' />
         <div className="react-random-reveal">
-          <RandomReveal isPlaying={isPlaying} duration={2} characters="Eu sou Andresa e trabalho com desenvolvimento web há 2 anos. Possuo conhecimento em desenvolvimento web front-end e back-end, realizando diversos projetos práticos visando aumentar minhas habilidades." />
+          <RandomReveal
+            isPlaying={isPlaying}
+            duration={2}
+            characters="Eu sou Andresa e trabalho com desenvolvimento front-end há 2 anos. Graduanda no curso de Sistemas de Informação pela Universidade UniFavip. Estou sempre em busca de novos desafios e oportunidades para aprimorar minhas habilidades e conhecimentos, e espero poder contribuir com meu trabalho em projetos que façam a diferença na vida das pessoas." />
         </div>
       </div>
       <div className='cv'>
