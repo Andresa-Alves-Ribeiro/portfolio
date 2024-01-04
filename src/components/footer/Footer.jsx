@@ -65,7 +65,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__bottom">
-        <p>Copyright &copy; 2023 Andresa Alves Ribeiro</p>
+        <p>Copyright &copy; 2024 Andresa Alves Ribeiro</p>
       </div>
     </footer>
   );
