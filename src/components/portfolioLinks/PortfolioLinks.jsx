@@ -1,5 +1,13 @@
 export const portfolioLinks = [
     {
+        title: 'Expert Notes',
+        image: 'https://raw.githubusercontent.com/Andresa-Alves-Ribeiro/Expert-Notes/main/public/assets/Home.png',
+        stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWIND', 'RADIX', 'LUCIDE REACT', 'SONNER'],
+        description: 'Esse projeto é uma aplicação interativa para a criação de notas por meio da fala e da escrita.',
+        liveDemoUrl: 'https://expert-notes-two.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Expert-Notes'
+    },
+    {
         title: 'Conversor de Moedas',
         image: 'https://user-images.githubusercontent.com/94997593/236955303-9ebd716b-a13a-4e11-b288-0a9f943c8e29.png',
         stacks: ['REACT', 'SASS', 'AXIOS'],
