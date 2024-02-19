@@ -8,6 +8,14 @@ export const portfolioLinks = [
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Expert-Notes'
     },
     {
+        title: 'SendData Company',
+        image: 'https://raw.githubusercontent.com/Andresa-Alves-Ribeiro/best-space-challenge/main/public/assets/thumb.png',
+        stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'TAILWIND', 'ZOD', 'MATERIAL UI', 'SONNER'],
+        description: 'Uma aplicação interativa para envio de formulário e recebimento de dados de API.',
+        liveDemoUrl: 'https://best-space-challenge.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/best-space-challenge'
+    },
+    {
         title: 'Conversor de Moedas',
         image: 'https://user-images.githubusercontent.com/94997593/236955303-9ebd716b-a13a-4e11-b288-0a9f943c8e29.png',
         stacks: ['REACT', 'SASS', 'AXIOS'],
