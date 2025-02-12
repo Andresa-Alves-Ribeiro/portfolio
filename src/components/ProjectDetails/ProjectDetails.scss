@@ -10,136 +10,143 @@ $form-border-color-dark: $form-accent-dark;
 
 
 .project-details {
-    height: 100vh;
-    margin-top: 10vh;
-    margin-bottom: -15vh;
+  height: 100vh;
+  margin-top: 10vh;
+  margin-bottom: -15vh;
+  display: flex;
+  padding: 0 30px;
+  justify-content: center;
+  align-items: center;
+  color: $form-accent-dark;
+  background-image: linear-gradient(to right, #ff77c2 0%, #ff69b4 0%, #ff3ad2 21%, #ff88e4 52%, #ff00c1 78%, #b12a84 100%);
+  border-bottom: $form-border-width solid $form-border-color;
+
+  &__content {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $form-accent-dark;
-    background-image: linear-gradient(to right, #ff77c2 0%, #ff69b4 0%, #ff3ad2 21%, #ff88e4 52%, #ff00c1 78%, #b12a84 100%);
-    border-bottom: $form-border-width solid $form-border-color;
-  
-    &__content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 95%;
-      max-width: 1200px;
-      height: 80%;
-      background: #fcdcf9;
-      border-radius: 20px;
-      box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.9);
-      overflow: hidden;
-      position: relative;
-  
-      &__image {
-        width: 30%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 20px 0 0 20px;
-        animation: imageFade 1s ease-in-out;
-        animation-delay: 0.5s;
-        animation-fill-mode: backwards;
-  
-        @keyframes imageFade {
-          from {
-            opacity: 0;
-            transform: scale(1.2);
-          }
-  
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
+    max-width: 1200px;
+    height: 80%;
+    background: #fcdcf9;
+    border-radius: 20px;
+    box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    position: relative;
+
+    &__image {
+      width: 30%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 20px 0 0 20px;
+      animation: imageFade 1s ease-in-out;
+      animation-delay: 0.5s;
+      animation-fill-mode: backwards;
+
+      @keyframes imageFade {
+        from {
+          opacity: 0;
+          transform: scale(1.2);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
         }
       }
-  
-      &__info {
-        width: 70%;
-        height: 100%;
-        padding: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        animation: infoFade 1s ease-in-out;
-        animation-delay: 0.8s;
-        animation-fill-mode: backwards;
-  
-        @keyframes infoFade {
-          from {
-            opacity: 0;
-            transform: translateX(50px);
-          }
-  
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
+    }
+
+    &__info {
+      width: 70%;
+      height: 100%;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: infoFade 1s ease-in-out;
+      animation-delay: 0.8s;
+      animation-fill-mode: backwards;
+
+      @keyframes infoFade {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
         }
-  
-        &__title {
-          font-size: 48px;
-          margin-bottom: 20px;
-          color: #000;
-          text-transform: uppercase;
-          letter-spacing: 2px;
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
         }
-  
-        &__stacks {
-          font-size: 18px;
-          margin-bottom: 20px;
-          color: #777;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          font-weight: bold;
-        }
-  
-        &__description {
-          font-size: 16px;
-          margin-bottom: 40px;
-          line-height: 1.5;
-          color: #333;
-        }
-  
-        &__subtitle {
-          font-size: 18px;
-          margin-bottom: 10px;
-          color: #666;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          font-weight: bold;
-        }
-  
-        &__link {
-          font-size: 18px;
-          margin-bottom: 10px;
-          color: #000;
-          text-decoration: none;
-          transition: all 0.3s ease-in-out;
-          display: inline-block;
-          text-align: center;
-          background-color: #ff00c1;
-          padding: 10px 20px;
-          border-radius: 20px;
-          letter-spacing: 2px;
-          font-weight: bold;
-          cursor: pointer;
-          border: 2px solid transparent;
-  
-          &:hover {
-            color: #fff;
-            background-color: transparent;
-            border: 2px solid #ff00c1;
-          }
+      }
+
+      &__title {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      &__stacks {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #777;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bold;
+      }
+
+      &__description {
+        font-size: 16px;
+        margin-bottom: 40px;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      &__subtitle {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bold;
+      }
+
+      &__link {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #000;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        text-align: center;
+        background-color: #ff00c1;
+        padding: 10px 20px;
+        border-radius: 20px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        cursor: pointer;
+        border: 2px solid transparent;
+
+        &:hover {
+          color: #fff;
+          background-color: transparent;
+          border: 2px solid #ff00c1;
         }
       }
     }
   }
-  
-  .project-details__image {
-    width: 60%;
-    height: 100%;
+}
+
+.project-details__image {
+  width: 60%;
+  height: 100%;
+}
+
+.project-details__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .project-details__title {
@@ -152,12 +159,9 @@ $form-border-color-dark: $form-accent-dark;
 
 .project-details__stacks {
   display: flex;
-  width: 40%;
   justify-content: center;
   align-items: center;
   margin-top: 6px;
-  margin-left: 10vw;
-  margin-bottom: 2vw;
   padding: 6px;
   background-color: #ff3ad2;
   color: #fff;
@@ -183,8 +187,14 @@ $form-border-color-dark: $form-accent-dark;
 
 .project-details__link {
   display: flex;
-  margin-left: 10vw;
-  margin-top: 2vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.project-details__info {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
 }
 
 @keyframes pulseProject {
@@ -198,7 +208,7 @@ $form-border-color-dark: $form-accent-dark;
 }
 
 .logo-project-vercel {
-  width: 40%;
+  width: 25%;
 
   &:hover {
     animation: pulseProject 0.5s infinite alternate;
@@ -206,9 +216,8 @@ $form-border-color-dark: $form-accent-dark;
 }
 
 .logo-project-github {
-  width: 30%;
-  margin-top: 1vh;
-
+  width: 13%;
+  
   &:hover {
     animation: pulseProject 0.5s infinite alternate;
   }
@@ -216,35 +225,29 @@ $form-border-color-dark: $form-accent-dark;
 
 .go-back-button {
   background-color: #ff00c1;
-    color: #fff;
-    font-size: 12px;
-    text-decoration: none;
-    top: -8.4vh;
-    display: flex;
-    padding: 8px 15px;
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 800;
-    text-align: center;
+  color: #fff;
+  font-size: 12px;
+  text-decoration: none;
+  display: flex;
+  padding: 8px 15px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+  text-align: center;
 }
 
 .go-back-button::before {
   content: '';
   display: block;
   position: absolute;
-  top: -100%;
-  left: -100%;
-  right: -100%;
-  bottom: -100%;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
   background: linear-gradient(to bottom, #ff3ad2, #ff88e4, #ff00c1);
-  transform: rotateX(60deg) rotateY(45deg) scale(0);
+  transform: rotateX(60deg) rotateY(60deg) scale(0);
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   z-index: -1;
   opacity: 0.5;
@@ -255,55 +258,12 @@ $form-border-color-dark: $form-accent-dark;
   opacity: 1;
 }
 
-.go-back-button::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  right: -100%;
-  bottom: -100%;
-  background: linear-gradient(to bottom, #ff88e4, #ff3ad2, #ff00c1);
-  transform: rotateX(60deg) rotateY(-45deg) scale(0);
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  z-index: -1;
-  opacity: 0.5;
-}
-
-.go-back-button:hover::after {
-  transform: rotateX(0deg) rotateY(0deg) scale(1);
-  opacity: 1;
-}
-
 .go-back-button:hover {
-  background-color: #ff3ad2;
   text-decoration: none;
   transform: translateY(-1px) rotateX(2deg) rotateY(2deg);
 }
 
-
-@media screen and (min-width: 1201px) {
-  .project-details__stacks {
-    margin-left: 7.5vw;
-  }
-
-  .project-details__link {
-    margin-left: 7vw;
-    margin-top: 2vh;
-  }
-
-  .go-back-button {
-    top: -15.4vh;
-    margin: 10px 0 0 0;
-  }
-}
-
 @media screen and (min-width: 576px) and (max-width: 850px) {
-  .go-back-button {
-    top: -17.6vh;
-    margin: 10px 0 0 0;
-  }
-
   .project-details__title {
     font-size: 34px;
   }
@@ -322,7 +282,7 @@ $form-border-color-dark: $form-accent-dark;
     width: 80%;
     gap: 3vw;
   }
-  
+
   .logo-project-github {
     width: 50%;
   }
@@ -335,49 +295,48 @@ $form-border-color-dark: $form-accent-dark;
     padding-bottom: 20vh;
     padding-top: 24vh;
   }
-  
+
   .project-details__content {
     flex-direction: column;
     height: auto;
     padding: 20px;
   }
-  
+
   .project-details__image {
     width: 100%;
     height: auto;
     border-radius: 20px 20px 0 0;
     margin-bottom: 20px;
   }
-  
+
   .project-details__info {
     width: 100%;
+    height: 100%;
     padding: 20px;
   }
-  
+
   .project-details__stacks {
     width: auto;
     margin: 10px 0;
   }
-  
+
   .project-details__description {
     padding: 10px 0;
   }
-  
+
   .project-details__link {
     margin: 10px;
-    margin-left: 15vw;
   }
-  
+
   .logo-project-vercel {
     width: 50%;
   }
-  
+
   .logo-project-github {
     width: 40%;
   }
-  
+
   .go-back-button {
-    top: -5.5vh;
     margin: 0px 0 0 -12vw;
     font-size: 10px;
   }
