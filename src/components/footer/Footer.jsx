@@ -1,28 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-import ScrollReveal from 'scrollreveal';
+import React from 'react';
 import './footer.scss';
 
 const Footer = () => {
-  const aboutRef = useRef(null);
-
-  useEffect(() => {
-    const scrollReveal = ScrollReveal();
-    scrollReveal.reveal(aboutRef.current, {
-      duration: 2000,
-      delay: 500,
-      easing: 'ease-in-out',
-      distance: '20px',
-      origin: 'bottom',
-      opacity: 0,
-    });
-  }, []);
-
   return (
     <footer className="footer">
-      <div className="container" ref={aboutRef}>
+      <div className="container">
         <div className="row">
           <div className="column-contact">
             <h4 className="footer__title">Menu</h4>
+
             <ul className="footer__list">
               <li>
                 <a href="#home" className="footer__item link">Home</a>
@@ -44,18 +30,20 @@ const Footer = () => {
 
           <div className="column-contact">
             <h4 className="footer__title">Redes Sociais</h4>
+
             <ul className="footer__list">
               <li>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="footer__item link">Linkedin</a>
+                <a href="https://www.linkedin.com/in/andresa-alves-ribeiro/" target="_blank" rel="noopener noreferrer" className="footer__item link">Linkedin</a>
               </li>
               <li>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="footer__item link">Instagram</a>
+                <a href="https://github.com/Andresa-Alves-Ribeiro" target="_blank" rel="noopener noreferrer" className="footer__item link">Github</a>
               </li>
             </ul>
           </div>
 
           <div className="column-contact">
             <h4 className="footer__title">Contato</h4>
+            
             <ul className="footer__list">
               <li className="footer__item">(19) 99751-6202</li>
               <li className="footer__item">andresa_15ga@hotmail.com</li>
@@ -64,8 +52,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
       <div className="footer__bottom">
-        <p>Copyright &copy; 2024 Andresa Alves Ribeiro</p>
+        <p>Copyright &copy; 2025 Andresa Alves Ribeiro</p>
       </div>
     </footer>
   );

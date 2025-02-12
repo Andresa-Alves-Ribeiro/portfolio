@@ -10,9 +10,7 @@ const ProjectDetails = () => {
   const [project, setProject] = useState(null);
 
   useEffect(() => {
-    // Simulando uma chamada assíncrona para buscar os detalhes do projeto
     const fetchProjectDetails = async () => {
-      // Pode ser uma chamada de API ou qualquer outra forma de obter os detalhes do projeto
       const fetchedProject = portfolioLinks.find((project) => project.title === title);
       setProject(fetchedProject);
     };
@@ -37,19 +35,24 @@ const ProjectDetails = () => {
 
         <div className="project-details__info">
           <button onClick={handleGoBack} className="go-back-button">Voltar</button>
-          <h2 className="project-details__title">{project.title}</h2>
-          <p className="project-details__stacks">{project.stacks.join(', ')}</p>
-          <p className="project-details__description">{project.description}</p>
-          <>
+
+          <div className='project-details__card'>
+            <h2 className="project-details__title">{project.title}</h2>
+
+            <p className="project-details__stacks">{project.stacks.join(', ')}</p>
+
+            <p className="project-details__description">{project.description}</p>
+
             <div className="project-details__link">
-              <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" className="project-details__logo">
-                <img src={Vercel} alt="vercel logo" className='logo-project-vercel'></img>
+              <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" className="logo-project-vercel">
+                <img src={Vercel} alt="vercel logo"></img>
               </a>
-              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="project-details__logo">
-                <img src={Github} alt="github logo" className='logo-project-github'></img>
+
+              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="logo-project-github">
+                <img src={Github} alt="github logo"></img>
               </a>
             </div>
-          </>
+          </div>
         </div>
       </div>
     </div>
