@@ -1,5 +1,13 @@
 export const portfolioLinks = [
     {
+        title: 'Spiderverse',
+        image: 'https://user-images.githubusercontent.com/94997593/250307930-465e133a-73c8-47ab-9cf4-39331d1b1759.png',
+        stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'SASS', 'ESLINT', 'FRAMER MOTION'],
+        description: 'O objetivo deste projeto É Uma aplicação interativa inspirada no universo do Homem-Aranha.',
+        liveDemoUrl: 'https://spiderverse-two.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/spiderverse/'
+    },
+    {
         title: 'Expert Notes',
         image: 'https://raw.githubusercontent.com/Andresa-Alves-Ribeiro/Expert-Notes/main/public/assets/Home.png',
         stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWIND', 'RADIX', 'LUCIDE REACT', 'SONNER'],
@@ -15,22 +23,14 @@ export const portfolioLinks = [
         liveDemoUrl: 'https://conversor-moedas-wine.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/conversor-moedas'
     },
-    {
-        title: 'Econverse',
-        image: 'https://user-images.githubusercontent.com/94997593/246230965-3ff5c185-7a67-4778-8885-309209b6f1ee.png',
-        stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'SCSS', 'REACT ROUTER DOM'],
-        description: 'O objetivo deste projeto era criar o front-end de uma loja virtual usando o layout do figma como parâmetro.',
-        liveDemoUrl: 'https://teste-front-end-jr-ecru.vercel.app/',
-        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/teste-front-end-jr'
-    },
-    {
-        title: 'Spiderverse',
-        image: 'https://user-images.githubusercontent.com/94997593/250307930-465e133a-73c8-47ab-9cf4-39331d1b1759.png',
-        stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'SASS', 'ESLINT', 'FRAMER MOTION'],
-        description: 'O objetivo deste projeto É Uma aplicação interativa inspirada no universo do Homem-Aranha.',
-        liveDemoUrl: 'https://spiderverse-two.vercel.app/',
-        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/spiderverse/'
-    },
+    /**{
+       title: 'Econverse',
+       image: 'https://user-images.githubusercontent.com/94997593/246230965-3ff5c185-7a67-4778-8885-309209b6f1ee.png',
+       stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'SCSS', 'REACT ROUTER DOM'],
+       description: 'O objetivo deste projeto era criar o front-end de uma loja virtual usando o layout do figma como parâmetro.',
+       liveDemoUrl: 'https://teste-front-end-jr-ecru.vercel.app/',
+       repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/teste-front-end-jr'
+   },**/
     {
         title: 'Letmeask',
         image: 'https://user-images.githubusercontent.com/94997593/234916253-c90e0680-e7bb-4f93-9c81-9993b58c1e2e.png',
@@ -71,6 +71,7 @@ export const portfolioLinks = [
         liveDemoUrl: 'https://devfinder-seven.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/devfinder'
     },
+    /**
     {
         title: 'Recriando ChatGPT',
         image: 'https://user-images.githubusercontent.com/94997593/236954945-8278eac6-ac64-4e98-8816-4965eb164897.png',
@@ -86,7 +87,7 @@ export const portfolioLinks = [
         description: 'É um desafio de desenvolvimento front-end proposto pela Brainn. Uma aplicação web front-end que simula os Resultados das loterias.',
         liveDemoUrl: 'https://brainnco-andresa-alves-ribeiro.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Brainnco'
-    },
+    }, **/
     {
         title: 'Rocketpay',
         image: 'https://user-images.githubusercontent.com/94997593/236585921-a838ab3c-3c07-4359-81e6-bcc2b56a593d.png',
@@ -150,5 +151,13 @@ export const portfolioLinks = [
         description: 'Revelador de destino é uma página que responde o seu destino baseado em uma pergunta.',
         liveDemoUrl: 'https://andresa-alves-ribeiro.github.io/Revelador-de-destino/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Revelador-de-destino'
-    }
+    },
+    {
+        title: 'Projeto Marvel',
+        image: 'https://user-images.githubusercontent.com/94997593/186997114-ef96ac85-11b7-440c-a6ba-92252e47a600.png',
+        stacks: ['HTML', 'CSS', 'Javascript', 'JQuery'],
+        description: 'Este projeto foi inspirado em telas de jogos dos anos 90/2000, em que se pode selecionar o seu personagem preferido, diante de várias opções, para jogar. Escolhi os personagens da Marvel para a lista de personagens.',
+        liveDemoUrl: 'https://projeto-marvel-eight.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Projeto-Marvel'
+    },
 ];

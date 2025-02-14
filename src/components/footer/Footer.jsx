@@ -11,7 +11,7 @@ const Footer = () => {
 
             <ul className="footer__list">
               <li>
-                <a href="#home" className="footer__item link">Home</a>
+                <a href="#presentation" className="footer__item link">Home</a>
               </li>
               <li>
                 <a href="#about" className="footer__item link">Sobre Mim</a>
