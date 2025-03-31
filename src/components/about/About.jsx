@@ -4,10 +4,12 @@ import './about.scss';
 import { RandomReveal } from 'react-random-reveal'
 import MyPicture from '../../assets/minha-foto.png'
 import CV from '../../assets/cv.pdf'
+import { useTheme } from '../../hooks/useTheme';
 
 const About = () => {
   const aboutRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const scrollReveal = ScrollReveal();
@@ -46,7 +48,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="app" id='about'>
+    <div className={`app ${isDarkMode ? 'dark-mode' : ''}`} id='about'>
       <div id="wrapper">
         <h1 className="glitch-about" data-text="Sobre Mim">Sobre Mim</h1>
       </div>

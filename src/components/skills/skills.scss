@@ -1,7 +1,9 @@
 .stack-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: var(--spacing-xl) 0;
+  background-color: var(--surface-color);
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 @mixin glitchCopy {
@@ -13,33 +15,154 @@
   height: 100%;
 }
 
-
 .glitch-skills {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
   position: relative;
-  color: white;
-  font-size: 5em;
-  letter-spacing: 0.5em;
-  margin-top: 40vh;
-  margin-bottom: 10vh;
+  text-shadow: 0.05em 0 0 var(--primary-color),
+              -0.025em -0.05em 0 var(--secondary-color),
+              0.025em 0.05em 0 var(--text-color);
+  animation: glitch 500ms infinite;
+  color: var(--text-color);
+  margin-bottom: var(--spacing-xl);
+}
 
-  animation: glitch-skew 1s infinite linear alternate-reverse;
+.stacks-logo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
 
-  &::before {
-    @include glitchCopy;
-    left: 2px;
-    text-shadow: -2px 0 #ff00c1;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim 5s infinite linear alternate-reverse;
-  }
+.stacks-logo a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.3s ease, color 0.3s ease;
 
-  &::after {
-    @include glitchCopy;
-    left: -2px;
-    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
-    animation: glitch-anim2 1s infinite linear alternate-reverse;
+  &:hover {
+    transform: translateY(-5px);
+    color: var(--primary-color);
   }
 }
 
+.logo {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--spacing-sm);
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
+
+  &:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+  }
+}
+
+.logo-StyledComponents {
+  filter: grayscale(100%) brightness(0.8);
+}
+
+.text-logo {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+
+.wave-top, .wave-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+
+  svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+  }
+}
+
+.wave-top {
+  top: 0;
+}
+
+.wave-bottom {
+  bottom: 0;
+  transform: rotate(0deg);
+}
+
+// Dark mode styles
+.dark-mode {
+  .stack-list {
+    background-color: var(--surface-color);
+  }
+
+  .logo {
+    filter: grayscale(100%) brightness(0.8);
+  }
+
+  .logo-StyledComponents {
+    filter: grayscale(100%) brightness(0.6);
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .stacks-logo {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .glitch-skills {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stacks-logo {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: var(--spacing-sm);
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .text-logo {
+    font-size: 0.8rem;
+  }
+
+  .glitch-skills {
+    font-size: 2rem;
+  }
+}
+
+@keyframes glitch {
+  $steps: 20;
+
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+      transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
 
 @keyframes glitch-anim {
   $steps: 20;
@@ -70,137 +193,5 @@
     #{percentage($i*(1/$steps))} {
       transform: skew((random(10) - 5) + deg);
     }
-  }
-}
-
-.wave-top {
-  width: 100%;
-  position: relative;
-  margin-top: 70vh;
-}
-
-.wave-top::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 90vh;
-  background: url(../../assets/wave-top.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.wave-bottom {
-  width: 100%;
-  position: relative;
-  margin-top: 90vh;
-}
-
-.wave-bottom::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 90vh;
-  background: url(../../assets/wave-bottom.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.stacks-logo {
-  background-color: #fff;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-  padding-top: 10vh;
-  padding-left: 8vw;
-  padding-bottom: 2vh;
-  margin-top: -1vh;
-  margin-bottom: -1vh;
-  opacity: 0.999;
-}
-
-.logo {
-  width: 100px;
-  height: 100px;
-  size-adjust: inherit;
-  transition: transform 0.3s ease-in-out;
-}
-
-.logo:hover {
-  transform: scale(1.1) rotate(360deg);
-}
-
-.text-logo {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  color: #ff00c1;
-  font-weight: 600;
-  padding-top: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.logo-StyledComponents {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  margin-left: 2.5rem;
-}
-
-@media screen and (min-width: 576px) and (max-width: 850px) {
-  .glitch-skills {
-    font-size: 4.2em;
-    letter-spacing: 0.5em;
-    margin-top: 40vh;
-    margin-left: 2rem;
-  }
-
-  .stacks-logo {
-    background-color: #fff;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8rem;
-    padding-top: 10vh;
-    padding-left: 14vw;
-  }
-
-  .logo {
-    width: 100px;
-    height: 100px;
-    align-items: center;
-  }
-
-  .logo-StyledComponents {
-    margin-left: 0rem;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .glitch-skills {
-    font-size: 3em;
-    letter-spacing: 0.5em;
-    margin-top: 50vh;
-    margin-left: 3rem;
-    word-break: break-word;
-  }
-
-  .stacks-logo {
-    background-color: #fff;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5rem;
-    padding-top: 10vh;
-    padding-left: 10vw;
-  }
-
-  .logo-StyledComponents {
-    margin-left: 0rem;
   }
 }

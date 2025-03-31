@@ -87,3 +87,18 @@
   }
 }
 /*Loop Neon*/
+
+@media screen and (max-width: 768px) {
+  #presentation {
+    padding-top: 100px;
+    height: calc(100vh - 80px);
+  }
+  
+  .title_loop .title {
+    font-size: 3em;
+  }
+  
+  .title-primary, .subtitle {
+    font-size: 1.2rem;
+  }
+}

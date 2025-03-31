@@ -15,10 +15,13 @@ import Node from '../../assets/nodejs.svg'
 import Mysql from '../../assets/mysql.svg'
 import Git from '../../assets/git.svg'
 import VSCode from '../../assets/visual-studio-code.svg'
+import { useTheme } from '../../hooks/useTheme';
 
 const Skills = () => {
+    const { isDarkMode } = useTheme();
+
     return (
-        <div className="stack-list" id='skills'>
+        <div className={`stack-list ${isDarkMode ? 'dark-mode' : ''}`} id='skills'>
             <h1 className="glitch-skills" data-text="Habilidades">Habilidades</h1>
             <section className="wave-top"></section>
             <div className='stacks-logo'>
@@ -83,7 +86,6 @@ const Skills = () => {
                     <p className='text-logo'>VSCode</p>
                 </a>
             </div>
-
             <section className="wave-bottom"></section>
         </div>
     );
