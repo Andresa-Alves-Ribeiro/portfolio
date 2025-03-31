@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+
+
 * {
   margin: 0;
   padding: 0;
@@ -78,6 +80,70 @@ canvas {
   background-position: 50% 50%;
 }
 
+/* ===================== PIPELINE FUNDO =============== */
+
+.demo-5 {
+	--color-text: #ff53ff;
+	--color-link: #3c48fa;
+	--color-link-hover: #fff;
+	--color-title: #fff;
+}
+
+.frame {
+	padding: 3rem 5vw;
+	text-align: center;
+	position: relative;
+	z-index: 1000;
+}
+
+.frame__title {
+	font-size: 1rem;
+	margin: 0 0 1rem;
+	font-weight: normal;
+}
+
+.frame__links {
+	display: inline;
+}
+
+.frame__github,
+.frame__links a:not(:last-child),
+.frame__demos a:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.frame__demos {
+	margin: 1rem 0;
+}
+
+.frame__demo--current,
+.frame__demo--current:hover {
+	text-decoration: underline;
+	color: var(--color-link);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: calc(100vh - 13rem);
+	position: relative;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.content__title {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	margin: -5.5vw 0 0 0;
+	z-index: 100;
+	font-size: 10vw;
+	color: var(--color-title);
+	line-height: 1;
+}
 
 /* ===================== GENERAL STYLES =============== */
 
