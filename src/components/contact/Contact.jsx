@@ -40,7 +40,7 @@ const Contact = () => {
         <p>Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados e entre em contato comigo.</p>
 
         <form className="form" onSubmit={handleSubmit(onSubmit)} ref={aboutRef}>
-          <label class="form__label">
+          <label className="form__label">
             <input className="form__input" type="text" {...register('nome', { required: true })} placeholder='Seu nome aqui' />
             <span className="form__error">{errors.nome && 'Este campo é obrigatório'}</span>
           </label>
