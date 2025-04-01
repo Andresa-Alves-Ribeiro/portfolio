@@ -64,20 +64,9 @@ const Header = () => {
               {isDarkMode ? '☀️' : '🌙'}
             </button>
           </li>
-          <li className="nav__item nav__menu-toggle">
-            <button 
-              onClick={toggleMenu}
-              className={`nav__menu-button ${isMenuOpen ? 'active' : ''}`}
-              aria-label="Menu"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </li>
         </div>
 
-        <div className={`nav__links ${isMenuOpen ? 'active' : ''}`}>
+        <div className="nav__links">
           <li className="nav__item">
             <a href="#about" className="nav__link" onClick={handleNavClick}>Sobre</a>
           </li>
@@ -91,6 +80,18 @@ const Header = () => {
             <a href="#contact" className="nav__link" onClick={handleNavClick}>Contato</a>
           </li>
         </div>
+
+        <li className="nav__item nav__menu-toggle">
+          <button 
+            onClick={toggleMenu}
+            className={`nav__menu-button ${isMenuOpen ? 'active' : ''}`}
+            aria-label="Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </li>
       </ul>
     </header>
   )

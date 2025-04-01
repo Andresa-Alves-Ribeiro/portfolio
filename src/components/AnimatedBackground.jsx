@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const Canvas = styled.canvas`
@@ -18,6 +18,20 @@ const AnimatedBackground = () => {
   const timeRef = useRef(0);
   const dataStreamRef = useRef([]);
   const circuitRef = useRef([]);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -31,19 +45,43 @@ const AnimatedBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
+    const getParticleCount = () => {
+      const width = window.innerWidth;
+      if (width < 576) return 60;
+      if (width < 768) return 80;
+      if (width < 1024) return 100;
+      return 120;
+    };
+
+    const getDataStreamCount = () => {
+      const width = window.innerWidth;
+      if (width < 576) return 15;
+      if (width < 768) return 20;
+      if (width < 1024) return 25;
+      return 30;
+    };
+
+    const getCircuitCount = () => {
+      const width = window.innerWidth;
+      if (width < 576) return 2;
+      if (width < 768) return 3;
+      if (width < 1024) return 4;
+      return 5;
+    };
+
     const createParticles = () => {
-      const particleCount = 150;
+      const particleCount = getParticleCount();
       particlesRef.current = [];
       
       for (let i = 0; i < particleCount; i++) {
         const colorType = Math.random();
         let color;
         if (colorType < 0.33) {
-          color = `rgba(255, 105, 180, ${Math.random() * 0.4 + 0.2})`; // Rosa
+          color = `rgba(255, 105, 180, ${Math.random() * 0.4 + 0.2})`;
         } else if (colorType < 0.66) {
-          color = `rgba(135, 206, 235, ${Math.random() * 0.4 + 0.2})`; // Azul claro
+          color = `rgba(135, 206, 235, ${Math.random() * 0.4 + 0.2})`;
         } else {
-          color = `rgba(147, 112, 219, ${Math.random() * 0.4 + 0.2})`; // Roxo
+          color = `rgba(147, 112, 219, ${Math.random() * 0.4 + 0.2})`;
         }
 
         particlesRef.current.push({
@@ -58,7 +96,7 @@ const AnimatedBackground = () => {
           pulseSpeed: Math.random() * 0.05 + 0.02,
           pulseSize: Math.random() * 0.5 + 0.5,
           trail: [],
-          maxTrailLength: 5,
+          maxTrailLength: window.innerWidth < 576 ? 3 : 5,
           type: Math.random() > 0.7 ? 'data' : 'particle',
           energy: Math.random() * 100,
           energyDecay: Math.random() * 0.1 + 0.05
@@ -67,16 +105,17 @@ const AnimatedBackground = () => {
     };
 
     const createDataStream = () => {
+      const streamCount = getDataStreamCount();
       dataStreamRef.current = [];
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < streamCount; i++) {
         const colorType = Math.random();
         let color;
         if (colorType < 0.33) {
-          color = `rgba(255, 105, 180, ${Math.random() * 0.3 + 0.1})`; // Rosa
+          color = `rgba(255, 105, 180, ${Math.random() * 0.3 + 0.1})`;
         } else if (colorType < 0.66) {
-          color = `rgba(135, 206, 235, ${Math.random() * 0.3 + 0.1})`; // Azul claro
+          color = `rgba(135, 206, 235, ${Math.random() * 0.3 + 0.1})`;
         } else {
-          color = `rgba(147, 112, 219, ${Math.random() * 0.3 + 0.1})`; // Roxo
+          color = `rgba(147, 112, 219, ${Math.random() * 0.3 + 0.1})`;
         }
 
         dataStreamRef.current.push({
@@ -87,14 +126,14 @@ const AnimatedBackground = () => {
           color,
           angle: Math.random() * Math.PI * 2,
           trail: [],
-          maxTrailLength: 10
+          maxTrailLength: window.innerWidth < 576 ? 5 : 10
         });
       }
     };
 
     const createCircuit = () => {
+      const circuitCount = getCircuitCount();
       circuitRef.current = [];
-      const circuitCount = 5;
       for (let i = 0; i < circuitCount; i++) {
         circuitRef.current.push({
           points: [],
@@ -103,8 +142,7 @@ const AnimatedBackground = () => {
           offset: Math.random() * Math.PI * 2
         });
 
-        // Generate circuit path
-        const pointCount = 20;
+        const pointCount = window.innerWidth < 576 ? 10 : 20;
         for (let j = 0; j < pointCount; j++) {
           circuitRef.current[i].points.push({
             x: Math.random() * canvas.width,
@@ -121,7 +159,6 @@ const AnimatedBackground = () => {
     const updateParticles = () => {
       timeRef.current += 0.01;
       particlesRef.current.forEach(particle => {
-        // Update trail
         particle.trail.push({ x: particle.x, y: particle.y });
         if (particle.trail.length > particle.maxTrailLength) {
           particle.trail.shift();
@@ -132,7 +169,6 @@ const AnimatedBackground = () => {
         particle.rotation += particle.rotationSpeed;
         particle.energy = Math.max(0, particle.energy - particle.energyDecay);
 
-        // Bounce nas bordas com efeito de amortecimento
         if (particle.x < 0 || particle.x > canvas.width) {
           particle.speedX *= -0.8;
           particle.x = particle.x < 0 ? 0 : canvas.width;
@@ -142,7 +178,6 @@ const AnimatedBackground = () => {
           particle.y = particle.y < 0 ? 0 : canvas.height;
         }
 
-        // Interação com o mouse
         const dx = mouseRef.current.x - particle.x;
         const dy = mouseRef.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -158,7 +193,6 @@ const AnimatedBackground = () => {
         }
       });
 
-      // Update data streams
       dataStreamRef.current.forEach(stream => {
         stream.trail.push({ x: stream.x, y: stream.y });
         if (stream.trail.length > stream.maxTrailLength) {
@@ -174,7 +208,6 @@ const AnimatedBackground = () => {
         if (stream.y > canvas.height) stream.y = 0;
       });
 
-      // Update circuits
       circuitRef.current.forEach(circuit => {
         circuit.offset += circuit.speed;
       });
@@ -201,7 +234,6 @@ const AnimatedBackground = () => {
 
     const drawDataStreams = () => {
       dataStreamRef.current.forEach(stream => {
-        // Draw trail
         stream.trail.forEach((pos, index) => {
           const alpha = (index / stream.trail.length) * 0.2;
           ctx.beginPath();
@@ -210,7 +242,6 @@ const AnimatedBackground = () => {
           ctx.fill();
         });
 
-        // Draw main particle
         ctx.beginPath();
         ctx.fillStyle = stream.color;
         ctx.arc(stream.x, stream.y, stream.size, 0, Math.PI * 2);
@@ -221,13 +252,9 @@ const AnimatedBackground = () => {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Draw circuits
       drawCircuit();
-
-      // Draw data streams
       drawDataStreams();
 
-      // Draw connections with pulse effect
       particlesRef.current.forEach((particle, i) => {
         particlesRef.current.slice(i + 1).forEach(otherParticle => {
           const dx = particle.x - otherParticle.x;
@@ -247,13 +274,11 @@ const AnimatedBackground = () => {
         });
       });
 
-      // Draw particles with effects
       particlesRef.current.forEach(particle => {
         const pulse = Math.sin(timeRef.current * particle.pulseSpeed) * particle.pulseSize;
         const size = particle.size + pulse;
         const energy = particle.energy / 100;
 
-        // Draw trail
         particle.trail.forEach((pos, index) => {
           const alpha = (index / particle.trail.length) * 0.3 * energy;
           ctx.beginPath();
@@ -262,26 +287,22 @@ const AnimatedBackground = () => {
           ctx.fill();
         });
 
-        // Glow effect
         ctx.beginPath();
         ctx.fillStyle = particle.color.replace('0.2', (0.1 * energy).toString());
         ctx.arc(particle.x, particle.y, size * 2, 0, Math.PI * 2);
         ctx.fill();
 
-        // Main particle
         ctx.beginPath();
         ctx.fillStyle = particle.color.replace('0.2', (0.2 * energy).toString());
         ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Rotating ring
         ctx.beginPath();
         ctx.strokeStyle = particle.color.replace('0.2', (0.4 * energy).toString());
         ctx.lineWidth = 1;
         ctx.arc(particle.x, particle.y, size * 1.5, particle.rotation, particle.rotation + Math.PI * 1.5);
         ctx.stroke();
 
-        // Digital effect for data particles
         if (particle.type === 'data') {
           const digitalEffect = Math.sin(timeRef.current * 5) > 0 ? '1' : '0';
           ctx.font = '8px monospace';
@@ -311,7 +332,7 @@ const AnimatedBackground = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [dimensions]);
 
   return <Canvas ref={canvasRef} />;
 };
