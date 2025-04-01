@@ -48,24 +48,57 @@ const About = () => {
   }, []);
 
   return (
-    <div className={`app ${isDarkMode ? 'dark-mode' : ''}`} id='about'>
-      <div id="wrapper">
-        <h1 className="glitch-about" data-text="Sobre Mim">Sobre Mim</h1>
+    <section className={`about-section ${isDarkMode ? 'dark-mode' : ''}`} id='about'>
+      <div className="tech-bg">
+        <div className="tech-grid"></div>
+        <div className="tech-circles"></div>
+        <div className="tech-dots"></div>
+        <div className="tech-particles"></div>
+        <div className="tech-lines"></div>
+        <div className="tech-waves"></div>
       </div>
+      
+      <div className="container">
+        <div className="about-header">
+          <div className="title-wrapper">
+            <h1 className="glitch-about" data-text="Sobre Mim">Sobre Mim</h1>
+            <div className="glitch-effect"></div>
+          </div>
+        </div>
 
-      <div className='about' ref={aboutRef}>
-        <img src={MyPicture} alt='Minha foto' />
-        <div className="react-random-reveal">
-          <RandomReveal
-            isPlaying={isPlaying}
-            duration={2}
-            characters="Eu sou Andresa e trabalho com desenvolvimento front-end há 2 anos. Graduanda no curso de Sistemas de Informação pela Universidade UniFavip. Estou sempre em busca de novos desafios e oportunidades para aprimorar minhas habilidades e conhecimentos, e espero poder contribuir com meu trabalho em projetos que façam a diferença na vida das pessoas." />
+        <div className='about-content' ref={aboutRef}>
+          <div className="about-image">
+            <div className="image-container">
+              <img src={MyPicture} alt='Minha foto' />
+              <div className="image-border"></div>
+              <div className="image-glow"></div>
+            </div>
+          </div>
+          
+          <div className="about-text">
+            <div className="text-container">
+              <div className="react-random-reveal">
+                <RandomReveal
+                  isPlaying={isPlaying}
+                  duration={2}
+                  characters="Olá! Sou Andresa, uma desenvolvedora Full Stack apaixonada por criar experiências digitais incríveis. Com experiência em desenvolvimento web, mobile e desktop, busco sempre entregar soluções inovadoras e de alta qualidade. Minha jornada na tecnologia começou na infância com uma curiosidade por como as coisas funcionavam na internet, e hoje transformo essa paixão em código que impacta positivamente a vida das pessoas." />
+              </div>
+              <div className='cv-download'>
+                <a href={CV} download className="cv-button">
+                  <span>Baixe meu CV</span>
+                  <div className="button-glow"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div className='cv'>
-        <a href={CV} download>Baixe meu CV aqui</a>
-      </div>
-    </div>
+    </section>
   );
 };
 
