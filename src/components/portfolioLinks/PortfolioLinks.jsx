@@ -1,7 +1,7 @@
 export const portfolioLinks = [
     {
         title: 'DigitSign',
-        image: 'https://private-user-images.githubusercontent.com/94997593/447140951-4d3d7f62-e692-4c8a-9cb2-324aa6d9c66c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDgwMjY3NDAsIm5iZiI6MTc0ODAyNjQ0MCwicGF0aCI6Ii85NDk5NzU5My80NDcxNDA5NTEtNGQzZDdmNjItZTY5Mi00YzhhLTljYjItMzI0YWE2ZDljNjZjLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTIzVDE4NTQwMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQyZTZiZGM3OTY0OGZkYjExOTAxNWY4ZTUyNmVkNDVhM2U5ZTg0N2YxYmFhNDFmYzg0OTEwNTE4MmQ3MThhMDEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.XP6g3YfZmuCbrB-k9CYRgnq1ruskqk5QPJvok3Mf_bo',
+        image: 'https://github.com/user-attachments/assets/4d3d7f62-e692-4c8a-9cb2-324aa6d9c66c',
         stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'TAILWIND', 'ZUSTAND', 'PRISMA ORM', 'ESLINT', 'PRETTIER', 'JEST'],
         description: 'DigitSign é um sistema de simulação de assinatura de documentos, fazendo upload e assinatura desses documentos.',
         liveDemoUrl: 'https://digitsign.vercel.app/',
