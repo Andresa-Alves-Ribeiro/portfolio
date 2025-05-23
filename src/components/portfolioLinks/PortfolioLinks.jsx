@@ -1,9 +1,17 @@
 export const portfolioLinks = [
     {
+        title: 'DigitSign',
+        image: '',
+        stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'TAILWIND', 'ZUSTAND', 'PRISMA ORM', 'ESLINT', 'PRETTIER', 'JEST'],
+        description: 'DigitSign é um sistema de simulação de assinatura de documentos, fazendo upload e assinatura desses documentos.',
+        liveDemoUrl: 'https://digitsign.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/digitsign'
+    },
+    {
         title: 'Spiderverse',
         image: 'https://user-images.githubusercontent.com/94997593/250307930-465e133a-73c8-47ab-9cf4-39331d1b1759.png',
         stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'SASS', 'ESLINT', 'FRAMER MOTION'],
-        description: 'O objetivo deste projeto É Uma aplicação interativa inspirada no universo do Homem-Aranha.',
+        description: 'O objetivo deste projeto é Uma aplicação interativa inspirada no universo do Homem-Aranha.',
         liveDemoUrl: 'https://spiderverse-two.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/spiderverse/'
     },
