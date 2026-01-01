@@ -100,6 +100,15 @@ const Header = () => {
           </li>
           <li className="m-0 relative">
             <a 
+              href="#timeline" 
+              className={`text-white no-underline font-medium transition-all duration-300 relative px-4 py-2 rounded bg-transparent uppercase tracking-widest text-sm before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-[rgba(255,105,180,0.8)] before:via-[rgba(135,206,235,0.8)] before:to-[rgba(147,112,219,0.8)] before:transition-all before:duration-300 before:-translate-x-1/2 before:shadow-[0_0_10px_rgba(255,105,180,0.3)] hover:text-[#ff69b4] hover:drop-shadow-[0_0_10px_rgba(255,105,180,0.5)] hover:before:w-4/5`}
+              onClick={handleNavClick}
+            >
+              Experiências
+            </a>
+          </li>
+          <li className="m-0 relative">
+            <a 
               href="#skills" 
               className={`text-white no-underline font-medium transition-all duration-300 relative px-4 py-2 rounded bg-transparent uppercase tracking-widest text-sm before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-[rgba(255,105,180,0.8)] before:via-[rgba(135,206,235,0.8)] before:to-[rgba(147,112,219,0.8)] before:transition-all before:duration-300 before:-translate-x-1/2 before:shadow-[0_0_10px_rgba(255,105,180,0.3)] hover:text-[#ff69b4] hover:drop-shadow-[0_0_10px_rgba(255,105,180,0.5)] hover:before:w-4/5`}
               onClick={handleNavClick}
