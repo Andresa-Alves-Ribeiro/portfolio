@@ -1,12 +1,11 @@
 export const APP_CONFIG = {
   name: 'Portfolio',
   description: 'Meu portfólio pessoal',
-  author: 'Seu Nome',
-  email: 'seu.email@exemplo.com',
+  author: 'Andresa A Ribeiro',
+  email: 'andresa_15ga@hotmail.com',
   socialLinks: {
-    github: 'https://github.com/seu-usuario',
-    linkedin: 'https://linkedin.com/in/seu-usuario',
-    // Adicione outras redes sociais conforme necessário
+    github: 'https://github.com/Andresa-Alves-Ribeiro',
+    linkedin: 'https://www.linkedin.com/in/andresa-alves-ribeiro/',
   }
 };
 

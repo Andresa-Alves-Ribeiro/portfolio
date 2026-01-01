@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ScrollReveal from 'scrollreveal';
 import axios from 'axios';
-import './contact.scss';
 import { useForm } from 'react-hook-form';
 
 
@@ -33,44 +32,65 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-form" id='contact'>
-        <div id="wrapper">
+    <div className="flex flex-col justify-center items-center border-t-4 border-primary" id='contact'>
+        <div id="wrapper" className="text-center mb-7">
           <h1 className="glitch-contact" data-text="Fale Comigo">Fale Comigo</h1>
         </div>
-        <p>Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados e entre em contato comigo.</p>
+        <p className="text-lg md:text-xl font-normal mb-8 text-white px-5 md:px-10">Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados e entre em contato comigo.</p>
 
-        <form className="form" onSubmit={handleSubmit(onSubmit)} ref={aboutRef}>
-          <label className="form__label">
-            <input className="form__input" type="text" {...register('nome', { required: true })} placeholder='Seu nome aqui' />
-            <span className="form__error">{errors.nome && 'Este campo é obrigatório'}</span>
+        <form className="flex flex-col justify-center items-center py-8 mt-[5vh] rounded-lg border-4 border-primary bg-clip-padding w-[90vw] md:w-[60vw] relative transition-all duration-300 hover:scale-105 hover:animate-[border-animate_5s_ease-in-out_infinite]" onSubmit={handleSubmit(onSubmit)} ref={aboutRef}>
+          <label className="flex flex-col mb-5 w-full">
+            <input 
+              className="py-2.5 px-2.5 text-base bg-transparent text-white mt-2.5 border-b-2 border-[#ff88e4] focus:outline-none focus:bg-transparent focus:border-[#ff00c1]" 
+              type="text" 
+              {...register('nome', { required: true })} 
+              placeholder='Seu nome aqui' 
+            />
+            <span className="text-sm font-normal mt-1.5 text-[#ff88e4]">{errors.nome && 'Este campo é obrigatório'}</span>
           </label>
 
-          <label className="form__label">
-            <input className="form__input" type="email" {...register('email', { required: true })} placeholder='email@exemplo.com.br' />
-            <span className="form__error">{errors.email && 'Este campo é obrigatório'}</span>
+          <label className="flex flex-col mb-5 w-full">
+            <input 
+              className="py-2.5 px-2.5 text-base bg-transparent text-white mt-2.5 border-b-2 border-[#ff88e4] focus:outline-none focus:bg-transparent focus:border-[#ff00c1]" 
+              type="email" 
+              {...register('email', { required: true })} 
+              placeholder='email@exemplo.com.br' 
+            />
+            <span className="text-sm font-normal mt-1.5 text-[#ff88e4]">{errors.email && 'Este campo é obrigatório'}</span>
           </label>
 
-          <label className="form__label">
-            <input className="form__input" type="text" {...register('assunto', { required: true })} placeholder='Assunto' />
-            <span className="form__error">{errors.assunto && 'Este campo é obrigatório'}</span>
+          <label className="flex flex-col mb-5 w-full">
+            <input 
+              className="py-2.5 px-2.5 text-base bg-transparent text-white mt-2.5 border-b-2 border-[#ff88e4] focus:outline-none focus:bg-transparent focus:border-[#ff00c1]" 
+              type="text" 
+              {...register('assunto', { required: true })} 
+              placeholder='Assunto' 
+            />
+            <span className="text-sm font-normal mt-1.5 text-[#ff88e4]">{errors.assunto && 'Este campo é obrigatório'}</span>
           </label>
 
-          <label className="form__label">
-            <textarea className="form__textarea" {...register('mensagem', { required: true })} placeholder='Escreva sua mensagem aqui' />
-            <span className="form__error">{errors.mensagem && 'Este campo é obrigatório'}</span>
+          <label className="flex flex-col mb-5 w-full">
+            <textarea 
+              className="py-2.5 px-2.5 text-base bg-transparent text-white mt-2.5 border-2 border-[#ff88e4] h-24 resize-none font-['Roboto',sans-serif] focus:outline-none focus:bg-transparent focus:border-[#ff00c1]" 
+              {...register('mensagem', { required: true })} 
+              placeholder='Escreva sua mensagem aqui' 
+            />
+            <span className="text-sm font-normal mt-1.5 text-[#ff88e4]">{errors.mensagem && 'Este campo é obrigatório'}</span>
           </label>
 
-          <button className="form__submit" type="submit">
+          <button 
+            className="mt-5 bg-primary text-white text-lg py-2.5 px-5 border-none rounded-[10px] cursor-pointer relative overflow-hidden hover:bg-[#ff3ad2] hover:animate-[pulseContact_0.5s_cubic-bezier(0.5,0,0.5,1)_infinite_alternate] hover:shadow-[0_0_10px_10px_rgba(255,0,193,0.7)] active:bg-[#ff88e4] focus:outline-none" 
+            type="submit"
+          >
             <span>Enviar</span>
-            <div className="form__submit__circle"></div>
           </button>
 
           {formStatus === 'success' && (
-            <p className="form__status form__status--success">Email enviado com sucesso!</p>
+            <p className="mt-[5vh] text-green-500">Email enviado com sucesso!</p>
           )}
 
           {formStatus === 'error' && (
-            <p className="form__status form__status--error">Erro ao enviar o email.</p>
+            <p className="mt-[5vh] text-red-500">Erro ao enviar o email.</p>
           )}
         </form>
     </div>
