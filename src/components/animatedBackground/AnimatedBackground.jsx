@@ -337,4 +337,5 @@ const AnimatedBackground = () => {
   return <Canvas ref={canvasRef} />;
 };
 
-export default AnimatedBackground; 
+export default AnimatedBackground;
+

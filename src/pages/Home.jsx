@@ -1,10 +1,10 @@
-import React from 'react';
-import Presentation from '../components/presentation/Presentation';
-import About from '../components/about/About';
-import Timeline from '../components/timeline/Timeline';
-import Skills from '../components/skills/skills';
-import Portfolio from '../components/portfolio/Portfolio';
-import Contact from '../components/contact/Contact';
+import React, { memo } from 'react';
+import Presentation from '../components/presentation';
+import About from '../components/about';
+import Timeline from '../components/timeline';
+import Skills from '../components/skills';
+import Portfolio from '../components/portfolio';
+import Contact from '../components/contact';
 
 const Home = () => {
   return (
@@ -19,4 +19,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default memo(Home); 

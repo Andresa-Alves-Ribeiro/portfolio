@@ -1,8 +1,8 @@
-import React from 'react';
-import ProjectDetails from '../components/ProjectDetails/ProjectDetails';
+import React, { memo } from 'react';
+import ProjectDetails from '../components/projectDetails';
 
 const ProjectDetailsPage = () => {
   return <ProjectDetails />;
 };
 
-export default ProjectDetailsPage; 
+export default memo(ProjectDetailsPage); 

@@ -1,9 +1,13 @@
 import React, { useRef } from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import MyPicture from '../../assets/minha-foto.png'
-import CV from '../../assets/cv.pdf'
+import MyPicture from '../../assets/minha-foto.png';
+import CV from '../../assets/cv.pdf';
 import { useTheme } from '../../hooks/useTheme';
 
+/**
+ * Componente que exibe informações sobre a desenvolvedora
+ * @returns {JSX.Element} Seção "Sobre Mim"
+ */
 const About = () => {
   const aboutRef = useRef(null);
   const { isDarkMode } = useTheme();
@@ -32,7 +36,8 @@ const About = () => {
             <div className="relative w-full h-full transform-style-preserve-3d perspective-[1000px]">
               <img 
                 src={MyPicture} 
-                alt='Minha foto' 
+                alt="Foto de Andresa Alves, desenvolvedora Full Stack"
+                loading="lazy"
                 className="w-full h-auto rounded-full relative z-[1] brightness-[1.1] contrast-[1.1] transition-all duration-500 border-4 border-[#00f7ff] animate-[imageFloat_6s_ease-in-out_infinite] hover:translate-z-[20px] hover:rotate-x-[5deg] hover:rotate-y-[5deg] hover:scale-105"
               />
             </div>
@@ -55,11 +60,24 @@ const About = () => {
               <div className='mt-8 text-center'>
                 <a 
                   href={CV} 
-                  download 
+                  download
+                  aria-label="Baixar currículo de Andresa Alves em PDF"
                   className="relative inline-flex items-center gap-2 py-3 px-6 text-[rgba(255,255,255,0.8)] no-underline font-light transition-all duration-300 bg-[rgba(255,255,255,0.02)] rounded-lg border border-[rgba(255,255,255,0.05)] hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,105,180,0.3)] hover:bg-[rgba(255,255,255,0.05)] hover:border-[rgba(255,105,180,0.2)] hover:translate-x-1 before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-gradient-to-r before:from-[rgba(255,105,180,0.8)] before:via-[rgba(135,206,235,0.8)] before:to-[rgba(147,112,219,0.8)] before:transition-all before:duration-300 hover:before:w-full"
                 >
                   <span>Baixe meu CV</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-4 md:h-4">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="20" 
+                    height="20" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    className="md:w-4 md:h-4"
+                    aria-hidden="true"
+                  >
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />

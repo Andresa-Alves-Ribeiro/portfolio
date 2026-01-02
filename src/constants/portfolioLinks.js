@@ -23,14 +23,6 @@ export const portfolioLinks = [
         liveDemoUrl: 'https://conversor-moedas-wine.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/conversor-moedas'
     },
-    /**{
-       title: 'Econverse',
-       image: 'https://user-images.githubusercontent.com/94997593/246230965-3ff5c185-7a67-4778-8885-309209b6f1ee.png',
-       stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'SCSS', 'REACT ROUTER DOM'],
-       description: 'O objetivo deste projeto era criar o front-end de uma loja virtual usando o layout do figma como parâmetro.',
-       liveDemoUrl: 'https://teste-front-end-jr-ecru.vercel.app/',
-       repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/teste-front-end-jr'
-   },**/
     {
         title: 'Letmeask',
         image: 'https://user-images.githubusercontent.com/94997593/234916253-c90e0680-e7bb-4f93-9c81-9993b58c1e2e.png',
@@ -71,23 +63,6 @@ export const portfolioLinks = [
         liveDemoUrl: 'https://devfinder-seven.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/devfinder'
     },
-    /**
-    {
-        title: 'Recriando ChatGPT',
-        image: 'https://user-images.githubusercontent.com/94997593/236954945-8278eac6-ac64-4e98-8816-4965eb164897.png',
-        stacks: ['REACT', 'CSS', 'AXIOS'],
-        description: 'O objetivo deste projeto é recriar o layout do site ChatGPT e fazer a integração de API com preenchimento de texto openIA (ChatGPT) com Node.',
-        liveDemoUrl: 'https://recriando-chatgpt.vercel.app/',
-        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/recriando-chatgpt'
-    },
-    {
-        title: 'Brainnco Front-End Challenge',
-        image: 'https://user-images.githubusercontent.com/94997593/236586796-e5846b34-d7c5-41a8-8afa-6783004d2092.png',
-        stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'STYLED-COMPONENTS', 'ESLINT', 'PRETTIER', 'HUSKY'],
-        description: 'É um desafio de desenvolvimento front-end proposto pela Brainn. Uma aplicação web front-end que simula os Resultados das loterias.',
-        liveDemoUrl: 'https://brainnco-andresa-alves-ribeiro.vercel.app/',
-        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Brainnco'
-    }, **/
     {
         title: 'Rocketpay',
         image: 'https://user-images.githubusercontent.com/94997593/236585921-a838ab3c-3c07-4359-81e6-bcc2b56a593d.png',
@@ -161,3 +136,4 @@ export const portfolioLinks = [
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Projeto-Marvel'
     },
 ];
+

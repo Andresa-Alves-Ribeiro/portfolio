@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
 import { ReactComponent as GithubIcon } from '../../assets/github-nav.svg';
 import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
+import { APP_CONFIG } from '../../constants/config';
 
+/**
+ * Componente Footer - Rodapé da aplicação
+ * @returns {JSX.Element} Rodapé com informações de contato e links
+ */
 const Footer = () => {
     return (
         <footer className="text-white py-[8vh] border-t border-[rgba(255,105,180,0.2)] mt-[10vh] text-base flex flex-col items-center bg-[rgba(10,10,26,0.8)] backdrop-blur-[10px] relative overflow-hidden w-full">
@@ -14,7 +19,13 @@ const Footer = () => {
                     <div className="relative z-10">
                         <p className="text-[rgba(255,255,255,0.8)] leading-relaxed mb-0 relative z-10 flex items-center gap-4 mb-4">
                             <strong className="text-[rgba(255,105,180,0.9)] font-medium min-w-[120px] text-right">Email:</strong> 
-                            <span>andresa_15ga@hotmail.com</span>
+                            <a 
+                                href={`mailto:${APP_CONFIG.email}`}
+                                className="text-[rgba(255,255,255,0.8)] hover:text-primary transition-colors"
+                                aria-label={`Enviar email para ${APP_CONFIG.email}`}
+                            >
+                                {APP_CONFIG.email}
+                            </a>
                         </p>
                         <p className="text-[rgba(255,255,255,0.8)] leading-relaxed mb-0 relative z-10 flex items-center gap-4">
                             <strong className="text-[rgba(255,105,180,0.9)] font-medium min-w-[120px] text-right">Localização:</strong> 
@@ -56,13 +67,31 @@ const Footer = () => {
                         Redes Sociais
                     </h3>
                     <div className="flex gap-6 mt-4 relative z-10 justify-center md:justify-start">
-                        <a href="https://www.linkedin.com/in/andresa-alves-ribeiro/" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 relative p-3 flex items-center justify-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:rounded-full before:bg-gradient-to-br before:from-[rgba(255,105,180,0.5)] before:via-[rgba(135,206,235,0.5)] before:to-[rgba(147,112,219,0.5)] before:-z-10 before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-1 hover:rotate-[5deg] hover:bg-[rgba(255,105,180,0.1)] hover:border-[rgba(255,105,180,0.3)] hover:before:opacity-100">
+                        <a 
+                            href={APP_CONFIG.socialLinks.linkedin} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            aria-label="LinkedIn"
+                            className="transition-all duration-300 relative p-3 flex items-center justify-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:rounded-full before:bg-gradient-to-br before:from-[rgba(255,105,180,0.5)] before:via-[rgba(135,206,235,0.5)] before:to-[rgba(147,112,219,0.5)] before:-z-10 before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-1 hover:rotate-[5deg] hover:bg-[rgba(255,105,180,0.1)] hover:border-[rgba(255,105,180,0.3)] hover:before:opacity-100"
+                        >
                             <LinkedinIcon className="w-6 h-6 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110" />
                         </a>
-                        <a href="https://github.com/Andresa-Alves-Ribeiro" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 relative p-3 flex items-center justify-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:rounded-full before:bg-gradient-to-br before:from-[rgba(255,105,180,0.5)] before:via-[rgba(135,206,235,0.5)] before:to-[rgba(147,112,219,0.5)] before:-z-10 before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-1 hover:rotate-[5deg] hover:bg-[rgba(255,105,180,0.1)] hover:border-[rgba(255,105,180,0.3)] hover:before:opacity-100">
+                        <a 
+                            href={APP_CONFIG.socialLinks.github} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            aria-label="GitHub"
+                            className="transition-all duration-300 relative p-3 flex items-center justify-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:rounded-full before:bg-gradient-to-br before:from-[rgba(255,105,180,0.5)] before:via-[rgba(135,206,235,0.5)] before:to-[rgba(147,112,219,0.5)] before:-z-10 before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-1 hover:rotate-[5deg] hover:bg-[rgba(255,105,180,0.1)] hover:border-[rgba(255,105,180,0.3)] hover:before:opacity-100"
+                        >
                             <GithubIcon className="w-6 h-6 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110" />
                         </a>
-                        <a href="https://api.whatsapp.com/send?phone=5519997516202" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 relative p-3 flex items-center justify-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:rounded-full before:bg-gradient-to-br before:from-[rgba(255,105,180,0.5)] before:via-[rgba(135,206,235,0.5)] before:to-[rgba(147,112,219,0.5)] before:-z-10 before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-1 hover:rotate-[5deg] hover:bg-[rgba(255,105,180,0.1)] hover:border-[rgba(255,105,180,0.3)] hover:before:opacity-100">
+                        <a 
+                            href={`https://api.whatsapp.com/send?phone=${APP_CONFIG.socialLinks.whatsapp}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            aria-label="WhatsApp"
+                            className="transition-all duration-300 relative p-3 flex items-center justify-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] before:content-[''] before:absolute before:-top-0.5 before:-left-0.5 before:-right-0.5 before:-bottom-0.5 before:rounded-full before:bg-gradient-to-br before:from-[rgba(255,105,180,0.5)] before:via-[rgba(135,206,235,0.5)] before:to-[rgba(147,112,219,0.5)] before:-z-10 before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-1 hover:rotate-[5deg] hover:bg-[rgba(255,105,180,0.1)] hover:border-[rgba(255,105,180,0.3)] hover:before:opacity-100"
+                        >
                             <WhatsappIcon className="w-6 h-6 transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110" />
                         </a>
                     </div>
@@ -76,4 +105,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default memo(Footer);

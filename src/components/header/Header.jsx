@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, memo } from 'react'
 import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
 import { ReactComponent as GithubIcon } from '../../assets/github-nav.svg';
 import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
 import { useTheme } from '../../hooks/useTheme';
 import { scrollToElement } from '../../utils/helpers';
+import { APP_CONFIG } from '../../constants/config';
 
 const Header = () => {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -13,27 +14,25 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(offset > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e) => {
+  const handleNavClick = useCallback((e) => {
     e.preventDefault();
-    const targetId = e.target.getAttribute('href').substring(1);
-    scrollToElement(targetId);
-    setIsMenuOpen(false);
-  };
+    const targetId = e.target.getAttribute('href')?.substring(1);
+    if (targetId) {
+      scrollToElement(targetId);
+      setIsMenuOpen(false);
+    }
+  }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen(prev => !prev);
+  }, []);
 
   return (
     <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ${
@@ -45,30 +44,33 @@ const Header = () => {
         <div className="flex gap-4 md:gap-8 items-center relative before:content-[''] before:absolute before:top-1/2 before:-left-5 before:w-px before:h-[30px] before:bg-gradient-to-b before:from-transparent before:via-[rgba(255,105,180,0.5)] before:via-[rgba(135,206,235,0.5)] before:via-[rgba(147,112,219,0.5)] before:to-transparent before:-translate-y-1/2 before:animate-pulse md:before:block before:hidden">
           <li className="m-0 relative">
             <a 
-              href="https://www.linkedin.com/in/andresa-alves-ribeiro/" 
+              href={APP_CONFIG.socialLinks.linkedin} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="relative inline-block p-2 rounded transition-all duration-300 hover:scale-110 hover:rotate-[5deg] group"
+              aria-label="LinkedIn"
             >
               <LinkedinIcon className="w-6 h-6 transition-all duration-300 grayscale group-hover:grayscale-0" />
             </a>
           </li>
           <li className="m-0 relative">
             <a 
-              href="https://github.com/Andresa-Alves-Ribeiro" 
+              href={APP_CONFIG.socialLinks.github} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="relative inline-block p-2 rounded transition-all duration-300 hover:scale-110 hover:rotate-[5deg] group"
+              aria-label="GitHub"
             >
               <GithubIcon className="w-6 h-6 transition-all duration-300 grayscale group-hover:grayscale-0" />
             </a>
           </li>
           <li className="m-0 relative">
             <a 
-              href="https://api.whatsapp.com/send?phone=5519997516202" 
+              href={`https://api.whatsapp.com/send?phone=${APP_CONFIG.socialLinks.whatsapp}`} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="relative inline-block p-2 rounded transition-all duration-300 hover:scale-110 hover:rotate-[5deg] group"
+              aria-label="WhatsApp"
             >
               <WhatsappIcon className="w-6 h-6 transition-all duration-300 grayscale group-hover:grayscale-0" />
             </a>
@@ -158,4 +160,4 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default memo(Header);
