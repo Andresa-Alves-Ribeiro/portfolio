@@ -1,9 +1,6 @@
 import React from 'react';
-import { useTheme } from '../../hooks/useTheme';
 
 const Timeline = () => {
-  const { isDarkMode } = useTheme();
-
   const experiences = [
     {
       year: '2022',
@@ -49,26 +46,50 @@ const Timeline = () => {
 
   return (
     <section
-      className={`relative py-24 bg-gradient-to-br from-[rgba(255,0,193,0.1)] to-[rgba(255,136,228,0.1)] backdrop-blur-[10px] transition-colors duration-300 overflow-hidden border-t border-[rgba(255,105,180,0.2)] mx-8 rounded-[15px_80px_20px_70px] shadow-[0_0_20px_rgba(255,0,193,0.1),0_0_40px_rgba(255,136,228,0.1),inset_0_0_20px_rgba(255,0,193,0.05)] animate-[borderRadiusAnimation_10s_ease-in-out_infinite] ${
-        isDarkMode ? 'dark-mode' : ''
-      }`}
+      className="relative py-24 overflow-hidden"
       id="timeline"
     >
+      {/* Decorações */}
+      <div className="absolute top-10 right-10 text-3xl opacity-20 animate-float-cat">🐱</div>
+      <div className="absolute bottom-10 left-10 text-2xl opacity-20 animate-wiggle">💕</div>
+
       <div className="relative z-[1] max-w-[1200px] mx-auto px-8">
         <div className="text-center mb-16">
           <div className="relative inline-block">
-            <h1
-              className="text-5xl md:text-7xl font-semibold font-serif text-primary relative uppercase tracking-[8px] m-0 p-0 animate-[digitalPulse_3s_ease-in-out_infinite] drop-shadow-[0_0_2px_rgba(255,0,193,0.3),0_0_4px_rgba(255,136,228,0.2),0_0_6px_rgba(255,58,210,0.1)]"
-              data-text="Experiências"
-            >
-              Experiências
-            </h1>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <span className="text-4xl animate-wiggle">📝</span>
+              <h1 className="diary-title text-4xl md:text-6xl font-handwriting">
+                Experiências
+              </h1>
+              <span className="text-4xl animate-wiggle">📝</span>
+            </div>
           </div>
         </div>
 
         <div className="relative">
-          {/* Linha vertical da timeline */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-neon-blue transform md:-translate-x-1/2 opacity-60"></div>
+          {/* Pegadas pretas ao longo de TODA a timeline - caminho contínuo e denso */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 transform md:-translate-x-1/2 z-0 pointer-events-none">
+            {/* Pegadas distribuídas uniformemente ao longo de toda a altura - todas do mesmo tamanho */}
+            {Array.from({ length: 30 }).map((_, i) => {
+              const totalPositions = 30;
+              const position = (i / (totalPositions - 1)) * 100;
+              const rotation = i % 2 === 0 ? '15deg' : '-15deg';
+              const offsetX = i % 2 === 0 ? '3px' : '-3px';
+              return (
+                <div 
+                  key={`paw-path-${i}`}
+                  className="absolute text-black text-2xl md:text-3xl opacity-60"
+                  style={{
+                    top: `${position}%`,
+                    left: `calc(50% + ${offsetX})`,
+                    transform: `translate(-50%, -50%) rotate(${rotation})`
+                  }}
+                >
+                  🐾
+                </div>
+              );
+            })}
+          </div>
 
           {/* Itens da timeline */}
           <div className="space-y-12 md:space-y-16">
@@ -79,20 +100,6 @@ const Timeline = () => {
                   index % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}
               >
-                {/* Ponto na linha */}
-                <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 z-10">
-                  <div
-                    className={`w-4 h-4 rounded-full border-2 border-primary bg-bg-dark transition-all duration-300 ${
-                      experience.isCurrent
-                        ? 'animate-pulse shadow-[0_0_15px_rgba(255,0,193,0.8)]'
-                        : 'hover:scale-125 hover:shadow-[0_0_10px_rgba(255,0,193,0.5)]'
-                    }`}
-                  >
-                    {experience.isCurrent && (
-                      <div className="w-full h-full rounded-full bg-primary animate-ping absolute"></div>
-                    )}
-                  </div>
-                </div>
 
                 {/* Conteúdo */}
                 <div
@@ -100,31 +107,29 @@ const Timeline = () => {
                     index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
                   }`}
                 >
-                  <div className="relative p-6 bg-[rgba(255,255,255,0.1)] rounded-[15px] backdrop-blur-[10px] border border-[rgba(255,255,255,0.2)] shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] transform-style-preserve-3d perspective-[1000px] transition-all duration-300 overflow-hidden hover:translate-z-[20px] hover:rotate-x-[5deg] hover:bg-[rgba(255,255,255,0.15)] hover:border-[rgba(255,105,180,0.3)] group">
-                    {/* Efeito de brilho no hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,105,180,0.1)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-[-100%] group-hover:translate-x-[100%]"></div>
-
+                  <div className="diary-section relative group">
+                    <div className="absolute -top-2 -right-2 text-xl animate-sparkle">✨</div>
                     <div className="relative z-[1]">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="text-primary font-bold text-lg font-mono">
+                        <span className="text-primary-dark font-bold text-lg font-handwriting">
                           {experience.period}
                         </span>
                         {experience.isCurrent && (
-                          <span className="px-2 py-1 text-xs font-semibold bg-primary text-white rounded-full animate-pulse">
-                            Atual
+                          <span className="px-3 py-1 text-xs font-semibold bg-primary text-white rounded-full animate-heart-beat">
+                            💖 Atual
                           </span>
                         )}
                       </div>
 
-                      <h3 className="text-2xl md:text-3xl font-serif text-white mb-2 font-semibold">
+                      <h3 className="text-2xl md:text-3xl font-handwriting text-primary-dark mb-2 font-bold">
                         {experience.title}
                       </h3>
 
-                      <h4 className="text-lg md:text-xl text-primary mb-4 font-semibold">
+                      <h4 className="text-lg md:text-xl text-primary mb-4 font-handwriting font-bold">
                         {experience.company}
                       </h4>
 
-                      <p className="text-white text-sm md:text-base leading-relaxed opacity-90">
+                      <p className="diary-text text-sm md:text-base leading-relaxed">
                         {experience.description}
                       </p>
                     </div>

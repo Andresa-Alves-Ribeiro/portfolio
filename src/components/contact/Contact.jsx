@@ -72,16 +72,23 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center border-t-4 border-primary" id='contact'>
+    <div className="flex flex-col justify-center items-center py-16" id='contact'>
         <div id="wrapper" className="text-center mb-7">
-          <h1 className="glitch-contact" data-text="Fale Comigo">Fale Comigo</h1>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <span className="text-4xl animate-wiggle">💌</span>
+            <h1 className="diary-title text-4xl md:text-6xl font-handwriting">
+              Fale Comigo
+            </h1>
+            <span className="text-4xl animate-wiggle">💌</span>
+          </div>
         </div>
-        <p className="text-lg md:text-xl font-normal mb-8 text-white px-5 md:px-10">Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados e entre em contato comigo.</p>
+        <p className="diary-text text-lg md:text-xl mb-8 px-5 md:px-10">Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados e entre em contato comigo. 💕</p>
 
-        <form className="flex flex-col justify-center items-center py-8 mt-[5vh] rounded-lg border-4 border-primary bg-clip-padding w-[90vw] md:w-[60vw] relative transition-all duration-300 hover:scale-105 hover:animate-[border-animate_5s_ease-in-out_infinite]" onSubmit={handleSubmit(onSubmit)} ref={aboutRef}>
+        <form className="diary-page flex flex-col justify-center items-center py-8 mt-[5vh] w-[90vw] md:w-[60vw] relative transition-all duration-300 hover:scale-105" onSubmit={handleSubmit(onSubmit)} ref={aboutRef}>
           <label className="flex flex-col mb-5 w-full">
+            <span className="diary-text font-handwriting mb-2">🐾 Seu nome:</span>
             <input 
-              className="py-2.5 px-2.5 text-base bg-transparent text-white mt-2.5 border-b-2 border-[#ff88e4] focus:outline-none focus:bg-transparent focus:border-[#ff00c1]" 
+              className="py-2.5 px-2.5 text-base bg-white mt-2.5 border-2 border-primary-light rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-light text-primary-dark font-handwriting" 
               type="text" 
               {...register('nome', { 
                 required: 'Este campo é obrigatório',
@@ -93,14 +100,15 @@ const Contact = () => {
               placeholder='Seu nome aqui' 
               disabled={isLoading}
             />
-            <span className="text-sm font-normal mt-1.5 text-[#ff88e4]">
+            <span className="text-sm font-handwriting mt-1.5 text-primary-dark">
               {errors.nome && errors.nome.message}
             </span>
           </label>
 
           <label className="flex flex-col mb-5 w-full">
+            <span className="diary-text font-handwriting mb-2">📧 Seu email:</span>
             <input 
-              className="py-2.5 px-2.5 text-base bg-transparent text-white mt-2.5 border-b-2 border-[#ff88e4] focus:outline-none focus:bg-transparent focus:border-[#ff00c1]" 
+              className="py-2.5 px-2.5 text-base bg-white mt-2.5 border-2 border-primary-light rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-light text-primary-dark font-handwriting" 
               type="email" 
               {...register('email', { 
                 required: 'Este campo é obrigatório',
@@ -112,14 +120,15 @@ const Contact = () => {
               placeholder='email@exemplo.com.br' 
               disabled={isLoading}
             />
-            <span className="text-sm font-normal mt-1.5 text-[#ff88e4]">
+            <span className="text-sm font-handwriting mt-1.5 text-primary-dark">
               {errors.email && errors.email.message}
             </span>
           </label>
 
           <label className="flex flex-col mb-5 w-full">
+            <span className="diary-text font-handwriting mb-2">💌 Assunto:</span>
             <input 
-              className="py-2.5 px-2.5 text-base bg-transparent text-white mt-2.5 border-b-2 border-[#ff88e4] focus:outline-none focus:bg-transparent focus:border-[#ff00c1]" 
+              className="py-2.5 px-2.5 text-base bg-white mt-2.5 border-2 border-primary-light rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-light text-primary-dark font-handwriting" 
               type="text" 
               {...register('assunto', { 
                 required: 'Este campo é obrigatório',
@@ -131,14 +140,15 @@ const Contact = () => {
               placeholder='Assunto' 
               disabled={isLoading}
             />
-            <span className="text-sm font-normal mt-1.5 text-[#ff88e4]">
+            <span className="text-sm font-handwriting mt-1.5 text-primary-dark">
               {errors.assunto && errors.assunto.message}
             </span>
           </label>
 
           <label className="flex flex-col mb-5 w-full">
+            <span className="diary-text font-handwriting mb-2">✉️ Sua mensagem:</span>
             <textarea 
-              className="py-2.5 px-2.5 text-base bg-transparent text-white mt-2.5 border-2 border-[#ff88e4] h-24 resize-none font-['Roboto',sans-serif] focus:outline-none focus:bg-transparent focus:border-[#ff00c1]" 
+              className="py-2.5 px-2.5 text-base bg-white mt-2.5 border-2 border-primary-light rounded-lg h-24 resize-none font-handwriting focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-light text-primary-dark" 
               {...register('mensagem', { 
                 required: 'Este campo é obrigatório',
                 minLength: {
@@ -149,16 +159,16 @@ const Contact = () => {
               placeholder='Escreva sua mensagem aqui' 
               disabled={isLoading}
             />
-            <span className="text-sm font-normal mt-1.5 text-[#ff88e4]">
+            <span className="text-sm font-handwriting mt-1.5 text-primary-dark">
               {errors.mensagem && errors.mensagem.message}
             </span>
           </label>
 
           <button 
-            className={`mt-5 bg-primary text-white text-lg py-2.5 px-5 border-none rounded-[10px] cursor-pointer relative overflow-hidden transition-all duration-300 focus:outline-none ${
+            className={`pink-button mt-5 text-lg py-2.5 px-5 ${
               isLoading 
                 ? 'opacity-50 cursor-not-allowed' 
-                : 'hover:bg-[#ff3ad2] hover:animate-[pulseContact_0.5s_cubic-bezier(0.5,0,0.5,1)_infinite_alternate] hover:shadow-[0_0_10px_10px_rgba(255,0,193,0.7)] active:bg-[#ff88e4]'
+                : ''
             }`}
             type="submit"
             disabled={isLoading}
@@ -177,16 +187,18 @@ const Contact = () => {
           </button>
 
           {formStatus === 'success' && (
-            <p className="mt-[5vh] text-green-500 font-medium animate-fade-in">
-              ✓ Email enviado com sucesso!
+            <p className="mt-[5vh] text-primary-dark font-handwriting font-bold text-lg animate-fade-in flex items-center gap-2">
+              <span className="text-2xl">💕</span> Email enviado com sucesso!
             </p>
           )}
 
           {formStatus === 'error' && (
-            <div className="mt-[5vh] text-red-500 font-medium animate-fade-in">
-              <p>✗ Erro ao enviar o email.</p>
+            <div className="mt-[5vh] text-primary-dark font-handwriting font-bold animate-fade-in">
+              <p className="flex items-center gap-2">
+                <span className="text-2xl">😿</span> Erro ao enviar o email.
+              </p>
               {errorMessage && (
-                <p className="text-sm mt-2 opacity-90">{errorMessage}</p>
+                <p className="text-sm mt-2 opacity-90 font-normal">{errorMessage}</p>
               )}
             </div>
           )}

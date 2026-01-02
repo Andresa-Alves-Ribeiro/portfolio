@@ -8,7 +8,7 @@ import Contact from '../components/contact';
 
 const Home = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Presentation />
       <About />
       <Timeline />
