@@ -804,4 +804,135 @@
 
 .diary-open-page-right:hover {
   transform: rotateY(0deg);
+}
+
+/* Animações para Timeline melhorada */
+@keyframes timelineGlow {
+  0%, 100% {
+    background-position: 0% 0%;
+    opacity: 1;
+  }
+  50% {
+    background-position: 0% 100%;
+    opacity: 0.8;
+  }
+}
+
+@keyframes pawFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(15deg) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(15deg) translateY(-5px);
+  }
+}
+
+@keyframes borderShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+.timeline-card {
+  animation: cardFloat 6s ease-in-out infinite;
+}
+
+.timeline-card:nth-child(even) {
+  animation-delay: 1s;
+}
+
+.timeline-card:nth-child(odd) {
+  animation-delay: 2s;
+}
+
+/* Classes específicas para Timeline */
+.timeline-glow-line {
+  background: linear-gradient(to bottom, #ff69b4, #ffb6d9, #ff69b4);
+  background-size: 100% 200%;
+  animation: timelineGlow 3s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5), 0 0 40px rgba(255, 182, 217, 0.3);
+}
+
+.timeline-paw {
+  animation: pawFloat 2s ease-in-out infinite;
+}
+
+.timeline-border-shimmer {
+  background: linear-gradient(45deg, #ff69b4, #ffb6d9, #ff69b4);
+  background-size: 200% 200%;
+  animation: borderShimmer 3s linear infinite;
+  padding: 2px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Estilos para cards modernos da timeline */
+.timeline-card-modern {
+  background: white;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-card-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 182, 217, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.timeline-card-modern:hover::before {
+  left: 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
 } 
