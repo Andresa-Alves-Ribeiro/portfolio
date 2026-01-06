@@ -84,11 +84,6 @@ const Timeline = () => {
       className="relative py-24 overflow-hidden"
       id="timeline"
     >
-      {/* Decorações flutuantes animadas */}
-      <div className="absolute top-10 right-10 text-3xl opacity-20 animate-float-cat z-10">🐱</div>
-      <div className="absolute bottom-10 left-10 text-2xl opacity-20 animate-wiggle z-10">💕</div>
-      <div className="absolute top-1/2 right-20 text-2xl opacity-15 animate-sparkle z-10">✨</div>
-      <div className="absolute top-1/3 left-20 text-xl opacity-15 animate-wiggle z-10" style={{ animationDelay: '1s' }}>🌟</div>
 
       {/* Partículas decorativas */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -115,16 +110,30 @@ const Timeline = () => {
         {/* Título com animação */}
         <div className="text-center mb-16">
           <div className="relative inline-block">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="text-4xl animate-wiggle" style={{ animationDelay: '0s' }}>📝</span>
-              <h1 className="diary-title text-4xl md:text-6xl font-handwriting relative">
-                <span className="relative z-10">Experiências</span>
-                <span className="absolute inset-0 text-primary-light blur-sm opacity-50 animate-pulse">Experiências</span>
-              </h1>
-              <span className="text-4xl animate-wiggle" style={{ animationDelay: '0.5s' }}>📝</span>
+            {/* Container principal do título sem bordas e background */}
+            <div className="relative px-10 py-8">
+              
+              {/* Título principal */}
+              <div className="relative z-10 flex items-center justify-center">
+                <h1 
+                  className="diary-title text-4xl md:text-6xl lg:text-7xl font-handwriting relative z-10"
+                  data-text="Experiências"
+                >
+                  Experiências
+                </h1>
+              </div>
+              
+              {/* Linha decorativa moderna melhorada */}
+              <div className="relative z-10 flex items-center justify-center gap-3">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent via-pink-300/80 to-pink-400/80 rounded-full decorative-line"></div>
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-br from-rose-300 to-pink-300 decorative-dot"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent via-rose-300/80 to-rose-400/80 rounded-full decorative-line" style={{ animationDelay: '0.5s' }}></div>
+              </div>
             </div>
-            {/* Linha decorativa abaixo do título */}
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full animate-pulse"></div>
           </div>
         </div>
 

@@ -35,14 +35,33 @@ const Portfolio = () => {
   return (
     <div className='mb-[10vh] py-16' id='projects'>
       <div id="wrapper" className="text-center mb-[10vh]">
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <span className="text-4xl animate-wiggle">🐱</span>
-          <h1 className="diary-title text-4xl md:text-6xl font-handwriting">
-            Projetos
-          </h1>
-          <span className="text-4xl animate-wiggle">🐱</span>
+        <div className="relative inline-block">
+          {/* Container principal do título sem bordas e background */}
+          <div className="relative px-10 py-8">
+            
+            {/* Título principal */}
+            <div className="relative z-10 flex items-center justify-center">
+              <h1 
+                className="diary-title text-4xl md:text-6xl lg:text-7xl font-handwriting relative z-10"
+                data-text="Projetos"
+              >
+                Projetos
+              </h1>
+            </div>
+            
+            {/* Linha decorativa moderna melhorada */}
+            <div className="relative z-10 flex items-center justify-center gap-3">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent via-pink-300/80 to-pink-400/80 rounded-full decorative-line"></div>
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
+                <div className="w-2 h-2 rounded-full bg-gradient-to-br from-rose-300 to-pink-300 decorative-dot"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
+              </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent via-rose-300/80 to-rose-400/80 rounded-full decorative-line" style={{ animationDelay: '0.5s' }}></div>
+            </div>
+          </div>
         </div>
-        <p className="diary-text text-lg md:text-xl">Meus trabalhos favoritos 💕</p>
+        <p className="diary-text text-lg md:text-xl mt-6">Meus trabalhos favoritos</p>
       </div>
 
       <div ref={aboutRef}>

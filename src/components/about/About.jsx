@@ -16,26 +16,33 @@ const About = () => {
       className="relative py-24 overflow-hidden"
       id='about'
     >
-      {/* Decorações de gatos */}
-      <div className="absolute top-10 left-10 text-4xl opacity-20 animate-float-cat pointer-events-none">
-        <FaCat className="text-primary" />
-      </div>
-      <div className="absolute top-20 right-20 text-3xl opacity-20 animate-wiggle pointer-events-none">
-        <span>🐾</span>
-      </div>
-      <div className="absolute bottom-10 left-20 text-3xl opacity-20 animate-bounce-cute pointer-events-none">
-        <span>💕</span>
-      </div>
 
       <div className="relative z-[1] max-w-[1400px] mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
           <div className="relative inline-block">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="text-4xl animate-wiggle">🐱</span>
-              <h1 className="diary-title text-4xl md:text-6xl font-handwriting">
-                Sobre Mim
-              </h1>
-              <span className="text-4xl animate-wiggle">🐱</span>
+            {/* Container principal do título sem bordas e background */}
+            <div className="relative px-10 py-8">
+              
+              {/* Título principal */}
+              <div className="relative z-10 flex items-center justify-center">
+                <h1 
+                  className="diary-title text-4xl md:text-6xl lg:text-7xl font-handwriting relative z-10"
+                  data-text="Sobre Mim"
+                >
+                  Sobre Mim
+                </h1>
+              </div>
+              
+              {/* Linha decorativa moderna melhorada */}
+              <div className="relative z-10 flex items-center justify-center gap-3">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent via-pink-300/80 to-pink-400/80 rounded-full decorative-line"></div>
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-br from-rose-300 to-pink-300 decorative-dot"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent via-rose-300/80 to-rose-400/80 rounded-full decorative-line" style={{ animationDelay: '0.5s' }}></div>
+              </div>
             </div>
           </div>
         </div>
@@ -116,11 +123,8 @@ const About = () => {
             }}></div>
             {/* Título na capa */}
             <div className="absolute top-1/2 right-8 transform translate-y-1/2 -rotate-90 origin-center text-white font-handwriting text-xl md:text-2xl font-bold opacity-90 whitespace-nowrap">
-              Meu Diário 💕
+              Meu Diário
             </div>
-            {/* Decoração na capa */}
-            <div className="absolute top-8 right-8 text-3xl opacity-60 animate-wiggle">🐱</div>
-            <div className="absolute bottom-8 right-8 text-2xl opacity-60 animate-bounce-cute">🐾</div>
           </div>
           
           {/* Container do diário aberto (páginas abertas) */}
@@ -180,17 +184,10 @@ const About = () => {
                     className="w-48 md:w-64 h-auto rounded-full border-4 border-primary-light shadow-[0_10px_30px_rgba(255,105,180,0.3),0_0_0_2px_rgba(255,182,217,0.5)] animate-float-cat hover:scale-105 transition-transform duration-300 relative z-10"
                     style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))' }}
                   />
-                  <div className="absolute -top-2 -right-2 text-3xl animate-wiggle z-20">🐱</div>
-                  <div className="absolute -bottom-2 -left-2 text-2xl animate-bounce-cute z-20">🐾</div>
                 </div>
                 <p className="diary-text text-center text-lg md:text-xl font-handwriting mt-4 relative z-10">
-                  Minha foto favorita 💕
+                  Minha foto favorita
                 </p>
-                
-                {/* Anotação decorativa */}
-                <div className="absolute bottom-8 left-8 text-sm font-handwriting text-primary-dark/60 italic transform -rotate-6">
-                  <span className="text-2xl">✨</span> Adorei essa foto!
-                </div>
               </div>
             </div>
 
@@ -293,7 +290,7 @@ const About = () => {
                 
                 {/* Anotação decorativa */}
                 <div className="absolute bottom-8 right-8 text-sm font-handwriting text-primary-dark/60 italic transform rotate-6">
-                  <span className="text-2xl">💕</span> Meu diário!
+                  Meu diário!
                 </div>
               </div>
             </div>

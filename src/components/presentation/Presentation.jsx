@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaCat } from 'react-icons/fa';
 
 const Presentation = () => {
   return (
@@ -220,10 +219,6 @@ const Presentation = () => {
                   {/* Círculos concêntricos decorativos */}
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-200/50 via-rose-300/40 to-pink-400/30 rounded-full blur-2xl animate-pulse"></div>
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-200/40 via-pink-300/30 to-rose-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                  {/* Ícone central */}
-                  <div className="relative z-10 bg-gradient-to-br from-white via-pink-50 to-rose-50 p-5 rounded-full border-2 border-pink-200/60 shadow-2xl backdrop-blur-sm">
-                    <FaCat className="text-3xl md:text-4xl bg-gradient-to-br from-primary-dark via-primary to-pink-500 bg-clip-text text-transparent animate-float-cat" />
-                  </div>
                 </div>
               </div>
             </div>

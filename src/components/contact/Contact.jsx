@@ -74,19 +74,38 @@ const Contact = () => {
   return (
     <div className="flex flex-col justify-center items-center py-16" id='contact'>
         <div id="wrapper" className="text-center mb-7">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="text-4xl animate-wiggle">💌</span>
-            <h1 className="diary-title text-4xl md:text-6xl font-handwriting">
-              Fale Comigo
-            </h1>
-            <span className="text-4xl animate-wiggle">💌</span>
+          <div className="relative inline-block">
+            {/* Container principal do título sem bordas e background */}
+            <div className="relative px-10 py-8">
+              
+              {/* Título principal */}
+              <div className="relative z-10 flex items-center justify-center">
+                <h1 
+                  className="diary-title text-4xl md:text-6xl lg:text-7xl font-handwriting relative z-10"
+                  data-text="Fale Comigo"
+                >
+                  Fale Comigo
+                </h1>
+              </div>
+              
+              {/* Linha decorativa moderna melhorada */}
+              <div className="relative z-10 flex items-center justify-center gap-3">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent via-pink-300/80 to-pink-400/80 rounded-full decorative-line"></div>
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-br from-rose-300 to-pink-300 decorative-dot"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent via-rose-300/80 to-rose-400/80 rounded-full decorative-line" style={{ animationDelay: '0.5s' }}></div>
+              </div>
+            </div>
           </div>
         </div>
-        <p className="diary-text text-lg md:text-xl mb-8 px-5 md:px-10">Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados e entre em contato comigo. 💕</p>
+        <p className="diary-text text-lg md:text-xl mb-8 px-5 md:px-10">Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados e entre em contato comigo.</p>
 
         <form className="diary-page flex flex-col justify-center items-center py-8 mt-[5vh] w-[90vw] md:w-[60vw] relative transition-all duration-300 hover:scale-105" onSubmit={handleSubmit(onSubmit)} ref={aboutRef}>
           <label className="flex flex-col mb-5 w-full">
-            <span className="diary-text font-handwriting mb-2">🐾 Seu nome:</span>
+            <span className="diary-text font-handwriting mb-2">Seu nome:</span>
             <input 
               className="py-2.5 px-2.5 text-base bg-white mt-2.5 border-2 border-primary-light rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-light text-primary-dark font-handwriting" 
               type="text" 
@@ -106,7 +125,7 @@ const Contact = () => {
           </label>
 
           <label className="flex flex-col mb-5 w-full">
-            <span className="diary-text font-handwriting mb-2">📧 Seu email:</span>
+            <span className="diary-text font-handwriting mb-2">Seu email:</span>
             <input 
               className="py-2.5 px-2.5 text-base bg-white mt-2.5 border-2 border-primary-light rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-light text-primary-dark font-handwriting" 
               type="email" 
@@ -126,7 +145,7 @@ const Contact = () => {
           </label>
 
           <label className="flex flex-col mb-5 w-full">
-            <span className="diary-text font-handwriting mb-2">💌 Assunto:</span>
+            <span className="diary-text font-handwriting mb-2">Assunto:</span>
             <input 
               className="py-2.5 px-2.5 text-base bg-white mt-2.5 border-2 border-primary-light rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-light text-primary-dark font-handwriting" 
               type="text" 
@@ -146,7 +165,7 @@ const Contact = () => {
           </label>
 
           <label className="flex flex-col mb-5 w-full">
-            <span className="diary-text font-handwriting mb-2">✉️ Sua mensagem:</span>
+            <span className="diary-text font-handwriting mb-2">Sua mensagem:</span>
             <textarea 
               className="py-2.5 px-2.5 text-base bg-white mt-2.5 border-2 border-primary-light rounded-lg h-24 resize-none font-handwriting focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-light text-primary-dark" 
               {...register('mensagem', { 
@@ -187,16 +206,14 @@ const Contact = () => {
           </button>
 
           {formStatus === 'success' && (
-            <p className="mt-[5vh] text-primary-dark font-handwriting font-bold text-lg animate-fade-in flex items-center gap-2">
-              <span className="text-2xl">💕</span> Email enviado com sucesso!
+            <p className="mt-[5vh] text-primary-dark font-handwriting font-bold text-lg animate-fade-in">
+              Email enviado com sucesso!
             </p>
           )}
 
           {formStatus === 'error' && (
             <div className="mt-[5vh] text-primary-dark font-handwriting font-bold animate-fade-in">
-              <p className="flex items-center gap-2">
-                <span className="text-2xl">😿</span> Erro ao enviar o email.
-              </p>
+              <p>Erro ao enviar o email.</p>
               {errorMessage && (
                 <p className="text-sm mt-2 opacity-90 font-normal">{errorMessage}</p>
               )}
