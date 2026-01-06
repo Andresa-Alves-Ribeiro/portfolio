@@ -571,7 +571,6 @@
     0 10px 30px rgba(255, 182, 217, 0.1),
     inset 0 0 30px rgba(255, 182, 217, 0.08),
     0 0 0 1px rgba(255, 182, 217, 0.2);
-  animation: diaryPage 6s ease-in-out infinite;
   position: relative;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
