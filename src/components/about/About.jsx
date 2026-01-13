@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import { FaCat } from 'react-icons/fa';
-import MyPicture from '../../assets/minha-foto.png';
+import MyPicture from '../../assets/minha-foto.jpeg';
 import CV from '../../assets/cv.pdf';
 
 /**
