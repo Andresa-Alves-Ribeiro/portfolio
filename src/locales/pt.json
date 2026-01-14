@@ -105,7 +105,29 @@
     "projectNotFound": "Projeto não encontrado",
     "projectNotFoundDescription": "Desculpe, o projeto que você está procurando não foi encontrado.",
     "viewLiveDemo": "Ver demonstração ao vivo do projeto",
-    "viewSourceCode": "Ver código fonte do projeto no GitHub"
+    "viewSourceCode": "Ver código fonte do projeto no GitHub",
+    "projectImageAlt": "Imagem do projeto",
+    "vercelLogoAlt": "Logo Vercel - Ver demonstração ao vivo",
+    "githubLogoAlt": "Logo GitHub - Ver código fonte",
+    "descriptions": {
+      "spiderverse": "O objetivo deste projeto é uma aplicação interativa inspirada no universo do Homem-Aranha.",
+      "expertNotes": "Esse projeto é uma aplicação interativa para a criação de notas por meio da fala e da escrita.",
+      "currencyConverter": "Esse projeto é um sistema web que utiliza a API exchangerate.host para mostrar gráficos com a cotação do real em relação a outras moedas (dólar, euro e libra) ao longo de uma semana.",
+      "letmeask": "Letmeask é perfeito para criadores de conteúdos poderem criar salas de Q&A com o seu público, de uma forma muito organizada e democrática.",
+      "imcProject": "IMC Project é uma página que calcula o IMC de uma pessoa de acordo com a altura e peso do usuário.",
+      "habits": "Habits é uma página com a funcionalidade de mostrar o resultado de uma gestão de tarefas baseado nos projetos criados e selecionados em cada dia.",
+      "calculator": "Projeto de uma calculadora que faz cálculos básicos.",
+      "devFinder": "DevFinder é um buscador de usuários do gitHub, utilizando a API disponibilizada pelo próprio gitHub.",
+      "rocketpay": "Rocketpay é uma página que simula o formulário de preenchimento de cartão de crédito.",
+      "doctorCare": "DoctorCare é uma página institucional de uma empresa de assistência médica.",
+      "beautySalon": "Beauty Salon é uma página institucional de um salão de beleza.",
+      "jsExpert": "Controlando plataformas de streaming usando detecção de olhos e mãos.",
+      "resgate": "Resgate é um jogo para navegadores que consiste em resgatar reféns que estão no solo.",
+      "netflixClone": "Recriando Netfilx é uma página clone do design do streaming Netflix.",
+      "ipTracker": "IP Address Tracker é uma página que mostra a sua localização pelo seu IP e permite buscas por outros IPs.",
+      "destinyRevealer": "Revelador de destino é uma página que responde o seu destino baseado em uma pergunta.",
+      "marvelProject": "Este projeto foi inspirado em telas de jogos dos anos 90/2000, em que se pode selecionar o seu personagem preferido, diante de várias opções, para jogar. Escolhi os personagens da Marvel para a lista de personagens."
+    }
   },
   "notFound": {
     "title": "Página não encontrada",

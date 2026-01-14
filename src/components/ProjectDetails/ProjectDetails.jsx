@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Github from '../../assets/github.svg';
 import Vercel from '../../assets/vercel.svg';
 import Loading from '../loading';
+import Header from '../header';
 
 /**
  * Componente que exibe os detalhes de um projeto específico
@@ -18,6 +19,7 @@ const ProjectDetails = () => {
   const [notFound, setNotFound] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const fetchProjectDetails = async () => {
@@ -43,6 +45,20 @@ const ProjectDetails = () => {
     fetchProjectDetails();
   }, [title]);
 
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / (globalThis.innerWidth || 1920)) * 100,
+        y: (e.clientY / (globalThis.innerHeight || 1080)) * 100,
+      });
+    };
+
+    if (globalThis.window !== undefined) {
+      globalThis.window.addEventListener('mousemove', handleMouseMove);
+      return () => globalThis.window.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, []);
+
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -64,14 +80,45 @@ const ProjectDetails = () => {
 
   if (notFound || !project) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-bg-dark text-white px-4">
-        <div className="max-w-2xl w-full text-center">
+      <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f] text-white px-4 overflow-hidden">
+        {/* Header */}
+        <Header isInPresentation={false} showNavLinks={true} />
+        {/* Grid tecnológico de fundo */}
+        <div className="absolute inset-0 tech-grid opacity-20"></div>
+        
+        {/* Efeito de luz que segue o mouse */}
+        <div 
+          className="absolute w-96 h-96 rounded-full blur-3xl pointer-events-none transition-all duration-300"
+          style={{
+            left: `${mousePosition.x}%`,
+            top: `${mousePosition.y}%`,
+            transform: 'translate(-50%, -50%)',
+            background: 'radial-gradient(circle, rgba(255, 20, 147, 0.2) 0%, rgba(255, 20, 147, 0.1) 50%, transparent 100%)',
+          }}
+        ></div>
+
+        {/* Linhas de conexão animadas */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {Array.from({ length: 5 }, (_, i) => (
+            <div
+              key={`notfound-line-${i}`}
+              className="absolute w-px h-full bg-gradient-to-b from-transparent via-pink-500/30 to-transparent"
+              style={{
+                left: `${20 + i * 20}%`,
+                animation: `pulse ${3 + i * 0.5}s ease-in-out infinite`,
+                animationDelay: `${i * 0.3}s`,
+              }}
+            ></div>
+          ))}
+        </div>
+
+        <div className="relative z-10 max-w-2xl w-full text-center">
           <div className="mb-8">
-            <h1 className="text-6xl mb-4">🔍</h1>
-            <h2 className="text-3xl font-bold mb-4 text-primary">
+            <h1 className="text-6xl mb-4 neon-text">🔍</h1>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
               {t('projectDetails.projectNotFound')}
             </h2>
-            <p className="text-lg text-gray-300 mb-6">
+            <p className="text-lg text-white/70 mb-6">
               {t('projectDetails.projectNotFoundDescription')}
             </p>
           </div>
@@ -79,89 +126,229 @@ const ProjectDetails = () => {
           <div className="flex gap-4 justify-center">
             <button
               onClick={handleGoBack}
-              className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-variant transition-colors duration-300"
+              className="group relative px-6 py-3 border-2 border-pink-500 text-white font-semibold tracking-wider uppercase transition-all duration-300 hover:bg-pink-500 hover:shadow-[0_0_30px_rgba(255,20,147,0.5)] hover:scale-105 overflow-hidden"
             >
-              {t('common.back')}
+              <span className="relative z-10">{t('common.back')}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
             <a
               href="/"
-              className="bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors duration-300 no-underline"
+              className="group relative px-6 py-3 border-2 border-white/30 text-white font-semibold tracking-wider uppercase transition-all duration-300 hover:border-pink-500 hover:shadow-[0_0_30px_rgba(255,20,147,0.5)] hover:scale-105 overflow-hidden no-underline"
             >
-              {t('common.goHome')}
+              <span className="relative z-10">{t('common.goHome')}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-rose-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
           </div>
+        </div>
+
+        {/* Partículas flutuantes */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {Array.from({ length: 20 }, (_, i) => {
+            const randomSize = Math.random() * 4 + 2;
+            const randomLeft = Math.random() * 100;
+            const randomTop = Math.random() * 100;
+            const randomDuration = Math.random() * 3 + 2;
+            const randomDelay = Math.random() * 2;
+            return (
+              <div
+                key={`notfound-particle-${i}-${randomLeft}-${randomTop}`}
+                className="absolute rounded-full bg-pink-500/20"
+                style={{
+                  width: `${randomSize}px`,
+                  height: `${randomSize}px`,
+                  left: `${randomLeft}%`,
+                  top: `${randomTop}%`,
+                  animation: `float ${randomDuration}s ease-in-out infinite`,
+                  animationDelay: `${randomDelay}s`,
+                }}
+              ></div>
+            );
+          })}
         </div>
       </div>
     );
   }
 
   return (
-    <div className="h-screen -mb-[15vh] flex justify-center items-center text-primary bg-gradient-to-r from-[#ff77c2] via-[#ff69b4] via-[#ff3ad2] via-[#ff88e4] via-[#ff00c1] to-[#b12a84] border-b-2 border-[#ff88e4] md:mt-[20vh] md:pb-[20vh] md:pt-[24vh]">
-      <div className="flex justify-center items-center max-w-[1200px] h-3/4 mt-[10vh] bg-[#fcdcf9] rounded-[20px] shadow-[0px_8px_40px_rgba(0,0,0,0.9)] flex-col md:flex-row md:h-auto md:p-5">
-        <div className="relative w-full md:w-[30%] mb-5 md:mb-0">
-          {!imageLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-t-[20px] md:rounded-l-[20px] md:rounded-tr-none">
-              <Loading size="sm" text="" />
+    <div className="relative min-h-screen flex justify-center items-center bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f] overflow-hidden py-20 px-4">
+      {/* Header */}
+      <Header isInPresentation={false} showNavLinks={true} />
+      {/* Grid tecnológico de fundo */}
+      <div className="absolute inset-0 tech-grid opacity-20"></div>
+      
+      {/* Efeito de luz que segue o mouse */}
+      <div 
+        className="absolute w-96 h-96 rounded-full blur-3xl pointer-events-none transition-all duration-300"
+        style={{
+          left: `${mousePosition.x}%`,
+          top: `${mousePosition.y}%`,
+          transform: 'translate(-50%, -50%)',
+          background: 'radial-gradient(circle, rgba(255, 20, 147, 0.2) 0%, rgba(255, 20, 147, 0.1) 50%, transparent 100%)',
+        }}
+      ></div>
+
+      {/* Linhas de conexão animadas */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {Array.from({ length: 5 }, (_, i) => (
+          <div
+            key={`line-${i}`}
+            className="absolute w-px h-full bg-gradient-to-b from-transparent via-pink-500/30 to-transparent"
+            style={{
+              left: `${20 + i * 20}%`,
+              animation: `pulse ${3 + i * 0.5}s ease-in-out infinite`,
+              animationDelay: `${i * 0.3}s`,
+            }}
+          ></div>
+        ))}
+      </div>
+
+      {/* Card principal com glass effect */}
+      <div className="relative z-10 max-w-6xl w-full mx-auto">
+        <div className="glass-effect rounded-3xl shadow-[0_8px_32px_rgba(255,20,147,0.2)] border border-pink-500/30 overflow-hidden backdrop-blur-xl">
+          <div className="flex flex-col lg:flex-row">
+            {/* Seção da imagem */}
+            <div className="relative w-full lg:w-[40%] min-h-[300px] lg:min-h-[500px] overflow-hidden">
+              {/* Efeito de brilho na borda da imagem */}
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-transparent to-rose-500/20 pointer-events-none"></div>
+              
+              {!imageLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a0f]/50 backdrop-blur-sm">
+                  <Loading size="sm" text="" />
+                </div>
+              )}
+              {imageError ? (
+                <div className="w-full h-full bg-[#0a0a0f]/50 backdrop-blur-sm flex items-center justify-center text-white/50 border-r border-pink-500/30">
+                  <span className="text-sm">{t('projectDetails.imageNotAvailable')}</span>
+                </div>
+              ) : (
+                <img 
+                  src={project.image} 
+                  alt={`${t('projectDetails.projectImageAlt')} ${project.title}`}
+                  loading="lazy"
+                  onLoad={handleImageLoad}
+                  onError={handleImageError}
+                  className={`w-full h-full object-cover transition-opacity duration-500 ${
+                    imageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              )}
+              
+              {/* Overlay gradiente na imagem */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/80 via-transparent to-transparent pointer-events-none"></div>
             </div>
-          )}
-          {imageError ? (
-            <div className="w-full h-64 bg-gray-300 rounded-t-[20px] md:rounded-l-[20px] md:rounded-tr-none flex items-center justify-center text-gray-500">
-              <span>{t('projectDetails.imageNotAvailable')}</span>
-            </div>
-          ) : (
-            <img 
-              src={project.image} 
-              alt={`Imagem do projeto ${project.title}`}
-              loading="lazy"
-              onLoad={handleImageLoad}
-              onError={handleImageError}
-              className={`w-full h-auto object-cover rounded-t-[20px] md:rounded-l-[20px] md:rounded-tr-none transition-opacity duration-300 ${
-                imageLoaded ? 'opacity-100 animate-[imageFade_1s_ease-in-out]' : 'opacity-0'
-              }`}
-            />
-          )}
-        </div>
 
-        <div className="w-full md:w-[70%] h-full p-5 md:p-12 flex flex-col justify-center animate-[infoFade_1s_ease-in-out] [animation-delay:0.8s] [animation-fill-mode:backwards]">
-          <button 
-            onClick={handleGoBack}
-            aria-label={t('common.back')}
-            className="bg-primary text-white text-xs md:text-sm no-underline flex py-2 px-4 transition-all duration-300 cursor-pointer uppercase tracking-[2px] font-extrabold text-center mb-4 relative overflow-hidden hover:no-underline hover:-translate-y-0.5 hover:rotate-x-[2deg] hover:rotate-y-[2deg] before:content-[''] before:block before:absolute before:-top-[10%] before:-left-[10%] before:-right-[10%] before:-bottom-[10%] before:bg-gradient-to-b before:from-[#ff3ad2] before:via-[#ff88e4] before:to-[#ff00c1] before:rotate-x-[60deg] before:rotate-y-[60deg] before:scale-0 before:transition-all before:duration-500 before:-z-10 before:opacity-50 hover:before:rotate-x-0 hover:before:rotate-y-0 hover:before:scale-100 hover:before:opacity-100"
-          >
-            {t('common.back')}
-          </button>
-
-          <div className='flex flex-col justify-center h-full'>
-            <h2 className="text-2xl md:text-4xl mb-5 text-black uppercase tracking-[2px] text-center md:text-left">{project.title}</h2>
-
-            <p className="text-lg mb-5 text-[#777] uppercase tracking-[2px] font-bold text-center md:text-left">{project.stacks.join(', ')}</p>
-
-            <p className="text-base mb-10 leading-relaxed text-[#333] p-5 md:p-0 text-justify">{project.description}</p>
-
-            <div className="flex justify-around items-center">
-              <a 
-                href={project.liveDemoUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label={`${t('projectDetails.viewLiveDemo')} ${project.title}`}
-                className="w-1/4 md:w-[25%] hover:animate-[pulseProject_0.5s_infinite_alternate]"
+            {/* Seção de informações */}
+            <div className="w-full lg:w-[60%] p-6 md:p-8 lg:p-12 flex flex-col justify-between">
+              {/* Botão voltar */}
+              <button 
+                onClick={handleGoBack}
+                aria-label={t('common.back')}
+                className="group relative mb-6 px-4 py-2 border-2 border-pink-500/50 text-white text-xs md:text-sm uppercase tracking-wider font-semibold transition-all duration-300 hover:border-pink-500 hover:bg-pink-500/20 hover:shadow-[0_0_20px_rgba(255,20,147,0.5)] hover:scale-105 overflow-hidden self-start"
               >
-                <img src={Vercel} alt="Logo Vercel - Ver demonstração ao vivo" className="w-full" />
-              </a>
+                <span className="relative z-10 flex items-center gap-2">
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  {t('common.back')}
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
 
-              <a 
-                href={project.repoUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label={`${t('projectDetails.viewSourceCode')} ${project.title}`}
-                className="w-[13%] md:w-[13%] hover:animate-[pulseProject_0.5s_infinite_alternate]"
-              >
-                <img src={Github} alt="Logo GitHub - Ver código fonte" className="w-full" />
-              </a>
+              <div className='flex flex-col justify-center h-full space-y-6'>
+                {/* Título */}
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-wider">
+                  <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
+                    {project.title}
+                  </span>
+                </h2>
+
+                {/* Stacks */}
+                <div className="flex flex-wrap gap-2">
+                  {project.stacks.map((stack) => (
+                    <span
+                      key={stack}
+                      className="px-3 py-1.5 glass-effect border border-pink-500/30 text-pink-400 text-xs md:text-sm font-semibold rounded-full uppercase tracking-wider transition-all duration-300 hover:border-pink-500 hover:text-pink-300 hover:shadow-[0_0_15px_rgba(255,20,147,0.3)]"
+                    >
+                      {stack}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Descrição */}
+                <p className="text-base md:text-lg leading-relaxed text-white/80">
+                  {project.descriptionKey ? t(project.descriptionKey) : project.description}
+                </p>
+
+                {/* Links */}
+                <div className="flex gap-6 items-center pt-4">
+                  <a 
+                    href={project.liveDemoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label={`${t('projectDetails.viewLiveDemo')} ${project.title}`}
+                    className="group relative flex items-center justify-center w-16 h-16 md:w-20 md:h-20 glass-effect border border-pink-500/30 rounded-full transition-all duration-300 hover:border-pink-500 hover:shadow-[0_0_25px_rgba(255,20,147,0.5)] hover:scale-110"
+                  >
+                    <img 
+                      src={Vercel} 
+                      alt={t('projectDetails.vercelLogoAlt')} 
+                      className="w-10 h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-pink-500/10 rounded-full opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300"></div>
+                  </a>
+
+                  <a 
+                    href={project.repoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label={`${t('projectDetails.viewSourceCode')} ${project.title}`}
+                    className="group relative flex items-center justify-center w-16 h-16 md:w-20 md:h-20 glass-effect border border-pink-500/30 rounded-full transition-all duration-300 hover:border-pink-500 hover:shadow-[0_0_25px_rgba(255,20,147,0.5)] hover:scale-110"
+                  >
+                    <img 
+                      src={Github} 
+                      alt={t('projectDetails.githubLogoAlt')} 
+                      className="w-10 h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-pink-500/10 rounded-full opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300"></div>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Partículas flutuantes */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {Array.from({ length: 20 }, () => {
+          const randomSize = Math.random() * 4 + 2;
+          const randomLeft = Math.random() * 100;
+          const randomTop = Math.random() * 100;
+          const randomDuration = Math.random() * 3 + 2;
+          const randomDelay = Math.random() * 2;
+          const uniqueId = `${randomLeft}-${randomTop}-${randomSize}-${randomDuration}`;
+          return (
+            <div
+              key={`particle-${uniqueId}`}
+              className="absolute rounded-full bg-pink-500/20"
+              style={{
+                width: `${randomSize}px`,
+                height: `${randomSize}px`,
+                left: `${randomLeft}%`,
+                top: `${randomTop}%`,
+                animation: `float ${randomDuration}s ease-in-out infinite`,
+                animationDelay: `${randomDelay}s`,
+              }}
+            ></div>
+          );
+        })}
+      </div>
+
+      <style>{`
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+      `}</style>
     </div>
   );
 };

@@ -2,11 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReactCountryFlag from 'react-country-flag';
 
-/**
- * Componente seletor de idioma com bandeiras
- * @returns {JSX.Element} Seletor de idioma
- */
-const LanguageSelector = ({ isInPresentation = false }) => {
+const LanguageSelector = () => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng) => {

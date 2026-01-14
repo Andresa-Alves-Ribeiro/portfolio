@@ -105,7 +105,29 @@
     "projectNotFound": "Project not found",
     "projectNotFoundDescription": "Sorry, the project you are looking for was not found.",
     "viewLiveDemo": "View live demo of project",
-    "viewSourceCode": "View source code of project on GitHub"
+    "viewSourceCode": "View source code of project on GitHub",
+    "projectImageAlt": "Project image",
+    "vercelLogoAlt": "Vercel logo - View live demo",
+    "githubLogoAlt": "GitHub logo - View source code",
+    "descriptions": {
+      "spiderverse": "The goal of this project is an interactive application inspired by the Spider-Man universe.",
+      "expertNotes": "This project is an interactive application for creating notes through speech and writing.",
+      "currencyConverter": "This project is a web system that uses the exchangerate.host API to display charts with the Brazilian Real exchange rate against other currencies (dollar, euro, and pound) over a week.",
+      "letmeask": "Letmeask is perfect for content creators to create Q&A rooms with their audience in a very organized and democratic way.",
+      "imcProject": "IMC Project is a page that calculates a person's BMI according to the user's height and weight.",
+      "habits": "Habits is a page with the functionality to show the result of task management based on projects created and selected each day.",
+      "calculator": "A calculator project that performs basic calculations.",
+      "devFinder": "DevFinder is a GitHub user search tool using the API provided by GitHub itself.",
+      "rocketpay": "Rocketpay is a page that simulates a credit card filling form.",
+      "doctorCare": "DoctorCare is an institutional page for a healthcare company.",
+      "beautySalon": "Beauty Salon is an institutional page for a beauty salon.",
+      "jsExpert": "Controlling streaming platforms using eye and hand detection.",
+      "resgate": "Resgate is a browser game that consists of rescuing hostages on the ground.",
+      "netflixClone": "Recriando Netfilx is a clone page of the Netflix streaming design.",
+      "ipTracker": "IP Address Tracker is a page that shows your location by your IP and allows searches for other IPs.",
+      "destinyRevealer": "Destiny Revealer is a page that answers your destiny based on a question.",
+      "marvelProject": "This project was inspired by game screens from the 90s/2000s, where you can select your favorite character from various options to play. I chose Marvel characters for the character list."
+    }
   },
   "notFound": {
     "title": "Page not found",
