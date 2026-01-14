@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { scrollToElement } from '../../utils/helpers';
 import InicialLogo from '../../assets/iniciais.png';
 import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
 import { ReactComponent as GithubIcon } from '../../assets/github-nav.svg';
 import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
 import { APP_CONFIG } from '../../constants/config';
+import LanguageSelector from '../languageSelector';
 
 const Presentation = () => {
+  const { t } = useTranslation();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isInPresentation, setIsInPresentation] = useState(true);
 
@@ -100,11 +103,11 @@ const Presentation = () => {
           <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
             <div className="hidden md:flex items-center gap-3 lg:gap-4">
               {[
-                { label: 'ABOUT', href: '#about' },
-                { label: 'TIMELINE', href: '#timeline' },
-                { label: 'SKILLS', href: '#skills' },
-                { label: 'PROJECTS', href: '#projects' },
-                { label: 'CONTACT', href: '#contact' }
+                { label: t('nav.about'), href: '#about' },
+                { label: t('nav.timeline'), href: '#timeline' },
+                { label: t('nav.skills'), href: '#skills' },
+                { label: t('nav.projects'), href: '#projects' },
+                { label: t('nav.contact'), href: '#contact' }
               ].map((item, index) => (
                 <React.Fragment key={item.label}>
                   <a
@@ -167,6 +170,9 @@ const Presentation = () => {
                 <span className="absolute inset-0 bg-pink-500/20 rounded-full opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"></span>
               </a>
             </div>
+
+            {/* Seletor de idioma no final do header */}
+            <LanguageSelector isInPresentation={isInPresentation} />
           </div>
         </div>
       </nav>
@@ -178,21 +184,21 @@ const Presentation = () => {
           {/* Badge superior */}
           <div className="mb-8 px-4 py-2 glass-effect rounded-full border border-pink-500/30">
             <span className="text-xs md:text-sm text-pink-400 font-medium tracking-wider">
-              FRONT END DEVELOPER
+              {t('presentation.badge')}
             </span>
           </div>
 
           {/* Título principal com efeito neon */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 tracking-tight leading-tight">
-            <span className="block mb-2 neon-text">Crafting Digital</span>
+            <span className="block mb-2 neon-text">{t('presentation.title1')}</span>
             <span className="block bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
-              Experiences
+              {t('presentation.title2')}
             </span>
           </h1>
 
           {/* Subtítulo */}
           <p className="text-lg md:text-xl lg:text-2xl text-white/70 mb-12 font-light tracking-wide max-w-2xl">
-            Developing innovative solutions with code and creativity
+            {t('presentation.subtitle')}
           </p>
 
           {/* Botão CTA */}
@@ -200,7 +206,7 @@ const Presentation = () => {
             onClick={scrollToAbout}
             className="group relative px-8 py-4 md:px-10 md:py-5 border-2 border-pink-500 text-white font-semibold text-base md:text-lg tracking-wider uppercase transition-all duration-300 hover:bg-pink-500 hover:shadow-[0_0_30px_rgba(255,20,147,0.5)] hover:scale-105 overflow-hidden"
           >
-            <span className="relative z-10">Explore</span>
+            <span className="relative z-10">{t('common.explore')}</span>
             <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="absolute inset-0 bg-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
@@ -210,7 +216,7 @@ const Presentation = () => {
             <button
               onClick={scrollToAbout}
               className="group relative text-white/60 transition-all duration-300"
-              aria-label="Scroll down"
+              aria-label={t('common.scrollDown')}
             >
               <svg className="w-6 h-6 transition-all duration-300 group-hover:text-pink-500 group-hover:scale-110 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />

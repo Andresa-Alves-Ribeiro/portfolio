@@ -1,51 +1,53 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Timeline = () => {
+  const { t } = useTranslation();
   const [visibleItems, setVisibleItems] = useState([]);
 
   const experiences = [
     {
       year: '2022',
-      period: '2022',
-      title: 'IT Intern',
-      company: 'Integrance Finance and Consulting Services',
-      description: 'Beginning of career in technology, working on support for internal IT processes, participation in technical meetings and improvement of operational flows.',
+      period: t('timeline.experiences.2022.period'),
+      title: t('timeline.experiences.2022.title'),
+      company: t('timeline.experiences.2022.company'),
+      description: t('timeline.experiences.2022.description'),
       isCurrent: false,
       icon: '💻',
     },
     {
       year: '2023',
-      period: '2023-2024',
-      title: 'Front-End Developer',
-      company: 'Inova e-Business',
-      description: 'Focus on React.js and Next.js 13, with emphasis on e-commerce and marketplace projects. Worked with advanced forms, REST API integration, performance and SEO optimization, as well as direct collaboration with design and back-end teams.',
+      period: t('timeline.experiences.2023.period'),
+      title: t('timeline.experiences.2023.title'),
+      company: t('timeline.experiences.2023.company'),
+      description: t('timeline.experiences.2023.description'),
       isCurrent: false,
       icon: '⚛️',
     },
     {
       year: '2024',
-      period: '2024-2025',
-      title: 'Front-End Developer',
-      company: 'Wareline',
-      description: 'Development and maintenance of corporate systems using JSF, SASS and Bootstrap. Responsible for evolving features, improving user interface and translating Figma layouts into functional interfaces, working in an agile environment (Scrum and Kanban).',
+      period: t('timeline.experiences.2024.period'),
+      title: t('timeline.experiences.2024.title'),
+      company: t('timeline.experiences.2024.company'),
+      description: t('timeline.experiences.2024.description'),
       isCurrent: false,
       icon: '🎨',
     },
     {
       year: '2025',
-      period: '2025',
-      title: 'Full-stack Developer',
-      company: 'Logithink',
-      description: 'Working on end-to-end projects, developing web applications with React.js and Node.js. Worked with REST APIs, reusable components, React application optimization and environment standardization with Docker.',
+      period: t('timeline.experiences.2025-1.period'),
+      title: t('timeline.experiences.2025-1.title'),
+      company: t('timeline.experiences.2025-1.company'),
+      description: t('timeline.experiences.2025-1.description'),
       isCurrent: false,
       icon: '🚀',
     },
     {
       year: '2025',
-      period: '2025 - Atual',
-      title: 'Front-end Developer',
-      company: 'Mais Mottoristas',
-      description: 'Responsible for building, maintaining and optimizing front-end interfaces using React.js. Working on creating scalable components, implementing responsive and accessible layouts from Figma, bug fixes, performance improvements and continuous collaboration with designers and back-end.',
+      period: t('timeline.experiences.2025-2.period'),
+      title: t('timeline.experiences.2025-2.title'),
+      company: t('timeline.experiences.2025-2.company'),
+      description: t('timeline.experiences.2025-2.description'),
       isCurrent: true,
       icon: '💖',
     },
@@ -99,7 +101,7 @@ const Timeline = () => {
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
             >
               <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
-                Experiences
+                {t('timeline.title')}
               </span>
             </h1>
             
@@ -198,7 +200,7 @@ const Timeline = () => {
                               {experience.isCurrent && (
                                 <span className="text-xs font-semibold bg-gradient-to-r from-pink-500 to-rose-500 text-white px-3 py-1 rounded-lg shadow-md animate-pulse flex items-center gap-1.5 w-fit">
                                   <span>💖</span>
-                                  <span>Current</span>
+                                  <span>{t('common.current')}</span>
                                 </span>
                               )}
                             </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import ScrollReveal from 'scrollreveal';
 import { useForm } from 'react-hook-form';
 import { contactService } from '../../services/api';
@@ -8,6 +9,7 @@ import { contactService } from '../../services/api';
  * @returns {JSX.Element} Seção de contato com formulário
  */
 const Contact = () => {
+  const { t } = useTranslation();
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [formStatus, setFormStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -59,7 +61,7 @@ const Contact = () => {
       }, 5000);
     } catch (error) {
       setFormStatus('error');
-      setErrorMessage(error.message || 'Error sending email. Please try again.');
+      setErrorMessage(error.message || t('contact.errorTryAgain'));
       
       timeoutRef.current = setTimeout(() => {
         setFormStatus('');
@@ -85,7 +87,7 @@ const Contact = () => {
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
             >
               <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
-                Contact Me
+                {t('contact.title')}
               </span>
             </h1>
             
@@ -99,7 +101,7 @@ const Contact = () => {
         </div>
 
         <p className="text-center text-white/70 text-base md:text-lg mb-8 px-4">
-          Still have questions? Fill in the fields below with the following information and get in touch with me.
+          {t('contact.subtitle')}
         </p>
 
         {/* Formulário */}
@@ -110,7 +112,7 @@ const Contact = () => {
         >
           {/* Campo Nome */}
           <label className="flex flex-col mb-6">
-            <span className="text-white/90 font-medium mb-2 text-sm md:text-base">Your name:</span>
+            <span className="text-white/90 font-medium mb-2 text-sm md:text-base">{t('contact.name')}</span>
             <div className="relative">
               <input 
                 className={`w-full py-3 px-4 bg-white/5 border-2 rounded-lg focus:outline-none transition-all duration-300 text-white placeholder-white/30 font-medium ${
@@ -120,13 +122,13 @@ const Contact = () => {
                 }`}
                 type="text" 
                 {...register('nome', { 
-                  required: 'This field is required',
+                  required: t('contact.validation.required'),
                   minLength: {
                     value: 2,
-                    message: 'Name must be at least 2 characters'
+                    message: t('contact.validation.nameMinLength')
                   }
                 })} 
-                placeholder='Your name here' 
+                placeholder={t('contact.namePlaceholder')} 
                 disabled={isLoading}
                 onFocus={() => setFocusedField('nome')}
                 onBlur={() => setFocusedField(null)}
@@ -144,7 +146,7 @@ const Contact = () => {
 
           {/* Campo Email */}
           <label className="flex flex-col mb-6">
-            <span className="text-white/90 font-medium mb-2 text-sm md:text-base">Your email:</span>
+            <span className="text-white/90 font-medium mb-2 text-sm md:text-base">{t('contact.email')}</span>
             <div className="relative">
               <input 
                 className={`w-full py-3 px-4 bg-white/5 border-2 rounded-lg focus:outline-none transition-all duration-300 text-white placeholder-white/30 font-medium ${
@@ -154,13 +156,13 @@ const Contact = () => {
                 }`}
                 type="email" 
                 {...register('email', { 
-                  required: 'This field is required',
+                  required: t('contact.validation.required'),
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: 'Invalid email'
+                    message: t('contact.validation.invalidEmail')
                   }
                 })} 
-                placeholder='email@example.com' 
+                placeholder={t('contact.emailPlaceholder')} 
                 disabled={isLoading}
                 onFocus={() => setFocusedField('email')}
                 onBlur={() => setFocusedField(null)}
@@ -178,7 +180,7 @@ const Contact = () => {
 
           {/* Campo Assunto */}
           <label className="flex flex-col mb-6">
-            <span className="text-white/90 font-medium mb-2 text-sm md:text-base">Subject:</span>
+            <span className="text-white/90 font-medium mb-2 text-sm md:text-base">{t('contact.subject')}</span>
             <div className="relative">
               <input 
                 className={`w-full py-3 px-4 bg-white/5 border-2 rounded-lg focus:outline-none transition-all duration-300 text-white placeholder-white/30 font-medium ${
@@ -188,13 +190,13 @@ const Contact = () => {
                 }`}
                 type="text" 
                 {...register('assunto', { 
-                  required: 'This field is required',
+                  required: t('contact.validation.required'),
                   minLength: {
                     value: 3,
-                    message: 'Subject must be at least 3 characters'
+                    message: t('contact.validation.subjectMinLength')
                   }
                 })} 
-                placeholder='Subject' 
+                placeholder={t('contact.subjectPlaceholder')} 
                 disabled={isLoading}
                 onFocus={() => setFocusedField('assunto')}
                 onBlur={() => setFocusedField(null)}
@@ -212,7 +214,7 @@ const Contact = () => {
 
           {/* Campo Mensagem */}
           <label className="flex flex-col mb-6">
-            <span className="text-white/90 font-medium mb-2 text-sm md:text-base">Sua mensagem:</span>
+            <span className="text-white/90 font-medium mb-2 text-sm md:text-base">{t('contact.message')}</span>
             <div className="relative">
               <textarea 
                 className={`w-full py-3 px-4 bg-white/5 border-2 rounded-lg h-32 resize-none focus:outline-none transition-all duration-300 text-white placeholder-white/30 font-medium ${
@@ -221,13 +223,13 @@ const Contact = () => {
                     : 'border-pink-500/30'
                 }`}
                 {...register('mensagem', { 
-                  required: 'This field is required',
+                  required: t('contact.validation.required'),
                   minLength: {
                     value: 10,
-                    message: 'Message must be at least 10 characters'
+                    message: t('contact.validation.messageMinLength')
                   }
                 })} 
-                placeholder='Write your message here' 
+                placeholder={t('contact.messagePlaceholder')} 
                 disabled={isLoading}
                 onFocus={() => setFocusedField('mensagem')}
                 onBlur={() => setFocusedField(null)}
@@ -259,10 +261,10 @@ const Contact = () => {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Sending...
+                {t('common.sending')}
               </span>
             ) : (
-              <span className="relative z-10">Send Message</span>
+              <span className="relative z-10">{t('common.sendMessage')}</span>
             )}
             <div className="absolute inset-0 bg-gradient-to-r from-rose-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
@@ -271,14 +273,14 @@ const Contact = () => {
           {formStatus === 'success' && (
             <div className="mt-6 p-4 glass-effect border border-green-500/50 rounded-lg text-center">
               <p className="text-green-400 font-semibold text-base">
-                ✓ Email sent successfully!
+                {t('contact.success')}
               </p>
             </div>
           )}
 
           {formStatus === 'error' && (
             <div className="mt-6 p-4 glass-effect border border-red-500/50 rounded-lg text-center">
-              <p className="text-red-400 font-semibold text-base">Error sending email.</p>
+              <p className="text-red-400 font-semibold text-base">{t('contact.error')}</p>
               {errorMessage && (
                 <p className="text-sm mt-2 text-red-300 opacity-90">{errorMessage}</p>
               )}

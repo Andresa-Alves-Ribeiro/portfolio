@@ -1,4 +1,5 @@
 import React, { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
 import { ReactComponent as GithubIcon } from '../../assets/github-nav.svg';
 import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
@@ -10,6 +11,7 @@ import { scrollToElement } from '../../utils/helpers';
  * @returns {JSX.Element} Rodapé com informações de contato e links
  */
 const Footer = () => {
+    const { t } = useTranslation();
     const handleNavClick = useCallback((e) => {
         e.preventDefault();
         const targetId = e.target.closest('a').getAttribute('href')?.substring(1);
@@ -33,7 +35,7 @@ const Footer = () => {
                 <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2">
                         <span className="text-pink-500">📧</span>
-                        Contact
+                        {t('footer.contact')}
                     </h3>
                     <div className="space-y-4">
                         <div className="flex items-start gap-3">
@@ -57,14 +59,14 @@ const Footer = () => {
                 <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2">
                         <span className="text-pink-500">🔗</span>
-                        Links
+                        {t('footer.links')}
                     </h3>
                     <ul className="grid grid-cols-2 gap-3">
                         {[
-                            { href: '#about', label: 'About', icon: '💕' },
-                            { href: '#skills', label: 'Skills', icon: '✨' },
-                            { href: '#projects', label: 'Projects', icon: '🐱' },
-                            { href: '#contact', label: 'Contact', icon: '💌' },
+                            { href: '#about', label: t('nav.about'), icon: '💕' },
+                            { href: '#skills', label: t('nav.skills'), icon: '✨' },
+                            { href: '#projects', label: t('nav.projects'), icon: '🐱' },
+                            { href: '#contact', label: t('nav.contact'), icon: '💌' },
                         ].map((link) => (
                             <li key={link.href}>
                                 <a 
@@ -84,7 +86,7 @@ const Footer = () => {
                 <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2">
                         <span className="text-pink-500">🌐</span>
-                        Social Media
+                        {t('footer.socialMedia')}
                     </h3>
                     <div className="flex gap-4">
                         <a 
@@ -122,7 +124,7 @@ const Footer = () => {
             <div className="relative z-10 text-center w-full py-8 border-t border-pink-500/20 mt-8">
                 <p className="text-white/60 text-sm flex items-center justify-center gap-2">
                     <span>©</span>
-                    {new Date().getFullYear()} Andresa Alves. All rights reserved.
+                    {new Date().getFullYear()} Andresa Alves. {t('footer.allRightsReserved')}
                 </p>
             </div>
         </footer>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { portfolioLinks } from '../../constants/portfolioLinks';
 import { useParams, useNavigate } from 'react-router-dom';
 import Github from '../../assets/github.svg';
@@ -10,6 +11,7 @@ import Loading from '../loading';
  * @returns {JSX.Element} Página de detalhes do projeto
  */
 const ProjectDetails = () => {
+  const { t } = useTranslation();
   const { title } = useParams();
   const [project, setProject] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -57,7 +59,7 @@ const ProjectDetails = () => {
   };
 
   if (isLoading) {
-    return <Loading fullScreen text="Carregando projeto..." />;
+    return <Loading fullScreen text={t('common.loadingProject')} />;
   }
 
   if (notFound || !project) {
@@ -67,10 +69,10 @@ const ProjectDetails = () => {
           <div className="mb-8">
             <h1 className="text-6xl mb-4">🔍</h1>
             <h2 className="text-3xl font-bold mb-4 text-primary">
-              Projeto não encontrado
+              {t('projectDetails.projectNotFound')}
             </h2>
             <p className="text-lg text-gray-300 mb-6">
-              Desculpe, o projeto que você está procurando não foi encontrado.
+              {t('projectDetails.projectNotFoundDescription')}
             </p>
           </div>
 
@@ -79,13 +81,13 @@ const ProjectDetails = () => {
               onClick={handleGoBack}
               className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-variant transition-colors duration-300"
             >
-              Voltar
+              {t('common.back')}
             </button>
             <a
               href="/"
               className="bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors duration-300 no-underline"
             >
-              Ir para início
+              {t('common.goHome')}
             </a>
           </div>
         </div>
@@ -104,7 +106,7 @@ const ProjectDetails = () => {
           )}
           {imageError ? (
             <div className="w-full h-64 bg-gray-300 rounded-t-[20px] md:rounded-l-[20px] md:rounded-tr-none flex items-center justify-center text-gray-500">
-              <span>Imagem não disponível</span>
+              <span>{t('projectDetails.imageNotAvailable')}</span>
             </div>
           ) : (
             <img 
@@ -123,10 +125,10 @@ const ProjectDetails = () => {
         <div className="w-full md:w-[70%] h-full p-5 md:p-12 flex flex-col justify-center animate-[infoFade_1s_ease-in-out] [animation-delay:0.8s] [animation-fill-mode:backwards]">
           <button 
             onClick={handleGoBack}
-            aria-label="Voltar para a página anterior"
+            aria-label={t('common.back')}
             className="bg-primary text-white text-xs md:text-sm no-underline flex py-2 px-4 transition-all duration-300 cursor-pointer uppercase tracking-[2px] font-extrabold text-center mb-4 relative overflow-hidden hover:no-underline hover:-translate-y-0.5 hover:rotate-x-[2deg] hover:rotate-y-[2deg] before:content-[''] before:block before:absolute before:-top-[10%] before:-left-[10%] before:-right-[10%] before:-bottom-[10%] before:bg-gradient-to-b before:from-[#ff3ad2] before:via-[#ff88e4] before:to-[#ff00c1] before:rotate-x-[60deg] before:rotate-y-[60deg] before:scale-0 before:transition-all before:duration-500 before:-z-10 before:opacity-50 hover:before:rotate-x-0 hover:before:rotate-y-0 hover:before:scale-100 hover:before:opacity-100"
           >
-            Voltar
+            {t('common.back')}
           </button>
 
           <div className='flex flex-col justify-center h-full'>
@@ -141,7 +143,7 @@ const ProjectDetails = () => {
                 href={project.liveDemoUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                aria-label={`Ver demonstração ao vivo do projeto ${project.title}`}
+                aria-label={`${t('projectDetails.viewLiveDemo')} ${project.title}`}
                 className="w-1/4 md:w-[25%] hover:animate-[pulseProject_0.5s_infinite_alternate]"
               >
                 <img src={Vercel} alt="Logo Vercel - Ver demonstração ao vivo" className="w-full" />
@@ -151,7 +153,7 @@ const ProjectDetails = () => {
                 href={project.repoUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                aria-label={`Ver código fonte do projeto ${project.title} no GitHub`}
+                aria-label={`${t('projectDetails.viewSourceCode')} ${project.title}`}
                 className="w-[13%] md:w-[13%] hover:animate-[pulseProject_0.5s_infinite_alternate]"
               >
                 <img src={Github} alt="Logo GitHub - Ver código fonte" className="w-full" />

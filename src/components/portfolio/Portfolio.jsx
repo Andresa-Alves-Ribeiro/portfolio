@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import ScrollReveal from 'scrollreveal';
 import { portfolioLinks } from '../../constants/portfolioLinks';
@@ -8,6 +9,7 @@ import { portfolioLinks } from '../../constants/portfolioLinks';
  * @returns {JSX.Element} Seção de portfólio
  */
 const Portfolio = () => {
+  const { t } = useTranslation();
   const aboutRef = useRef(null);
 
   useEffect(() => {
@@ -190,7 +192,7 @@ const Portfolio = () => {
             }}
           >
             <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
-              Projects
+              {t('portfolio.title')}
             </span>
           </h1>
 
@@ -223,7 +225,7 @@ const Portfolio = () => {
               onClick={handlePrev}
               type="button"
               className="absolute left-1 sm:left-2 md:left-4 z-50 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full glass-effect hover:bg-pink-500/30 active:bg-pink-500/40 transition-all duration-300 flex items-center justify-center shadow-lg border border-pink-500/30"
-              aria-label="Previous project"
+              aria-label={t('portfolio.previousProject')}
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -237,7 +239,7 @@ const Portfolio = () => {
               onClick={handleNext}
               type="button"
               className="absolute right-1 sm:right-2 md:right-4 z-50 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full glass-effect hover:bg-pink-500/30 active:bg-pink-500/40 transition-all duration-300 flex items-center justify-center shadow-lg border border-pink-500/30"
-              aria-label="Next project"
+              aria-label={t('portfolio.nextProject')}
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -318,7 +320,7 @@ const Portfolio = () => {
                         zIndex: localIndex + 1,
                       }}
                       onClick={() => setCurrentActiveIndex(globalIndex)}
-                      aria-label={`Expandir card ${item.title}`}
+                      aria-label={`${t('portfolio.expandCard')} ${item.title}`}
                     >
                       <div className="relative w-full h-full flex flex-col p-3 sm:p-4 md:p-6 lg:p-8">
                         {/* Ícone pequeno no topo esquerdo */}
@@ -388,9 +390,9 @@ const Portfolio = () => {
                                 to={`/project/${item.title}`}
                                 className="relative px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-white/30 backdrop-blur-sm text-white font-bold text-xs sm:text-sm md:text-base rounded-full hover:bg-white/40 active:bg-white/50 transition-all duration-300 inline-block hover:scale-105 active:scale-95 shadow-lg"
                                 onClick={(e) => e.stopPropagation()}
-                                aria-label={`View project details ${item.title}`}
+                                aria-label={`${t('portfolio.viewProjectDetails')} ${item.title}`}
                               >
-                                View Details
+                                {t('common.viewDetails')}
                               </Link>
                             </div>
                           </div>

@@ -12,7 +12,7 @@ const App = () => {
   return (
     <ErrorBoundary>
       <Router>
-        <Suspense fallback={<Loading fullScreen text="Carregando página..." />}>
+        <Suspense fallback={<Loading fullScreen />}>
           <Routes>
             <Route path="/" element={<Home />} index />
             <Route path="/project/:title" element={<ProjectDetailsPage />} />

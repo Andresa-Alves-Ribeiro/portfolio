@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { scrollToElement } from '../utils/helpers';
 
@@ -7,6 +8,7 @@ import { scrollToElement } from '../utils/helpers';
  * @returns {JSX.Element} Página de erro 404
  */
 const NotFound = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleSectionClick = (e, sectionId) => {
@@ -25,10 +27,10 @@ const NotFound = () => {
             404
           </h1>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Página não encontrada
+            {t('notFound.title')}
           </h2>
           <p className="text-lg text-gray-300 mb-6">
-            Desculpe, a página que você está procurando não existe ou foi movida.
+            {t('notFound.description')}
           </p>
         </div>
 
@@ -36,49 +38,49 @@ const NotFound = () => {
           <Link
             to="/"
             className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-variant transition-colors duration-300 no-underline"
-            aria-label="Ir para página inicial"
+            aria-label={t('notFound.goHome')}
           >
-            Ir para início
+            {t('notFound.goHome')}
           </Link>
           <button
             onClick={() => window.history.back()}
             className="bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors duration-300"
-            aria-label="Voltar para página anterior"
+            aria-label={t('notFound.back')}
           >
-            Voltar
+            {t('notFound.back')}
           </button>
         </div>
 
         <div className="mt-12 text-gray-400 text-sm">
-          <p>Ou explore:</p>
+          <p>{t('notFound.orExplore')}</p>
           <div className="flex flex-wrap gap-4 justify-center mt-4">
             <button
               onClick={(e) => handleSectionClick(e, 'about')}
               className="text-primary hover:text-primary-variant transition-colors bg-transparent border-none cursor-pointer underline"
-              aria-label="Ir para seção Sobre"
+              aria-label={t('notFound.about')}
             >
-              Sobre
+              {t('notFound.about')}
             </button>
             <button
               onClick={(e) => handleSectionClick(e, 'skills')}
               className="text-primary hover:text-primary-variant transition-colors bg-transparent border-none cursor-pointer underline"
-              aria-label="Ir para seção Skills"
+              aria-label={t('notFound.skills')}
             >
-              Skills
+              {t('notFound.skills')}
             </button>
             <button
               onClick={(e) => handleSectionClick(e, 'projects')}
               className="text-primary hover:text-primary-variant transition-colors bg-transparent border-none cursor-pointer underline"
-              aria-label="Ir para seção Projetos"
+              aria-label={t('notFound.projects')}
             >
-              Projetos
+              {t('notFound.projects')}
             </button>
             <button
               onClick={(e) => handleSectionClick(e, 'contact')}
               className="text-primary hover:text-primary-variant transition-colors bg-transparent border-none cursor-pointer underline"
-              aria-label="Ir para seção Contato"
+              aria-label={t('notFound.contact')}
             >
-              Contato
+              {t('notFound.contact')}
             </button>
           </div>
         </div>

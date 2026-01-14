@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import ReactLogo from '../../assets/react.svg'
 import Typescript from '../../assets/typescript.svg'
 import Javascript from '../../assets/javascript.svg'
@@ -16,6 +17,7 @@ import Git from '../../assets/git.svg'
 import VSCode from '../../assets/visual-studio-code.svg'
 
 const Skills = () => {
+    const { t } = useTranslation();
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -81,7 +83,7 @@ const Skills = () => {
                             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
                         >
                             <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
-                                Skills
+                                {t('skills.title')}
                             </span>
                         </h1>
 
