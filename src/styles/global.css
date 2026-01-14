@@ -15,19 +15,15 @@
   }
 
   body {
-    font-family: 'Quicksand', 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, 
-      #fff8f8 0%, 
-      #ffe4e9 15%, 
-      #ffd6e0 30%, 
-      #fce7f3 45%, 
-      #fdf2f8 60%, 
-      #fff1f2 75%, 
-      #ffe4e6 90%, 
-      #fffafa 100%
-    );
+    font-family: 'Inter', 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0f;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(255, 20, 147, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.08) 0%, transparent 60%),
+      linear-gradient(135deg, #0a0a0f 0%, #1a0a1a 50%, #0a0a0f 100%);
     background-attachment: fixed;
-    color: #ff69b4;
+    color: #ffffff;
     line-height: 1.7;
     min-height: 100vh;
     position: relative;
@@ -42,14 +38,12 @@
     width: 100%;
     height: 100%;
     background: 
-      radial-gradient(circle at 10% 20%, rgba(255, 182, 217, 0.2) 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(255, 105, 180, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(252, 231, 243, 0.1) 0%, transparent 60%),
-      radial-gradient(circle at 30% 70%, rgba(254, 242, 248, 0.12) 0%, transparent 45%),
-      radial-gradient(circle at 70% 30%, rgba(255, 214, 224, 0.08) 0%, transparent 55%);
+      linear-gradient(90deg, transparent 0%, rgba(255, 20, 147, 0.03) 50%, transparent 100%),
+      linear-gradient(0deg, transparent 0%, rgba(236, 72, 153, 0.03) 50%, transparent 100%);
+    background-size: 100px 100px, 100px 100px;
     pointer-events: none;
     z-index: 0;
-    animation: backgroundPulse 8s ease-in-out infinite;
+    animation: gridMove 20s linear infinite;
   }
 
   body::after {
@@ -60,36 +54,26 @@
     width: 100%;
     height: 100%;
     background-image: 
-      repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(255, 182, 217, 0.04) 100px, rgba(252, 231, 243, 0.04) 101px),
-      repeating-linear-gradient(-45deg, transparent, transparent 100px, rgba(255, 105, 180, 0.03) 100px, rgba(254, 242, 248, 0.03) 101px),
-      repeating-linear-gradient(30deg, transparent, transparent 150px, rgba(255, 214, 224, 0.02) 150px, rgba(255, 182, 217, 0.02) 151px);
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 20, 147, 0.05) 2px, rgba(255, 20, 147, 0.05) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(236, 72, 153, 0.05) 2px, rgba(236, 72, 153, 0.05) 4px);
+    background-size: 50px 50px;
     pointer-events: none;
     z-index: 0;
-    animation: backgroundMove 20s linear infinite;
+    opacity: 0.3;
   }
 
   #root {
-    background: linear-gradient(135deg, 
-      #fff8f8 0%, 
-      #ffe4e9 15%, 
-      #ffd6e0 30%, 
-      #fce7f3 45%, 
-      #fdf2f8 60%, 
-      #fff1f2 75%, 
-      #ffe4e6 90%, 
-      #fffafa 100%
-    );
-    background-attachment: fixed;
+    background: transparent;
     min-height: 100vh;
     position: relative;
     z-index: 1;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Kalam', 'Comic Sans MS', cursive !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
     font-weight: 700;
-    letter-spacing: 1px;
-    color: #ff1493;
+    letter-spacing: -0.02em;
+    color: #ffffff;
   }
 
   canvas {
@@ -1068,4 +1052,65 @@
 
 .animate-shimmer {
   animation: shimmer 2s infinite;
+}
+
+/* Estilos Futuristas */
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px rgba(255, 20, 147, 0.5),
+      0 0 10px rgba(255, 20, 147, 0.5),
+      0 0 15px rgba(255, 20, 147, 0.5),
+      0 0 20px rgba(255, 20, 147, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0 0 10px rgba(255, 20, 147, 0.8),
+      0 0 20px rgba(255, 20, 147, 0.8),
+      0 0 30px rgba(255, 20, 147, 0.8),
+      0 0 40px rgba(255, 20, 147, 0.8);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 20, 147, 0.2);
+}
+
+.neon-text {
+  color: #ff1493;
+  text-shadow: 
+    0 0 5px rgba(255, 20, 147, 0.5),
+    0 0 10px rgba(255, 20, 147, 0.5),
+    0 0 15px rgba(255, 20, 147, 0.5);
+  animation: neonGlow 2s ease-in-out infinite;
+}
+
+.tech-grid {
+  background-image: 
+    linear-gradient(rgba(255, 20, 147, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 20, 147, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
 } 

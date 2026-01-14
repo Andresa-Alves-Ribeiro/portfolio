@@ -6,7 +6,7 @@ import { APP_CONFIG } from '../../constants/config';
 import { scrollToElement } from '../../utils/helpers';
 
 /**
- * Componente Footer - Rodapé da aplicação
+ * Componente Footer - Rodapé futurista
  * @returns {JSX.Element} Rodapé com informações de contato e links
  */
 const Footer = () => {
@@ -19,114 +19,110 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer className="text-primary-dark py-[8vh] border-t-2 border-dashed border-primary mt-[10vh] text-base flex flex-col items-center relative overflow-hidden w-full">
-            {/* Decorações de gatos */}
-            <div className="absolute top-5 left-10 text-3xl opacity-20 animate-float-cat">🐱</div>
-            <div className="absolute top-10 right-20 text-2xl opacity-20 animate-wiggle">🐾</div>
-            <div className="absolute bottom-20 left-20 text-2xl opacity-20 animate-bounce-cute">💕</div>
-            <div className="absolute bottom-10 right-10 text-3xl opacity-20 animate-sparkle">✨</div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 w-full max-w-full p-6 md:p-8 lg:p-12 relative z-10">
-                <div className="diary-section relative">
-                    <div className="absolute -top-3 -right-3 text-2xl animate-sparkle">✨</div>
-                    <h3 className="diary-title text-2xl md:text-3xl font-handwriting mb-6 flex items-center gap-2">
-                        <span className="text-2xl animate-wiggle">💌</span>
-                        Contato
+        <footer className="relative pt-12 md:pt-16 pb-0 border-t border-pink-500/20 bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f] text-white overflow-hidden w-full">
+            {/* Grid de fundo */}
+            <div className="absolute inset-0 tech-grid opacity-5"></div>
+
+            {/* Efeitos de luz */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl"></div>
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+                
+                {/* Seção Contato */}
+                <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span className="text-pink-500">📧</span>
+                        Contact
                     </h3>
-                    <div className="relative z-10">
-                        <p className="diary-text leading-relaxed mb-0 relative z-10 flex items-center gap-4 mb-4">
-                            <strong className="font-handwriting font-bold min-w-[120px] text-right flex items-center gap-2">
-                                <span>📧</span> Email:
-                            </strong> 
+                    <div className="space-y-4">
+                        <div className="flex items-start gap-3">
+                            <span className="text-pink-400 font-semibold min-w-[80px]">Email:</span>
                             <a 
                                 href={`mailto:${APP_CONFIG.email}`}
-                                className="diary-text hover:text-primary-dark transition-colors font-handwriting"
-                                aria-label={`Enviar email para ${APP_CONFIG.email}`}
+                                className="text-white/70 hover:text-pink-400 transition-colors duration-300 break-all"
+                                aria-label={`Send email to ${APP_CONFIG.email}`}
                             >
                                 {APP_CONFIG.email}
                             </a>
-                        </p>
-                        <p className="diary-text leading-relaxed mb-0 relative z-10 flex items-center gap-4">
-                            <strong className="font-handwriting font-bold min-w-[120px] text-right flex items-center gap-2">
-                                <span>📍</span> Localização:
-                            </strong> 
-                            <span className="font-handwriting">Cosmópolis, SP</span>
-                        </p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                            <span className="text-pink-400 font-semibold min-w-[80px]">Location:</span>
+                            <span className="text-white/70">Cosmópolis, SP</span>
+                        </div>
                     </div>
                 </div>
 
-                <div className="diary-section relative">
-                    <div className="absolute -top-3 -left-3 text-2xl animate-wiggle">🐾</div>
-                    <h3 className="diary-title text-2xl md:text-3xl font-handwriting mb-6 flex items-center gap-2">
-                        <span className="text-2xl animate-bounce-cute">🔗</span>
+                {/* Seção Links */}
+                <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span className="text-pink-500">🔗</span>
                         Links
                     </h3>
-                    <ul className="list-none p-0 m-0 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <li>
-                            <a href="#about" onClick={handleNavClick} className="diary-text text-base font-handwriting transition-all duration-300 relative py-3 px-4 flex items-center gap-2 bg-white border-2 border-primary-light rounded-lg hover:text-primary-dark hover:border-primary hover:scale-105 hover:shadow-lg">
-                                <span>💕</span> Sobre
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#skills" onClick={handleNavClick} className="diary-text text-base font-handwriting transition-all duration-300 relative py-3 px-4 flex items-center gap-2 bg-white border-2 border-primary-light rounded-lg hover:text-primary-dark hover:border-primary hover:scale-105 hover:shadow-lg">
-                                <span>✨</span> Skills
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#projects" onClick={handleNavClick} className="diary-text text-base font-handwriting transition-all duration-300 relative py-3 px-4 flex items-center gap-2 bg-white border-2 border-primary-light rounded-lg hover:text-primary-dark hover:border-primary hover:scale-105 hover:shadow-lg">
-                                <span>🐱</span> Projetos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#contact" onClick={handleNavClick} className="diary-text text-base font-handwriting transition-all duration-300 relative py-3 px-4 flex items-center gap-2 bg-white border-2 border-primary-light rounded-lg hover:text-primary-dark hover:border-primary hover:scale-105 hover:shadow-lg">
-                                <span>💌</span> Contato
-                            </a>
-                        </li>
+                    <ul className="grid grid-cols-2 gap-3">
+                        {[
+                            { href: '#about', label: 'About', icon: '💕' },
+                            { href: '#skills', label: 'Skills', icon: '✨' },
+                            { href: '#projects', label: 'Projects', icon: '🐱' },
+                            { href: '#contact', label: 'Contact', icon: '💌' },
+                        ].map((link) => (
+                            <li key={link.href}>
+                                <a 
+                                    href={link.href} 
+                                    onClick={handleNavClick} 
+                                    className="group flex items-center gap-2 px-4 py-2 glass-effect rounded-lg border border-pink-500/20 text-white/80 hover:text-pink-400 hover:border-pink-500/50 transition-all duration-300 hover:scale-105"
+                                >
+                                    <span>{link.icon}</span>
+                                    <span className="text-sm font-medium">{link.label}</span>
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
 
-                <div className="diary-section relative">
-                    <div className="absolute -top-3 -right-3 text-2xl animate-heart-beat">💖</div>
-                    <h3 className="diary-title text-2xl md:text-3xl font-handwriting mb-6 flex items-center gap-2">
-                        <span className="text-2xl animate-float-cat">🐱</span>
-                        Redes Sociais
+                {/* Seção Redes Sociais */}
+                <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span className="text-pink-500">🌐</span>
+                        Social Media
                     </h3>
-                    <div className="flex gap-6 mt-4 relative z-10 justify-center md:justify-start">
+                    <div className="flex gap-4">
                         <a 
                             href={APP_CONFIG.socialLinks.linkedin} 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             aria-label="LinkedIn"
-                            className="transition-all duration-300 relative p-3 flex items-center justify-center rounded-full bg-white border-2 border-primary-light hover:border-primary hover:scale-110 hover:rotate-5 hover:shadow-lg"
+                            className="group p-3 glass-effect rounded-lg border border-pink-500/20 hover:border-pink-500/50 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)]"
                         >
-                            <LinkedinIcon className="w-6 h-6 transition-all duration-300 hover:scale-110" />
+                            <LinkedinIcon className="w-6 h-6 text-white/80 group-hover:text-pink-400 transition-colors duration-300" style={{ fill: 'currentColor' }} />
                         </a>
                         <a 
                             href={APP_CONFIG.socialLinks.github} 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             aria-label="GitHub"
-                            className="transition-all duration-300 relative p-3 flex items-center justify-center rounded-full bg-white border-2 border-primary-light hover:border-primary hover:scale-110 hover:rotate-5 hover:shadow-lg"
+                            className="group p-3 glass-effect rounded-lg border border-pink-500/20 hover:border-pink-500/50 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)]"
                         >
-                            <GithubIcon className="w-6 h-6 transition-all duration-300 hover:scale-110" />
+                            <GithubIcon className="w-6 h-6 text-white/80 group-hover:text-pink-400 transition-colors duration-300" style={{ fill: 'currentColor' }} />
                         </a>
                         <a 
                             href={`https://api.whatsapp.com/send?phone=${APP_CONFIG.socialLinks.whatsapp}`} 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             aria-label="WhatsApp"
-                            className="transition-all duration-300 relative p-3 flex items-center justify-center rounded-full bg-white border-2 border-primary-light hover:border-primary hover:scale-110 hover:rotate-5 hover:shadow-lg"
+                            className="group p-3 glass-effect rounded-lg border border-pink-500/20 hover:border-pink-500/50 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)]"
                         >
-                            <WhatsappIcon className="w-6 h-6 transition-all duration-300 hover:scale-110" />
+                            <WhatsappIcon className="w-6 h-6 text-white/80 group-hover:text-pink-400 transition-colors duration-300" style={{ fill: 'currentColor' }} />
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div className="text-center w-full py-8 border-t-2 border-dashed border-primary text-primary-dark text-sm relative z-10">
-                <p className="diary-text font-handwriting flex items-center justify-center gap-2">
-                    <span className="animate-wiggle">🐾</span>
-                    &copy; {new Date().getFullYear()} Andresa Alves. Todos os direitos reservados.
-                    <span className="animate-wiggle">🐾</span>
+            {/* Copyright */}
+            <div className="relative z-10 text-center w-full py-8 border-t border-pink-500/20 mt-8">
+                <p className="text-white/60 text-sm flex items-center justify-center gap-2">
+                    <span>©</span>
+                    {new Date().getFullYear()} Andresa Alves. All rights reserved.
                 </p>
             </div>
         </footer>

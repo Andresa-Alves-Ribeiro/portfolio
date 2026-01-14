@@ -1,12 +1,41 @@
-import React from 'react';
-import MyPicture from '../../assets/meu-desenho.png';
+import React, { useEffect, useState } from 'react';
 import { scrollToElement } from '../../utils/helpers';
+import InicialLogo from '../../assets/iniciais.png';
 import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
 import { ReactComponent as GithubIcon } from '../../assets/github-nav.svg';
 import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
 import { APP_CONFIG } from '../../constants/config';
 
 const Presentation = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isInPresentation, setIsInPresentation] = useState(true);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+
+    const handleScroll = () => {
+      const presentationElement = document.getElementById('presentation');
+      if (presentationElement) {
+        const rect = presentationElement.getBoundingClientRect();
+        setIsInPresentation(rect.top >= -100 && rect.bottom > window.innerHeight * 0.5);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const scrollToAbout = () => {
     const element = document.getElementById('about');
     if (element) {
@@ -16,38 +45,56 @@ const Presentation = () => {
 
   const handleNavClick = (e) => {
     e.preventDefault();
-    const targetId = e.target.getAttribute('href')?.substring(1);
+    const link = e.currentTarget;
+    const targetId = link.getAttribute('href')?.substring(1);
     if (targetId) {
       scrollToElement(targetId);
     }
   };
 
-  const [isInPresentation, setIsInPresentation] = React.useState(true);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const presentationElement = document.getElementById('presentation');
-      if (presentationElement) {
-        const rect = presentationElement.getBoundingClientRect();
-        setIsInPresentation(rect.top >= -100 && rect.bottom > window.innerHeight * 0.5);
-      }
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <div id='presentation' className="relative flex justify-center items-center min-h-screen pt-0 overflow-hidden">
-      <nav className={`fixed top-0 left-0 w-full z-[1001] px-6 md:px-12 lg:px-16 py-6 md:py-4 transition-all duration-500 ${
-        isInPresentation ? '' : 'bg-white/95 backdrop-blur-md shadow-sm'
+    <div 
+      id='presentation' 
+      className="relative flex justify-center items-center min-h-screen pt-0 overflow-hidden bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f]"
+    >
+      {/* Grid tecnológico de fundo */}
+      <div className="absolute inset-0 tech-grid opacity-20"></div>
+      
+      {/* Efeito de luz que segue o mouse */}
+      <div 
+        className="absolute w-96 h-96 rounded-full blur-3xl pointer-events-none transition-all duration-300"
+        style={{
+          left: `${mousePosition.x}%`,
+          top: `${mousePosition.y}%`,
+          transform: 'translate(-50%, -50%)',
+          background: 'radial-gradient(circle, rgba(255, 20, 147, 0.2) 0%, rgba(255, 20, 147, 0.1) 50%, transparent 100%)',
+        }}
+      ></div>
+
+      {/* Linhas de conexão animadas */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(5)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-px h-full bg-gradient-to-b from-transparent via-pink-500/30 to-transparent"
+            style={{
+              left: `${20 + i * 20}%`,
+              animation: `pulse ${3 + i * 0.5}s ease-in-out infinite`,
+              animationDelay: `${i * 0.3}s`,
+            }}
+          ></div>
+        ))}
+      </div>
+
+      {/* Navbar futurista */}
+      <nav className={`fixed top-0 left-0 w-full z-[1001] px-6 md:px-12 lg:px-16 py-6 transition-all duration-500 ${
+        isInPresentation ? 'bg-transparent' : 'glass-effect bg-[#0a0a0f]/80 backdrop-blur-xl'
       }`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className={`font-bold text-xl md:text-2xl tracking-wide transition-colors duration-500 ${
-            isInPresentation ? 'text-white' : 'text-primary-dark'
+            isInPresentation ? 'text-white neon-text' : 'text-pink-500'
           }`}>
-            Portfolio
+            <img src={InicialLogo} alt="Logo" className="w-16 h-16 md:w-14 md:h-14" />
           </div>
 
           <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
@@ -63,15 +110,19 @@ const Presentation = () => {
                   <a
                     href={item.href}
                     onClick={handleNavClick}
-                    className={`text-xs lg:text-sm font-light tracking-[0.15em] uppercase hover:opacity-80 transition-all duration-300 ${
-                      isInPresentation ? 'text-white' : 'text-primary-dark'
+                    className={`relative text-xs lg:text-sm font-medium tracking-wider uppercase transition-all duration-300 group ${
+                      isInPresentation ? 'text-white/80' : 'text-white/60'
                     }`}
                   >
-                    {item.label}
+                    <span className="relative z-10 group-hover:text-pink-500 transition-colors duration-300">
+                      {item.label}
+                    </span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></span>
+                    <span className="absolute inset-0 bg-pink-500/10 rounded-md opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300"></span>
                   </a>
                   {index < 4 && (
                     <span className={`text-xs mx-1 transition-colors duration-500 ${
-                      isInPresentation ? 'text-white/50' : 'text-primary-dark/50'
+                      isInPresentation ? 'text-white/30' : 'text-white/20'
                     }`}>•</span>
                   )}
                 </React.Fragment>
@@ -83,162 +134,117 @@ const Presentation = () => {
                 href={APP_CONFIG.socialLinks.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={`hover:opacity-80 transition-opacity duration-300 ${
-                  isInPresentation ? 'text-white' : 'text-primary-dark'
+                className={`group relative transition-all duration-300 ${
+                  isInPresentation ? 'text-white/80' : 'text-white/60'
                 }`}
                 aria-label="LinkedIn"
               >
-                <LinkedinIcon className="w-5 h-5 md:w-6 md:h-6" style={{ fill: 'currentColor' }} />
+                <LinkedinIcon className="w-5 h-5 md:w-6 md:h-6 transition-all duration-300 group-hover:text-pink-500 group-hover:scale-110 group-hover:rotate-3" style={{ fill: 'currentColor' }} />
+                <span className="absolute inset-0 bg-pink-500/20 rounded-full opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"></span>
               </a>
               <a 
                 href={APP_CONFIG.socialLinks.github} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={`hover:opacity-80 transition-opacity duration-300 ${
-                  isInPresentation ? 'text-white' : 'text-primary-dark'
+                className={`group relative transition-all duration-300 ${
+                  isInPresentation ? 'text-white/80' : 'text-white/60'
                 }`}
                 aria-label="GitHub"
               >
-                <GithubIcon className="w-5 h-5 md:w-6 md:h-6" style={{ fill: 'currentColor' }} />
+                <GithubIcon className="w-5 h-5 md:w-6 md:h-6 transition-all duration-300 group-hover:text-pink-500 group-hover:scale-110 group-hover:rotate-3" style={{ fill: 'currentColor' }} />
+                <span className="absolute inset-0 bg-pink-500/20 rounded-full opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"></span>
               </a>
               <a 
                 href={`https://api.whatsapp.com/send?phone=${APP_CONFIG.socialLinks.whatsapp}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={`hover:opacity-80 transition-opacity duration-300 ${
-                  isInPresentation ? 'text-white' : 'text-primary-dark'
+                className={`group relative transition-all duration-300 ${
+                  isInPresentation ? 'text-white/80' : 'text-white/60'
                 }`}
                 aria-label="WhatsApp"
               >
-                <WhatsappIcon className="w-5 h-5 md:w-6 md:h-6" style={{ fill: 'currentColor' }} />
+                <WhatsappIcon className="w-5 h-5 md:w-6 md:h-6 transition-all duration-300 group-hover:text-pink-500 group-hover:scale-110 group-hover:rotate-3" style={{ fill: 'currentColor' }} />
+                <span className="absolute inset-0 bg-pink-500/20 rounded-full opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"></span>
               </a>
             </div>
           </div>
         </div>
       </nav>
-      <div className="absolute inset-0 w-full h-full">
-        <div 
-          className="absolute inset-0 w-full h-full bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${MyPicture})`,
-            backgroundPosition: 'center center',
-            backgroundSize: '120%',
-            backgroundAttachment: 'fixed'
-          }}
-        >
-          <div 
-            className="absolute inset-0"
-            style={{
-              background: `
-                linear-gradient(135deg, 
-                  rgba(255, 20, 147, 0.90) 0%, 
-                  rgba(236, 64, 122, 0.85) 15%,
-                  rgba(255, 105, 180, 0.80) 30%,
-                  rgba(255, 20, 147, 0.75) 45%,
-                  rgba(180, 0, 212, 0.7) 55%,
-                  rgba(145, 0, 167, 0.75) 70%,
-                  rgba(117, 0, 143, 0.8) 85%,
-                  rgba(58, 0, 100, 0.85) 100%
-                )
-              `,
-              mixBlendMode: 'multiply'
-            }}
-          ></div>
-          
-          <div 
-            className="absolute inset-0"
-            style={{
-              background: `
-                linear-gradient(45deg,
-                  rgba(255, 20, 147, 0.5) 0%,
-                  rgba(255, 105, 180, 0.3) 30%,
-                  transparent 50%,
-                  rgba(0, 188, 212, 0.3) 70%,
-                  rgba(0, 151, 167, 0.5) 100%
-                )
-              `,
-              mixBlendMode: 'overlay'
-            }}
-          ></div>
-          
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10"></div>
-        </div>
-      </div>
 
+      {/* Conteúdo principal */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="flex flex-col items-center justify-center min-h-screen text-center">
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 tracking-tight leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-            Crafting Digital
-            <br />
-            <span className="block mt-2">Experiences</span>
+          {/* Badge superior */}
+          <div className="mb-8 px-4 py-2 glass-effect rounded-full border border-pink-500/30">
+            <span className="text-xs md:text-sm text-pink-400 font-medium tracking-wider">
+              FRONT END DEVELOPER
+            </span>
+          </div>
+
+          {/* Título principal com efeito neon */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 tracking-tight leading-tight">
+            <span className="block mb-2 neon-text">Crafting Digital</span>
+            <span className="block bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
+              Experiences
+            </span>
           </h1>
 
-          <p className="text-xl md:text-2xl lg:text-3xl text-white/95 mb-12 font-light tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]">
-            The work of developer Andresa Alves
+          {/* Subtítulo */}
+          <p className="text-lg md:text-xl lg:text-2xl text-white/70 mb-12 font-light tracking-wide max-w-2xl">
+            Developing innovative solutions with code and creativity
           </p>
 
+          {/* Botão CTA */}
           <button
             onClick={scrollToAbout}
-            className="group relative px-8 py-4 md:px-10 md:py-5 border-2 border-white text-white font-semibold text-base md:text-lg tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-[#ff1493] hover:scale-105 hover:shadow-[0_8px_24px_rgba(255,255,255,0.3)] backdrop-blur-sm"
-            style={{
-              background: 'rgba(255, 255, 255, 0.1)'
-            }}
+            className="group relative px-8 py-4 md:px-10 md:py-5 border-2 border-pink-500 text-white font-semibold text-base md:text-lg tracking-wider uppercase transition-all duration-300 hover:bg-pink-500 hover:shadow-[0_0_30px_rgba(255,20,147,0.5)] hover:scale-105 overflow-hidden"
           >
-            <span className="relative z-10">Learn More</span>
-            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative z-10">Explore</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
+
+          {/* Indicador de scroll */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+            <button
+              onClick={scrollToAbout}
+              className="group relative text-white/60 transition-all duration-300"
+              aria-label="Scroll down"
+            >
+              <svg className="w-6 h-6 transition-all duration-300 group-hover:text-pink-500 group-hover:scale-110 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+              <span className="absolute inset-0 bg-pink-500/20 rounded-full opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300 -z-10"></span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <button 
-        className="hidden lg:flex absolute left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center text-white/80 hover:text-white transition-all duration-300 hover:scale-110"
-        aria-label="Slide anterior"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      
-      <button 
-        className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center text-white/80 hover:text-white transition-all duration-300 hover:scale-110"
-        aria-label="Próximo slide"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <button
-          onClick={scrollToAbout}
-          className="text-white/80 hover:text-white transition-colors duration-300"
-          aria-label="Scroll para baixo"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-      </div>
-
-      <div className="absolute bottom-8 right-8 md:right-12 lg:right-16 z-20 flex flex-col gap-2">
-        {[1, 2, 3].map((dot, index) => (
-          <button
-            key={dot}
-            className={`w-2 h-8 rounded-full transition-all duration-300 ${
-              index === 0 
-                ? 'bg-white h-10 shadow-[0_0_12px_rgba(255,255,255,0.5)]' 
-                : 'bg-white/40 hover:bg-white/60'
-            }`}
-            aria-label={`Slide ${dot}`}
-          />
+      {/* Partículas flutuantes */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-pink-500/20"
+            style={{
+              width: `${Math.random() * 4 + 2}px`,
+              height: `${Math.random() * 4 + 2}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animation: `float ${Math.random() * 3 + 2}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 2}s`,
+            }}
+          ></div>
         ))}
       </div>
 
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-      </div>
+      <style>{`
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+      `}</style>
     </div>
   )
 }

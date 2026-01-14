@@ -58,9 +58,32 @@ const Portfolio = () => {
   const [carouselStartIndex, setCarouselStartIndex] = useState(0);
   const isManualNavigation = useRef(false);
 
-  // Quantidade de cards visíveis no carrossel (incluindo o ativo)
-  const visibleCards = 10;
+  // Quantidade de cards visíveis no carrossel (incluindo o ativo) - responsivo
+  const [visibleCards, setVisibleCards] = useState(10);
   const cardsPerNavigation = 1; // Quantos cards avançar por navegação
+
+  // Ajustar número de cards visíveis baseado no tamanho da tela
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      if (typeof globalThis.window === 'undefined') return;
+      const width = globalThis.window.innerWidth;
+      if (width < 640) {
+        setVisibleCards(3); // Mobile: 3 cards
+      } else if (width < 768) {
+        setVisibleCards(5); // Tablet pequeno: 5 cards
+      } else if (width < 1024) {
+        setVisibleCards(7); // Tablet: 7 cards
+      } else {
+        setVisibleCards(10); // Desktop: 10 cards
+      }
+    };
+
+    updateVisibleCards();
+    if (typeof globalThis.window !== 'undefined') {
+      globalThis.window.addEventListener('resize', updateVisibleCards);
+      return () => globalThis.window.removeEventListener('resize', updateVisibleCards);
+    }
+  }, []);
 
   // Função para navegar para o próximo (apenas move o carrossel, não expande cards)
   const handleNext = () => {
@@ -110,89 +133,99 @@ const Portfolio = () => {
     Math.min(carouselStartIndex + visibleCards, portfolioLinks.length)
   );
 
-  // Função para clarear uma cor hex
-  const lightenColor = (hex, percent = 60) => {
-    // Remove o # se presente
-    const color = hex.replace('#', '');
-
-    // Converter para RGB
-    const num = Number.parseInt(color, 16);
-    const r = (num >> 16) & 255;
-    const g = (num >> 8) & 255;
-    const b = num & 255;
-
-    // Clarear a cor
-    const lighten = (value) => {
-      return Math.min(255, value + (255 - value) * (percent / 100));
-    };
-
-    const newR = Math.round(lighten(r));
-    const newG = Math.round(lighten(g));
-    const newB = Math.round(lighten(b));
-
-    // Converter de volta para hex
-    const toHex = (n) => {
-      const hex = n.toString(16);
-      return hex.length === 1 ? '0' + hex : hex;
-    };
-
-    return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
+  // Função auxiliar para calcular tamanho da fonte baseado na largura da tela
+  const getFontSize = (isActive) => {
+    if (isActive) {
+      if (windowWidth < 640) return '1.5rem';
+      if (windowWidth < 768) return '2rem';
+      if (windowWidth < 1024) return '3rem';
+      return '4rem';
+    } else {
+      if (windowWidth < 640) return '0.875rem';
+      if (windowWidth < 768) return '1rem';
+      return '1.5rem';
+    }
   };
 
-  // Obter a cor do card ativo e criar versão clara
-  const activeCardColor = cardColors[currentActiveIndex % cardColors.length].bg;
-  const lightBackgroundColor = lightenColor(activeCardColor, 70);
+  // Valores responsivos para cards
+  const getCardDimensions = () => {
+    const width = typeof globalThis.window !== 'undefined' ? globalThis.window.innerWidth : 1024;
+    if (width < 640) {
+      return { inactive: 80, active: 280, height: 400 }; // Mobile
+    } else if (width < 768) {
+      return { inactive: 100, active: 350, height: 500 }; // Tablet pequeno
+    } else if (width < 1024) {
+      return { inactive: 120, active: 400, height: 550 }; // Tablet
+    }
+    return { inactive: 180, active: 500, height: 600 }; // Desktop
+  };
+
+  const [cardDimensions, setCardDimensions] = useState(getCardDimensions());
+  const [windowWidth, setWindowWidth] = useState(typeof globalThis.window !== 'undefined' ? globalThis.window.innerWidth : 1024);
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      setCardDimensions(getCardDimensions());
+      if (typeof globalThis.window !== 'undefined') {
+        setWindowWidth(globalThis.window.innerWidth);
+      }
+    };
+
+    updateDimensions();
+    if (typeof globalThis.window !== 'undefined') {
+      globalThis.window.addEventListener('resize', updateDimensions);
+      return () => globalThis.window.removeEventListener('resize', updateDimensions);
+    }
+  }, []);
 
   return (
     <>
       {/* Título da seção - fora do container que muda de cor */}
-      <div className="text-center py-8 px-4 md:px-8 relative z-20" id='projects-title'>
+      <div className="text-center pt-4 pb-1 sm:pb-2 px-2 sm:px-4 md:px-8 relative z-20 bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f]" id='projects-title'>
         <div className="relative inline-block">
           <h1
-            className="diary-title text-4xl md:text-6xl lg:text-7xl font-handwriting relative z-10 mb-4"
-            data-text="Projetos"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-2 sm:mb-3 md:mb-4"
             style={{
-              color: '#ff1493',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)'
             }}
           >
-            Projetos
+            <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
+              Projects
+            </span>
           </h1>
 
           {/* Linha decorativa */}
-          <div className="relative z-10 flex items-center justify-center gap-3 mt-4">
-            <div className="h-1 w-16 bg-gradient-to-r from-transparent via-pink-300/80 to-pink-400/80 rounded-full decorative-line"></div>
-            <div className="flex gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
-              <div className="w-2 h-2 rounded-full bg-gradient-to-br from-rose-300 to-pink-300 decorative-dot"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400 decorative-dot"></div>
+          <div className="relative z-10 flex items-center justify-center gap-2 sm:gap-3 mt-2 sm:mt-3 md:mt-4">
+            <div className="h-0.5 sm:h-1 w-12 sm:w-16 bg-gradient-to-r from-transparent via-pink-300/80 to-pink-400/80 rounded-full"></div>
+            <div className="flex gap-1 sm:gap-1.5">
+              <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400"></div>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-br from-rose-300 to-pink-300"></div>
+              <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-rose-400"></div>
             </div>
-            <div className="h-1 w-16 bg-gradient-to-l from-transparent via-rose-300/80 to-rose-400/80 rounded-full decorative-line" style={{ animationDelay: '0.5s' }}></div>
+            <div className="h-0.5 sm:h-1 w-12 sm:w-16 bg-gradient-to-l from-transparent via-rose-300/80 to-rose-400/80 rounded-full"></div>
           </div>
         </div>
       </div>
 
-      {/* Container principal com background que muda */}
+      {/* Container principal */}
       <div
-        className='mb-[10vh] py-16 px-4 md:px-8 min-h-screen flex flex-col'
+        className='pt-0 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-8 relative bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f]'
         id='projects'
-        style={{
-          backgroundColor: lightBackgroundColor,
-          transition: 'background-color 1s ease-in-out'
-        }}
       >
+        {/* Grid de fundo - mantendo o estilo futurista */}
+        <div className="absolute inset-0 tech-grid opacity-10"></div>
 
         {/* Carrossel estilo CodePen */}
-        <div ref={aboutRef} className="flex-1 flex items-center justify-center px-4 relative">
+        <div ref={aboutRef} className="flex items-center justify-center px-4 py-6 sm:py-12 relative z-10">
           {/* Botão anterior */}
           {carouselStartIndex > 0 && (
             <button
               onClick={handlePrev}
               type="button"
-              className="absolute left-4 z-50 w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-all duration-300 flex items-center justify-center shadow-lg"
-              aria-label="Projeto anterior"
+              className="absolute left-1 sm:left-2 md:left-4 z-50 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full glass-effect hover:bg-pink-500/30 active:bg-pink-500/40 transition-all duration-300 flex items-center justify-center shadow-lg border border-pink-500/30"
+              aria-label="Previous project"
             >
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -203,31 +236,33 @@ const Portfolio = () => {
             <button
               onClick={handleNext}
               type="button"
-              className="absolute right-4 z-50 w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-all duration-300 flex items-center justify-center shadow-lg"
-              aria-label="Próximo projeto"
+              className="absolute right-1 sm:right-2 md:right-4 z-50 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full glass-effect hover:bg-pink-500/30 active:bg-pink-500/40 transition-all duration-300 flex items-center justify-center shadow-lg border border-pink-500/30"
+              aria-label="Next project"
             >
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
           )}
 
           <div
-            className="mx-auto h-[600px] relative"
+            className="mx-auto relative"
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: `${Math.max(900, (visibleCards - 1) * 180 + 500)}px`,
-              maxWidth: '100%'
+              width: '100%',
+              maxWidth: '100%',
+              height: `${cardDimensions.height}px`,
+              minHeight: `${cardDimensions.height}px`
             }}
           >
             <div className="relative w-full h-full" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {(() => {
-                // Calcular larguras uma única vez para todos os cards (fora do map)
-                const inactiveWidth = 180;
-                const activeWidth = 500;
-                const containerWidth = Math.max(900, (visibleCards - 1) * inactiveWidth + activeWidth);
+                // Calcular larguras uma única vez para todos os cards (fora do map) - responsivo
+                const inactiveWidth = cardDimensions.inactive;
+                const activeWidth = cardDimensions.active;
+                const containerWidth = Math.max(windowWidth * 0.95, (visibleCards - 1) * inactiveWidth + activeWidth);
 
                 // Calcular largura atual do card ativo (isso muda durante a animação)
                 const activeGlobalIndex = currentActiveIndex;
@@ -240,16 +275,14 @@ const Portfolio = () => {
                   return cardIsActive ? activeWidth : inactiveWidth;
                 });
 
-                // Calcular largura total (para referência, mas será recalculado por card)
-
                 return visibleCardsList.map((item, localIndex) => {
                   const globalIndex = carouselStartIndex + localIndex;
                   const isActive = currentActiveIndex === globalIndex;
                   const color = cardColors[globalIndex % cardColors.length];
 
-                  // Apenas largura muda, altura permanece constante
-                  const width = isActive ? 500 : 180;
-                  const height = 600;
+                  // Apenas largura muda, altura permanece constante - responsivo
+                  const width = isActive ? cardDimensions.active : cardDimensions.inactive;
+                  const height = cardDimensions.height;
 
                   // Recalcular cardWidths considerando a largura atual deste card se for o ativo
                   // Isso permite que os cards se reposicionem conforme o card ativo expande
@@ -287,27 +320,27 @@ const Portfolio = () => {
                       onClick={() => setCurrentActiveIndex(globalIndex)}
                       aria-label={`Expandir card ${item.title}`}
                     >
-                      <div className="relative w-full h-full flex flex-col p-6 md:p-8">
+                      <div className="relative w-full h-full flex flex-col p-3 sm:p-4 md:p-6 lg:p-8">
                         {/* Ícone pequeno no topo esquerdo */}
-                        <div className="absolute top-4 left-4 z-20">
-                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 z-20">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
                             {item.image && (
                               <img
                                 src={item.image}
                                 alt={`Icon ${item.title}`}
-                                className="w-8 h-8 md:w-10 md:h-10 object-cover rounded-full"
+                                className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-cover rounded-full"
                               />
                             )}
                           </div>
                         </div>
 
                         {/* Título */}
-                        <div className={`flex items-center justify-center ${isActive ? 'mb-4' : 'flex-1'}`} style={{ height: isActive ? 'auto' : '100%' }}>
+                        <div className={`flex items-center justify-center ${isActive ? 'mb-2 sm:mb-3 md:mb-4' : 'flex-1'}`} style={{ height: isActive ? 'auto' : '100%' }}>
                           <h2
-                            className="font-handwriting font-bold transition-all duration-700"
+                            className="font-bold transition-all duration-700"
                             style={{
                               color: color.text,
-                              fontSize: isActive ? '4rem' : '1.5rem',
+                              fontSize: getFontSize(isActive),
                               writingMode: isActive ? 'horizontal-tb' : 'vertical-rl',
                               textOrientation: 'mixed',
                               transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -322,10 +355,10 @@ const Portfolio = () => {
                           <div className="flex-1 flex flex-col items-center animate-fade-in overflow-y-auto">
                             {/* Imagem completa do projeto */}
                             {item.image && (
-                              <div className="w-full max-w-full mb-4 rounded-2xl overflow-hidden shadow-xl">
+                              <div className="w-full max-w-full mb-2 sm:mb-3 md:mb-4 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
                                 <img
                                   src={item.image}
-                                  alt={`Imagem completa do projeto ${item.title}`}
+                                  alt={`Full project image ${item.title}`}
                                   className="w-full h-auto object-cover"
                                   loading="lazy"
                                 />
@@ -333,17 +366,17 @@ const Portfolio = () => {
                             )}
 
                             {/* Tags de tecnologias */}
-                            <div className='flex justify-center items-center flex-wrap gap-2 mb-4'>
+                            <div className='flex justify-center items-center flex-wrap gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4'>
                               {item.stacks.slice(0, 3).map((stack) => (
                                 <span
                                   key={stack}
-                                  className="px-3 py-1.5 bg-white/20 backdrop-blur-sm text-white text-xs md:text-sm font-handwriting font-semibold rounded-full"
+                                  className="px-2 py-1 sm:px-3 sm:py-1.5 bg-white/20 backdrop-blur-sm text-white text-[10px] sm:text-xs md:text-sm font-semibold rounded-full"
                                 >
                                   {stack}
                                 </span>
                               ))}
                               {item.stacks.length > 3 && (
-                                <span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm text-white text-xs md:text-sm font-handwriting font-semibold rounded-full">
+                                <span className="px-2 py-1 sm:px-3 sm:py-1.5 bg-white/20 backdrop-blur-sm text-white text-[10px] sm:text-xs md:text-sm font-semibold rounded-full">
                                   +{item.stacks.length - 3}
                                 </span>
                               )}
@@ -353,11 +386,11 @@ const Portfolio = () => {
                             <div className="flex justify-center">
                               <Link
                                 to={`/project/${item.title}`}
-                                className="relative px-8 py-4 bg-white/30 backdrop-blur-sm text-white font-handwriting font-bold rounded-full hover:bg-white/40 transition-all duration-300 inline-block hover:scale-105 shadow-lg"
+                                className="relative px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-white/30 backdrop-blur-sm text-white font-bold text-xs sm:text-sm md:text-base rounded-full hover:bg-white/40 active:bg-white/50 transition-all duration-300 inline-block hover:scale-105 active:scale-95 shadow-lg"
                                 onClick={(e) => e.stopPropagation()}
-                                aria-label={`Ver detalhes do projeto ${item.title}`}
+                                aria-label={`View project details ${item.title}`}
                               >
-                                Ver Detalhes do Projeto
+                                View Details
                               </Link>
                             </div>
                           </div>
@@ -371,7 +404,7 @@ const Portfolio = () => {
           </div>
 
           {/* Indicadores de posição */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-50">
+          <div className="absolute bottom-4 sm:bottom-6 md:bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1.5 sm:gap-2 z-50">
             {Array.from({ length: Math.ceil(portfolioLinks.length / visibleCards) }, (_, pageIndex) => {
               const isCurrentPage = carouselStartIndex >= pageIndex * visibleCards &&
                 carouselStartIndex < (pageIndex + 1) * visibleCards;
@@ -384,17 +417,38 @@ const Portfolio = () => {
                     setCarouselStartIndex(newStartIndex);
                     // Não muda o card ativo, apenas move o carrossel
                   }}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${isCurrentPage
-                      ? 'bg-white w-8'
-                      : 'bg-white/40 hover:bg-white/60'
-                    }`}
-                  aria-label={`Ir para página ${pageIndex + 1}`}
+                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
+                    isCurrentPage
+                      ? 'bg-white w-6 sm:w-8'
+                      : 'bg-white/40 hover:bg-white/60 w-1.5 sm:w-2'
+                  }`}
+                  aria-label={`Go to page ${pageIndex + 1}`}
                 />
               );
             })}
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 1s ease-out;
+        }
+      `}</style>
     </>
   )
 }

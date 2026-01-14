@@ -72,6 +72,7 @@ module.exports = {
         'float-cat': 'floatCat 3s ease-in-out infinite',
         'heart-beat': 'heartBeat 1.5s ease-in-out infinite',
         'sparkle': 'sparkle 2s ease-in-out infinite',
+        'gradient': 'gradient 3s ease infinite',
       },
       keyframes: {
         flutuar: {
@@ -143,8 +144,8 @@ module.exports = {
           '50%': { transform: 'scale(1.1)', opacity: '1', borderColor: 'var(--neon-blue)' },
         },
         gridMove: {
-          '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(20px)' },
+          '0%': { transform: 'translate(0, 0)' },
+          '100%': { transform: 'translate(50px, 50px)' },
         },
         borderGlow: {
           '0%': { opacity: '0.5', filter: 'hue-rotate(0deg)' },
