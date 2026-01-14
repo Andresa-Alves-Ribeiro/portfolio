@@ -62,11 +62,7 @@ export const contactService = {
    * @throws {Error} Erro caso a requisição falhe
    */
   sendMessage: async (messageData) => {
-    try {
-      const response = await apiClient.post(API_CONFIG.endpoints.contact, messageData);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await apiClient.post(API_CONFIG.endpoints.contact, messageData);
+    return response.data;
   },
 }; 

@@ -25,13 +25,14 @@ const About = () => {
       { threshold: 0.1 }
     );
 
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current);
+    const currentRef = aboutRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (aboutRef.current) {
-        observer.unobserve(aboutRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -89,7 +90,7 @@ const About = () => {
                   <div className="relative overflow-hidden rounded-xl">
                     <img 
                       src={MyPicture} 
-                      alt="Photo of Andresa Alves, Front End developer"
+                      alt="Andresa Alves, Front End developer"
                       loading="lazy"
                       className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                     />

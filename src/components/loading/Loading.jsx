@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -51,6 +52,12 @@ const Loading = ({ size = 'md', text = null, fullScreen = false }) => {
       </div>
     </div>
   );
+};
+
+Loading.propTypes = {
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  text: PropTypes.string,
+  fullScreen: PropTypes.bool,
 };
 
 export default Loading;

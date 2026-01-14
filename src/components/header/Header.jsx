@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { scrollToElement } from '../../utils/helpers';
@@ -172,6 +173,11 @@ const Header = ({ isInPresentation = false, showNavLinks = true }) => {
       </div>
     </nav>
   );
+};
+
+Header.propTypes = {
+  isInPresentation: PropTypes.bool,
+  showNavLinks: PropTypes.bool,
 };
 
 export default Header;

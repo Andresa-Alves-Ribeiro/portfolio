@@ -27,14 +27,15 @@ export const useScrollReveal = (options = {}) => {
       ...options,
     };
 
-    if (elementRef.current) {
+    const currentElement = elementRef.current;
+    if (currentElement) {
       scrollRevealInstance.current = ScrollReveal();
-      scrollRevealInstance.current.reveal(elementRef.current, defaultOptions);
+      scrollRevealInstance.current.reveal(currentElement, defaultOptions);
     }
 
     return () => {
-      if (scrollRevealInstance.current && elementRef.current) {
-        scrollRevealInstance.current.clean(elementRef.current);
+      if (scrollRevealInstance.current && currentElement) {
+        scrollRevealInstance.current.clean(currentElement);
       }
     };
   }, [options]);
