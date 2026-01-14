@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import ScrollReveal from 'scrollreveal';
 import { portfolioLinks } from '../../constants/portfolioLinks';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { useWindowWidth } from '../../hooks/useWindowResize';
+import { getCarouselConfig, getFontSize as getFontSizeUtil } from '../../constants/breakpoints';
 
 /**
  * Componente que exibe o portfólio de projetos em estilo carrossel interativo
@@ -10,32 +12,17 @@ import { portfolioLinks } from '../../constants/portfolioLinks';
  */
 const Portfolio = () => {
   const { t } = useTranslation();
-  const aboutRef = useRef(null);
+  const aboutRef = useScrollReveal({
+    duration: 1000,
+    delay: 500,
+    easing: 'ease-in-out',
+    distance: '20px',
+    origin: 'bottom',
+    opacity: 0,
+  });
 
-  useEffect(() => {
-    const scrollReveal = ScrollReveal();
-    const currentRef = aboutRef.current;
-
-    if (currentRef) {
-      scrollReveal.reveal(currentRef, {
-        duration: 1000,
-        delay: 500,
-        easing: 'ease-in-out',
-        distance: '20px',
-        origin: 'bottom',
-        opacity: 0,
-      });
-    }
-
-    return () => {
-      if (scrollReveal && currentRef) {
-        scrollReveal.clean(currentRef);
-      }
-    };
-  }, []);
-
-  // Cores vibrantes para cada card
-  const cardColors = [
+  // Cores vibrantes para cada card - memoizado para evitar recriação
+  const cardColors = useMemo(() => [
     { bg: '#DC2626', text: 'white' }, // Vermelho escuro
     { bg: '#FDE047', text: '#1A1A1A' }, // Amarelo claro
     { bg: '#EC4899', text: 'white' }, // Rosa/Magenta
@@ -53,42 +40,24 @@ const Portfolio = () => {
     { bg: '#22C55E', text: 'white' }, // Verde claro
     { bg: '#EAB308', text: '#1A1A1A' }, // Amarelo
     { bg: '#F43F5E', text: 'white' }, // Rosa
-  ];
+  ], []);
+
+  // Hook para obter largura da janela com debounce
+  const windowWidth = useWindowWidth(150);
+
+  // Obter configuração do carrossel baseado na largura atual
+  const carouselConfig = useMemo(() => getCarouselConfig(windowWidth), [windowWidth]);
+  const { visibleCards, inactiveWidth, activeWidth, height } = carouselConfig;
 
   // Definir card ativo inicial como o primeiro
   const [currentActiveIndex, setCurrentActiveIndex] = useState(0);
   const [carouselStartIndex, setCarouselStartIndex] = useState(0);
   const isManualNavigation = useRef(false);
 
-  // Quantidade de cards visíveis no carrossel (incluindo o ativo) - responsivo
-  const [visibleCards, setVisibleCards] = useState(10);
   const cardsPerNavigation = 1; // Quantos cards avançar por navegação
 
-  // Ajustar número de cards visíveis baseado no tamanho da tela
-  useEffect(() => {
-    const updateVisibleCards = () => {
-      if (typeof globalThis.window === 'undefined') return;
-      const width = globalThis.window.innerWidth;
-      if (width < 640) {
-        setVisibleCards(3); // Mobile: 3 cards
-      } else if (width < 768) {
-        setVisibleCards(5); // Tablet pequeno: 5 cards
-      } else if (width < 1024) {
-        setVisibleCards(7); // Tablet: 7 cards
-      } else {
-        setVisibleCards(10); // Desktop: 10 cards
-      }
-    };
-
-    updateVisibleCards();
-    if (typeof globalThis.window !== 'undefined') {
-      globalThis.window.addEventListener('resize', updateVisibleCards);
-      return () => globalThis.window.removeEventListener('resize', updateVisibleCards);
-    }
-  }, []);
-
   // Função para navegar para o próximo (apenas move o carrossel, não expande cards)
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     isManualNavigation.current = true;
     const maxStartIndex = Math.max(0, portfolioLinks.length - visibleCards);
     const newStartIndex = Math.min(carouselStartIndex + cardsPerNavigation, maxStartIndex);
@@ -96,17 +65,17 @@ const Portfolio = () => {
     setTimeout(() => {
       isManualNavigation.current = false;
     }, 100);
-  };
+  }, [carouselStartIndex, visibleCards, cardsPerNavigation]);
 
   // Função para navegar para o anterior (apenas move o carrossel, não expande cards)
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     isManualNavigation.current = true;
     const newStartIndex = Math.max(0, carouselStartIndex - cardsPerNavigation);
     setCarouselStartIndex(newStartIndex);
     setTimeout(() => {
       isManualNavigation.current = false;
     }, 100);
-  };
+  }, [carouselStartIndex, cardsPerNavigation]);
 
   // Função para atualizar carrossel quando o índice ativo muda por clique (apenas se necessário)
   useEffect(() => {
@@ -136,49 +105,16 @@ const Portfolio = () => {
   );
 
   // Função auxiliar para calcular tamanho da fonte baseado na largura da tela
-  const getFontSize = (isActive) => {
-    if (isActive) {
-      if (windowWidth < 640) return '1.5rem';
-      if (windowWidth < 768) return '2rem';
-      if (windowWidth < 1024) return '3rem';
-      return '4rem';
-    } else {
-      if (windowWidth < 640) return '0.875rem';
-      if (windowWidth < 768) return '1rem';
-      return '1.5rem';
-    }
-  };
+  const getFontSize = useCallback((isActive) => {
+    return getFontSizeUtil(windowWidth, isActive);
+  }, [windowWidth]);
 
-  // Valores responsivos para cards
-  const getCardDimensions = () => {
-    const width = typeof globalThis.window !== 'undefined' ? globalThis.window.innerWidth : 1024;
-    if (width < 640) {
-      return { inactive: 80, active: 280, height: 400 }; // Mobile
-    } else if (width < 768) {
-      return { inactive: 100, active: 350, height: 500 }; // Tablet pequeno
-    } else if (width < 1024) {
-      return { inactive: 120, active: 400, height: 550 }; // Tablet
-    }
-    return { inactive: 180, active: 500, height: 600 }; // Desktop
-  };
-
-  const [cardDimensions, setCardDimensions] = useState(getCardDimensions());
-  const [windowWidth, setWindowWidth] = useState(typeof globalThis.window !== 'undefined' ? globalThis.window.innerWidth : 1024);
-
-  useEffect(() => {
-    const updateDimensions = () => {
-      setCardDimensions(getCardDimensions());
-      if (typeof globalThis.window !== 'undefined') {
-        setWindowWidth(globalThis.window.innerWidth);
-      }
-    };
-
-    updateDimensions();
-    if (typeof globalThis.window !== 'undefined') {
-      globalThis.window.addEventListener('resize', updateDimensions);
-      return () => globalThis.window.removeEventListener('resize', updateDimensions);
-    }
-  }, []);
+  // Dimensões dos cards - memoizado baseado na configuração
+  const cardDimensions = useMemo(() => ({
+    inactive: inactiveWidth,
+    active: activeWidth,
+    height: height,
+  }), [inactiveWidth, activeWidth, height]);
 
   return (
     <>
@@ -329,7 +265,7 @@ const Portfolio = () => {
                             {item.image && (
                               <img
                                 src={item.image}
-                                alt={`Icon ${item.title}`}
+                                alt={`${item.title} icon`}
                                 className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-cover rounded-full"
                               />
                             )}
@@ -360,7 +296,7 @@ const Portfolio = () => {
                               <div className="w-full max-w-full mb-2 sm:mb-3 md:mb-4 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
                                 <img
                                   src={item.image}
-                                  alt={`Full project image ${item.title}`}
+                                  alt={`${item.title} project`}
                                   className="w-full h-auto object-cover"
                                   loading="lazy"
                                 />

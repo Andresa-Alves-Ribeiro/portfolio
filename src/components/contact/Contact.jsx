@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import ScrollReveal from 'scrollreveal';
 import { useForm } from 'react-hook-form';
 import { contactService } from '../../services/api';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 /**
  * Componente de formulário de contato futurista
@@ -15,26 +15,18 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [focusedField, setFocusedField] = useState(null);
-  const aboutRef = useRef(null);
   const timeoutRef = useRef(null);
+  const aboutRef = useScrollReveal({
+    duration: 2000,
+    delay: 500,
+    easing: 'ease-in-out',
+    distance: '20px',
+    origin: 'bottom',
+    opacity: 0,
+  });
 
   useEffect(() => {
-    const scrollReveal = ScrollReveal();
-    if (aboutRef.current) {
-      scrollReveal.reveal(aboutRef.current, {
-        duration: 2000,
-        delay: 500,
-        easing: 'ease-in-out',
-        distance: '20px',
-        origin: 'bottom',
-        opacity: 0,
-      });
-    }
-
     return () => {
-      if (scrollReveal && aboutRef.current) {
-        scrollReveal.clean(aboutRef.current);
-      }
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }

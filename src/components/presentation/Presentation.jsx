@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../header';
+import { getWindow, getWindowWidth, getWindowHeight } from '../../utils/environment';
 
 const Presentation = () => {
   const { t } = useTranslation();
@@ -8,10 +9,15 @@ const Presentation = () => {
   const [isInPresentation, setIsInPresentation] = useState(true);
 
   useEffect(() => {
+    const win = getWindow();
+    if (!win) return;
+
     const handleMouseMove = (e) => {
+      const width = getWindowWidth(1920);
+      const height = getWindowHeight(1080);
       setMousePosition({
-        x: (e.clientX / (globalThis.innerWidth || 1920)) * 100,
-        y: (e.clientY / (globalThis.innerHeight || 1080)) * 100,
+        x: (e.clientX / width) * 100,
+        y: (e.clientY / height) * 100,
       });
     };
 
@@ -19,20 +25,19 @@ const Presentation = () => {
       const presentationElement = document.getElementById('presentation');
       if (presentationElement) {
         const rect = presentationElement.getBoundingClientRect();
-        setIsInPresentation(rect.top >= -100 && rect.bottom > (globalThis.innerHeight || 1080) * 0.5);
+        const height = getWindowHeight(1080);
+        setIsInPresentation(rect.top >= -100 && rect.bottom > height * 0.5);
       }
     };
 
-    if (globalThis.window !== undefined) {
-      globalThis.window.addEventListener('mousemove', handleMouseMove);
-      handleScroll();
-      globalThis.window.addEventListener('scroll', handleScroll, { passive: true });
-      
-      return () => {
-        globalThis.window.removeEventListener('mousemove', handleMouseMove);
-        globalThis.window.removeEventListener('scroll', handleScroll);
-      };
-    }
+    win.addEventListener('mousemove', handleMouseMove);
+    handleScroll();
+    win.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      win.removeEventListener('mousemove', handleMouseMove);
+      win.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const scrollToAbout = () => {

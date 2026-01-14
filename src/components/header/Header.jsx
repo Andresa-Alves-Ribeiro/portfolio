@@ -8,6 +8,7 @@ import { ReactComponent as GithubIcon } from '../../assets/github-nav.svg';
 import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
 import { APP_CONFIG } from '../../constants/config';
 import LanguageSelector from '../languageSelector';
+import { getWindow, getWindowHeight, getScrollY } from '../../utils/environment';
 
 /**
  * Componente Header/Navbar futurista reutilizável
@@ -22,28 +23,29 @@ const Header = ({ isInPresentation = false, showNavLinks = true }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    const win = getWindow();
+    if (!win) return;
+
     const handleScroll = () => {
       if (showNavLinks) {
         const presentationElement = document.getElementById('presentation');
         if (presentationElement) {
           const rect = presentationElement.getBoundingClientRect();
-          const innerHeight = globalThis.innerHeight || 1080;
+          const innerHeight = getWindowHeight(1080);
           setIsScrolled(rect.top < -100 || rect.bottom <= innerHeight * 0.5);
         } else {
-          const scrollY = globalThis.scrollY || 0;
+          const scrollY = getScrollY(0);
           setIsScrolled(scrollY > 50);
         }
       } else {
-        const scrollY = globalThis.scrollY || 0;
+        const scrollY = getScrollY(0);
         setIsScrolled(scrollY > 50);
       }
     };
 
-    if (globalThis.window !== undefined) {
-      handleScroll();
-      globalThis.window.addEventListener('scroll', handleScroll, { passive: true });
-      return () => globalThis.window.removeEventListener('scroll', handleScroll);
-    }
+    handleScroll();
+    win.addEventListener('scroll', handleScroll, { passive: true });
+    return () => win.removeEventListener('scroll', handleScroll);
   }, [showNavLinks]);
 
   const handleNavClick = (e) => {
@@ -53,20 +55,24 @@ const Header = ({ isInPresentation = false, showNavLinks = true }) => {
     if (targetId) {
       if (location.pathname === '/') {
         scrollToElement(targetId);
-      } else if (globalThis.window !== undefined) {
+      } else {
         // Se não estiver na home, navegar para home primeiro
-        globalThis.window.location.href = `/#${targetId}`;
+        const win = getWindow();
+        if (win) {
+          win.location.href = `/#${targetId}`;
+        }
       }
     }
   };
 
   const handleLogoClick = () => {
+    const win = getWindow();
+    if (!win) return;
+
     if (location.pathname === '/') {
-      if (globalThis.window !== undefined) {
-        globalThis.window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    } else if (globalThis.window !== undefined) {
-      globalThis.window.location.href = '/';
+      win.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      win.location.href = '/';
     }
   };
 
