@@ -1,0 +1,52 @@
+import { useState, useEffect } from 'react';
+
+/**
+ * Hook personalizado para gerenciar o tema da aplicação (claro/escuro)
+ * @returns {Object} Objeto com isDarkMode e toggleTheme
+ */
+export const useTheme = () => {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme === 'dark';
+      }
+
+      if (typeof window !== 'undefined' && window.matchMedia) {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+
+      return false;
+    } catch (error) {
+      console.warn('Erro ao acessar localStorage ou matchMedia:', error);
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      const root = document.documentElement;
+      if (isDarkMode) {
+        root.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        root.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+      }
+    } catch (error) {
+      console.warn('Erro ao salvar tema no localStorage:', error);
+      const root = document.documentElement;
+      if (isDarkMode) {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  };
+
+  return { isDarkMode, toggleTheme };
+}; 

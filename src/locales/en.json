@@ -1,0 +1,149 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "loadingPage": "Loading page...",
+    "loadingProject": "Loading project...",
+    "back": "Back",
+    "goHome": "Go to home",
+    "explore": "Explore",
+    "scrollDown": "Scroll down",
+    "downloadCV": "Download CV",
+    "viewDetails": "View Details",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    "current": "Current"
+  },
+  "nav": {
+    "about": "ABOUT",
+    "timeline": "TIMELINE",
+    "skills": "SKILLS",
+    "projects": "PROJECTS",
+    "contact": "CONTACT"
+  },
+  "presentation": {
+    "badge": "FRONT END DEVELOPER",
+    "title1": "Crafting Digital",
+    "title2": "Experiences",
+    "subtitle": "Developing innovative solutions with code and creativity"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Hello! I'm Andresa, a Front End developer passionate about creating amazing digital experiences. With experience in web development, I always seek to deliver innovative and high-quality solutions. My journey in technology began in childhood with a curiosity about how things worked on the internet, and today I transform this passion into code that positively impacts people's lives.",
+    "yearsExperience": "Years of Experience",
+    "frontEndDeveloper": "Developer"
+  },
+  "timeline": {
+    "title": "Experiences",
+    "experiences": {
+      "2022": {
+        "title": "IT Intern",
+        "company": "Integrance Finance and Consulting Services",
+        "description": "Beginning of career in technology, working on support for internal IT processes, participation in technical meetings and improvement of operational flows.",
+        "period": "2022"
+      },
+      "2023": {
+        "title": "Front-End Developer",
+        "company": "Inova e-Business",
+        "description": "Focus on React.js and Next.js 13, with emphasis on e-commerce and marketplace projects. Worked with advanced forms, REST API integration, performance and SEO optimization, as well as direct collaboration with design and back-end teams.",
+        "period": "2023-2024"
+      },
+      "2024": {
+        "title": "Front-End Developer",
+        "company": "Wareline",
+        "description": "Development and maintenance of corporate systems using JSF, SASS and Bootstrap. Responsible for evolving features, improving user interface and translating Figma layouts into functional interfaces, working in an agile environment (Scrum and Kanban).",
+        "period": "2024-2025"
+      },
+      "2025-1": {
+        "title": "Full-stack Developer",
+        "company": "Logithink",
+        "description": "Working on end-to-end projects, developing web applications with React.js and Node.js. Worked with REST APIs, reusable components, React application optimization and environment standardization with Docker.",
+        "period": "2025"
+      },
+      "2025-2": {
+        "title": "Front-end Developer",
+        "company": "Mais Mottoristas",
+        "description": "Responsible for building, maintaining and optimizing front-end interfaces using React.js. Working on creating scalable components, implementing responsive and accessible layouts from Figma, bug fixes, performance improvements and continuous collaboration with designers and back-end.",
+        "period": "2025 - Current"
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "portfolio": {
+    "title": "Projects",
+    "previousProject": "Previous project",
+    "nextProject": "Next project",
+    "viewProjectDetails": "View project details",
+    "expandCard": "Expand card"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Still have questions? Fill in the fields below with the following information and get in touch with me.",
+    "name": "Your name:",
+    "namePlaceholder": "Your name here",
+    "email": "Your email:",
+    "emailPlaceholder": "email@example.com",
+    "subject": "Subject:",
+    "subjectPlaceholder": "Subject",
+    "message": "Your message:",
+    "messagePlaceholder": "Write your message here",
+    "success": "✓ Email sent successfully!",
+    "error": "Error sending email.",
+    "errorTryAgain": "Error sending email. Please try again.",
+    "validation": {
+      "required": "This field is required",
+      "nameMinLength": "Name must be at least 2 characters",
+      "subjectMinLength": "Subject must be at least 3 characters",
+      "messageMinLength": "Message must be at least 10 characters",
+      "invalidEmail": "Invalid email"
+    }
+  },
+  "projectDetails": {
+    "back": "Back",
+    "imageNotAvailable": "Image not available",
+    "projectNotFound": "Project not found",
+    "projectNotFoundDescription": "Sorry, the project you are looking for was not found.",
+    "viewLiveDemo": "View live demo of project",
+    "viewSourceCode": "View source code of project on GitHub",
+    "projectImageAlt": "Project image",
+    "vercelLogoAlt": "Vercel logo - View live demo",
+    "githubLogoAlt": "GitHub logo - View source code",
+    "descriptions": {
+      "spiderverse": "The goal of this project is an interactive application inspired by the Spider-Man universe.",
+      "expertNotes": "This project is an interactive application for creating notes through speech and writing.",
+      "currencyConverter": "This project is a web system that uses the exchangerate.host API to display charts with the Brazilian Real exchange rate against other currencies (dollar, euro, and pound) over a week.",
+      "letmeask": "Letmeask is perfect for content creators to create Q&A rooms with their audience in a very organized and democratic way.",
+      "imcProject": "IMC Project is a page that calculates a person's BMI according to the user's height and weight.",
+      "habits": "Habits is a page with the functionality to show the result of task management based on projects created and selected each day.",
+      "calculator": "A calculator project that performs basic calculations.",
+      "devFinder": "DevFinder is a GitHub user search tool using the API provided by GitHub itself.",
+      "rocketpay": "Rocketpay is a page that simulates a credit card filling form.",
+      "doctorCare": "DoctorCare is an institutional page for a healthcare company.",
+      "beautySalon": "Beauty Salon is an institutional page for a beauty salon.",
+      "jsExpert": "Controlling streaming platforms using eye and hand detection.",
+      "resgate": "Resgate is a browser game that consists of rescuing hostages on the ground.",
+      "netflixClone": "Recriando Netfilx is a clone page of the Netflix streaming design.",
+      "ipTracker": "IP Address Tracker is a page that shows your location by your IP and allows searches for other IPs.",
+      "destinyRevealer": "Destiny Revealer is a page that answers your destiny based on a question.",
+      "marvelProject": "This project was inspired by game screens from the 90s/2000s, where you can select your favorite character from various options to play. I chose Marvel characters for the character list."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Sorry, the page you are looking for does not exist or has been moved.",
+    "goHome": "Go to home",
+    "back": "Back",
+    "orExplore": "Or explore:",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "footer": {
+    "contact": "Contact",
+    "links": "Links",
+    "socialMedia": "Social Media",
+    "allRightsReserved": "All rights reserved."
+  }
+}
