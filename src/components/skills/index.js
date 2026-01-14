@@ -1,3 +1,3 @@
-import Skills from './Skills';
+import Skills from './skills';
 export default Skills;
 
