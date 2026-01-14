@@ -1,0 +1,150 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "loadingPage": "Carregando página...",
+    "loadingProject": "Carregando projeto...",
+    "back": "Voltar",
+    "goHome": "Ir para início",
+    "explore": "Explorar",
+    "scrollDown": "Rolar para baixo",
+    "downloadCV": "Baixar CV",
+    "viewDetails": "Ver Detalhes",
+    "sendMessage": "Enviar Mensagem",
+    "sending": "Enviando...",
+    "current": "Atual"
+  },
+  "nav": {
+    "about": "SOBRE",
+    "timeline": "LINHA DO TEMPO",
+    "skills": "HABILIDADES",
+    "projects": "PROJETOS",
+    "contact": "CONTATO"
+  },
+  "presentation": {
+    "badge": "DESENVOLVEDORA FRONT END",
+    "title1": "Criando Experiências",
+    "title2": "Digitais",
+    "subtitle": "Desenvolvendo soluções inovadoras com código e criatividade"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "description": "Olá! Sou Andresa, uma desenvolvedora Front End apaixonada por criar experiências digitais incríveis. Com experiência em desenvolvimento web, sempre busco entregar soluções inovadoras e de alta qualidade. Minha jornada na tecnologia começou na infância com uma curiosidade sobre como as coisas funcionavam na internet, e hoje transformo essa paixão em código que impacta positivamente a vida das pessoas.",
+    "yearsExperience": "Anos de Experiência",
+    "frontEndDeveloper": "Desenvolvedora"
+  },
+  "timeline": {
+    "title": "Experiências",
+    "experiences": {
+      "2022": {
+        "title": "Estagiária de TI",
+        "company": "Integrance Finance and Consulting Services",
+        "description": "Início da carreira em tecnologia, trabalhando com suporte para processos internos de TI, participação em reuniões técnicas e melhoria de fluxos operacionais.",
+        "period": "2022"
+      },
+      "2023": {
+        "title": "Desenvolvedora Front-End",
+        "company": "Inova e-Business",
+        "description": "Foco em React.js e Next.js 13, com ênfase em projetos de e-commerce e marketplace. Trabalhei com formulários avançados, integração de API REST, otimização de performance e SEO, além de colaboração direta com equipes de design e back-end.",
+        "period": "2023-2024"
+      },
+      "2024": {
+        "title": "Desenvolvedora Front-End",
+        "company": "Wareline",
+        "description": "Desenvolvimento e manutenção de sistemas corporativos usando JSF, SASS e Bootstrap. Responsável por evoluir funcionalidades, melhorar a interface do usuário e traduzir layouts do Figma em interfaces funcionais, trabalhando em ambiente ágil (Scrum e Kanban).",
+        "period": "2024-2025"
+      },
+      "2025-1": {
+        "title": "Desenvolvedora Full-stack",
+        "company": "Logithink",
+        "description": "Trabalhando em projetos end-to-end, desenvolvendo aplicações web com React.js e Node.js. Trabalhei com APIs REST, componentes reutilizáveis, otimização de aplicações React e padronização de ambiente com Docker.",
+        "period": "2025"
+      },
+      "2025-2": {
+        "title": "Desenvolvedora Front-end",
+        "company": "Mais Mottoristas",
+        "description": "Responsável por construir, manter e otimizar interfaces front-end usando React.js. Trabalhando na criação de componentes escaláveis, implementação de layouts responsivos e acessíveis a partir do Figma, correção de bugs, melhorias de performance e colaboração contínua com designers e back-end.",
+        "period": "2025 - Atual"
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades"
+  },
+  "portfolio": {
+    "title": "Projetos",
+    "previousProject": "Projeto anterior",
+    "nextProject": "Próximo projeto",
+    "viewProjectDetails": "Ver detalhes do projeto",
+    "expandCard": "Expandir card"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Ainda tem dúvidas? Preencha os campos abaixo com as seguintes informações e entre em contato comigo.",
+    "name": "Seu nome:",
+    "namePlaceholder": "Seu nome aqui",
+    "email": "Seu email:",
+    "emailPlaceholder": "email@exemplo.com",
+    "subject": "Assunto:",
+    "subjectPlaceholder": "Assunto",
+    "message": "Sua mensagem:",
+    "messagePlaceholder": "Escreva sua mensagem aqui",
+    "success": "✓ Email enviado com sucesso!",
+    "error": "Erro ao enviar email.",
+    "errorTryAgain": "Erro ao enviar email. Por favor, tente novamente.",
+    "validation": {
+      "required": "Este campo é obrigatório",
+      "nameMinLength": "O nome deve ter pelo menos 2 caracteres",
+      "subjectMinLength": "O assunto deve ter pelo menos 3 caracteres",
+      "messageMinLength": "A mensagem deve ter pelo menos 10 caracteres",
+      "invalidEmail": "Email inválido"
+    }
+  },
+  "projectDetails": {
+    "back": "Voltar",
+    "imageNotAvailable": "Imagem não disponível",
+    "projectNotFound": "Projeto não encontrado",
+    "projectNotFoundDescription": "Desculpe, o projeto que você está procurando não foi encontrado.",
+    "viewLiveDemo": "Ver demonstração ao vivo do projeto",
+    "viewSourceCode": "Ver código fonte do projeto no GitHub",
+    "projectImageAlt": "Imagem do projeto",
+    "vercelLogoAlt": "Logo Vercel - Ver demonstração ao vivo",
+    "githubLogoAlt": "Logo GitHub - Ver código fonte",
+    "descriptions": {
+      "digitsign": "DigitSign é um sistema de simulação de assinatura de documentos, fazendo upload e assinatura desses documentos.",
+      "spiderverse": "O objetivo deste projeto é uma aplicação interativa inspirada no universo do Homem-Aranha.",
+      "expertNotes": "Esse projeto é uma aplicação interativa para a criação de notas por meio da fala e da escrita.",
+      "currencyConverter": "Esse projeto é um sistema web que utiliza a API exchangerate.host para mostrar gráficos com a cotação do real em relação a outras moedas (dólar, euro e libra) ao longo de uma semana.",
+      "letmeask": "Letmeask é perfeito para criadores de conteúdos poderem criar salas de Q&A com o seu público, de uma forma muito organizada e democrática.",
+      "imcProject": "IMC Project é uma página que calcula o IMC de uma pessoa de acordo com a altura e peso do usuário.",
+      "habits": "Habits é uma página com a funcionalidade de mostrar o resultado de uma gestão de tarefas baseado nos projetos criados e selecionados em cada dia.",
+      "calculator": "Projeto de uma calculadora que faz cálculos básicos.",
+      "devFinder": "DevFinder é um buscador de usuários do gitHub, utilizando a API disponibilizada pelo próprio gitHub.",
+      "rocketpay": "Rocketpay é uma página que simula o formulário de preenchimento de cartão de crédito.",
+      "doctorCare": "DoctorCare é uma página institucional de uma empresa de assistência médica.",
+      "beautySalon": "Beauty Salon é uma página institucional de um salão de beleza.",
+      "jsExpert": "Controlando plataformas de streaming usando detecção de olhos e mãos.",
+      "resgate": "Resgate é um jogo para navegadores que consiste em resgatar reféns que estão no solo.",
+      "netflixClone": "Recriando Netfilx é uma página clone do design do streaming Netflix.",
+      "ipTracker": "IP Address Tracker é uma página que mostra a sua localização pelo seu IP e permite buscas por outros IPs.",
+      "destinyRevealer": "Revelador de destino é uma página que responde o seu destino baseado em uma pergunta.",
+      "marvelProject": "Este projeto foi inspirado em telas de jogos dos anos 90/2000, em que se pode selecionar o seu personagem preferido, diante de várias opções, para jogar. Escolhi os personagens da Marvel para a lista de personagens."
+    }
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "description": "Desculpe, a página que você está procurando não existe ou foi movida.",
+    "goHome": "Ir para início",
+    "back": "Voltar",
+    "orExplore": "Ou explore:",
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "footer": {
+    "contact": "Contato",
+    "links": "Links",
+    "socialMedia": "Redes Sociais",
+    "allRightsReserved": "Todos os direitos reservados."
+  }
+}
