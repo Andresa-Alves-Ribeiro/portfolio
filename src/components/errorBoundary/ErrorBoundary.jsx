@@ -21,7 +21,7 @@ class ErrorBoundary extends React.Component {
 
   handleReset = () => {
     this.setState({ hasError: false, error: null, errorInfo: null });
-    window.location.href = '/';
+    globalThis.location.href = '/';
   };
 
   render() {
@@ -59,7 +59,7 @@ class ErrorBoundary extends React.Component {
                 Voltar para o início
               </button>
               <button
-                onClick={() => window.location.reload()}
+                onClick={() => globalThis.location.reload()}
                 className="bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors duration-300"
               >
                 Recarregar página

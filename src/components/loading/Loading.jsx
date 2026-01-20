@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const Loading = ({ size = 'md', text = null, fullScreen = false }) => {
   const { t } = useTranslation();
-  const displayText = text !== null ? text : t('common.loading');
+  const displayText = text ?? t('common.loading');
   const sizeClasses = {
     sm: 'h-4 w-4',
     md: 'h-8 w-8',

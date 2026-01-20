@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
+const getEntryIndex = (entry) => Number.parseInt(entry.target.dataset.index, 10);
+
 const Timeline = () => {
   const { t } = useTranslation();
   const [visibleItems, setVisibleItems] = useState([]);
+
+  const addVisibleItem = (index) => {
+    setVisibleItems((prev) => (prev.includes(index) ? prev : [...prev, index]));
+  };
 
   const experiences = [
     {
@@ -55,17 +61,13 @@ const Timeline = () => {
 
   useEffect(() => {
     const handleIntersection = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = Number.parseInt(entry.target.dataset.index, 10);
-          setVisibleItems((prev) => {
-            if (!prev.includes(index)) {
-              return [...prev, index];
-            }
-            return prev;
-          });
+      for (const entry of entries) {
+        if (!entry.isIntersecting) {
+          continue;
         }
-      });
+        const index = getEntryIndex(entry);
+        addVisibleItem(index);
+      }
     };
 
     const observer = new IntersectionObserver(handleIntersection, {
@@ -74,10 +76,14 @@ const Timeline = () => {
     });
 
     const items = document.querySelectorAll('[data-timeline-item]');
-    items.forEach((item) => observer.observe(item));
+    for (const item of items) {
+      observer.observe(item);
+    }
 
     return () => {
-      items.forEach((item) => observer.unobserve(item));
+      for (const item of items) {
+        observer.unobserve(item);
+      }
     };
   }, []);
 
