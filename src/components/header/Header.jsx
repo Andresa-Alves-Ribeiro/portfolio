@@ -11,13 +11,7 @@ import { APP_CONFIG } from '../../constants/config';
 import LanguageSelector from '../languageSelector';
 import { getWindow, getWindowHeight, getScrollY } from '../../utils/environment';
 
-/**
- * Componente Header/Navbar futurista reutilizável
- * @param {Object} props - Propriedades do componente
- * @param {boolean} props.isInPresentation - Se está na seção de apresentação (afeta estilo)
- * @param {boolean} props.showNavLinks - Se deve mostrar os links de navegação (sobre, timeline, etc)
- * @returns {JSX.Element} Header/Navbar
- */
+
 const Header = ({ isInPresentation = false, showNavLinks = true }) => {
   const { t } = useTranslation();
   const location = useLocation();
@@ -57,7 +51,7 @@ const Header = ({ isInPresentation = false, showNavLinks = true }) => {
       if (location.pathname === '/') {
         scrollToElement(targetId);
       } else {
-        // Se não estiver na home, navegar para home primeiro
+        
         const win = getWindow();
         if (win) {
           win.location.href = `/#${targetId}`;
@@ -167,7 +161,7 @@ const Header = ({ isInPresentation = false, showNavLinks = true }) => {
             </a>
           </div>
 
-          {/* Seletor de idioma no final do header */}
+          
           <LanguageSelector isInPresentation={shouldShowTransparent} />
         </div>
       </div>

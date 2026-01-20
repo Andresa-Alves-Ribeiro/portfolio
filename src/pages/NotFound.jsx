@@ -3,10 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { scrollToElement } from '../utils/helpers';
 
-/**
- * Componente de página 404 - Página não encontrada
- * @returns {JSX.Element} Página de erro 404
- */
+
 const NotFound = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();

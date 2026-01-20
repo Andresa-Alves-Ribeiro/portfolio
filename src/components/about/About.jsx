@@ -4,10 +4,7 @@ import { TypeAnimation } from 'react-type-animation';
 import MyPicture from '../../assets/minha-foto.jpeg';
 import CV from '../../assets/cv.pdf';
 
-/**
- * Componente que exibe informações sobre a desenvolvedora
- * @returns {JSX.Element} Seção "Sobre Mim"
- */
+
 const About = () => {
   const { t } = useTranslation();
   const aboutRef = useRef(null);
@@ -43,15 +40,15 @@ const About = () => {
       id='about'
       ref={aboutRef}
     >
-      {/* Grid de fundo */}
+      
       <div className="absolute inset-0 tech-grid opacity-10"></div>
 
-      {/* Efeitos de luz */}
+      
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl"></div>
 
       <div className="relative z-[1] max-w-[1400px] mx-auto px-4 md:px-8">
-        {/* Título da seção */}
+        
         <div className="text-center mb-16">
           <div className="relative inline-block">
             <div className="relative px-10 py-8">
@@ -63,7 +60,7 @@ const About = () => {
                 </span>
               </h1>
               
-              {/* Linha decorativa moderna */}
+              
               <div className="flex items-center justify-center gap-3 mt-6">
                 <div className="h-px w-16 bg-gradient-to-r from-transparent via-pink-500 to-pink-500"></div>
                 <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
@@ -73,19 +70,19 @@ const About = () => {
           </div>
         </div>
 
-        {/* Container principal */}
+        
         <div className={`relative max-w-6xl mx-auto transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             
-            {/* Coluna da foto */}
+            
             <div className="relative order-2 md:order-1">
               <div className="relative group">
-                {/* Efeito de brilho ao redor */}
+                
                 <div className="absolute -inset-4 bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 rounded-full opacity-20 group-hover:opacity-40 blur-xl transition-opacity duration-300"></div>
                 
-                {/* Container da imagem com glass effect */}
+                
                 <div className="relative glass-effect rounded-2xl p-2 border border-pink-500/30">
                   <div className="relative overflow-hidden rounded-xl">
                     <img 
@@ -94,18 +91,18 @@ const About = () => {
                       loading="lazy"
                       className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    {/* Overlay gradiente */}
+                    
                     <div className="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
 
-                {/* Decorações nos cantos */}
+                
                 <div className="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-pink-500 opacity-60"></div>
                 <div className="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-pink-500 opacity-60"></div>
               </div>
             </div>
 
-            {/* Coluna do texto */}
+            
             <div className="order-1 md:order-2 space-y-6">
               <div className="glass-effect rounded-2xl p-6 md:p-8 border border-pink-500/20">
                 <div className="space-y-4">
@@ -124,7 +121,7 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Estatísticas ou badges */}
+              
               <div className="grid grid-cols-2 gap-4">
                 <div className="glass-effect rounded-xl p-4 border border-pink-500/20 text-center">
                   <div className="text-2xl md:text-3xl font-bold text-pink-500 mb-1">4+</div>
@@ -136,7 +133,7 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Botão de download do CV */}
+              
               <div className="pt-4 flex justify-center">
                   <a 
                   href={CV} 

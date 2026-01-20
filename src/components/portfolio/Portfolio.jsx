@@ -6,10 +6,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { useWindowWidth } from '../../hooks/useWindowResize';
 import { getCarouselConfig, getFontSize as getFontSizeUtil } from '../../constants/breakpoints';
 
-/**
- * Componente que exibe o portfólio de projetos em estilo carrossel interativo
- * @returns {JSX.Element} Seção de portfólio
- */
+
 const Portfolio = () => {
   const { t } = useTranslation();
   const aboutRef = useScrollReveal({
@@ -21,42 +18,42 @@ const Portfolio = () => {
     opacity: 0,
   });
 
-  // Cores vibrantes para cada card - memoizado para evitar recriação
+  
   const cardColors = useMemo(() => [
-    { bg: '#DC2626', text: 'white' }, // Vermelho escuro
-    { bg: '#FDE047', text: '#1A1A1A' }, // Amarelo claro
-    { bg: '#EC4899', text: 'white' }, // Rosa/Magenta
-    { bg: '#FB923C', text: 'white' }, // Laranja
-    { bg: '#8B5CF6', text: 'white' }, // Roxo
-    { bg: '#06B6D4', text: 'white' }, // Ciano
-    { bg: '#10B981', text: 'white' }, // Verde
-    { bg: '#F59E0B', text: 'white' }, // Amarelo
-    { bg: '#EF4444', text: 'white' }, // Vermelho
-    { bg: '#6366F1', text: 'white' }, // Índigo
-    { bg: '#14B8A6', text: 'white' }, // Teal
-    { bg: '#F97316', text: 'white' }, // Laranja escuro
-    { bg: '#A855F7', text: 'white' }, // Roxo claro
-    { bg: '#3B82F6', text: 'white' }, // Azul
-    { bg: '#22C55E', text: 'white' }, // Verde claro
-    { bg: '#EAB308', text: '#1A1A1A' }, // Amarelo
-    { bg: '#F43F5E', text: 'white' }, // Rosa
+    { bg: '#DC2626', text: 'white' }, 
+    { bg: '#FDE047', text: '#1A1A1A' }, 
+    { bg: '#EC4899', text: 'white' }, 
+    { bg: '#FB923C', text: 'white' }, 
+    { bg: '#8B5CF6', text: 'white' }, 
+    { bg: '#06B6D4', text: 'white' }, 
+    { bg: '#10B981', text: 'white' }, 
+    { bg: '#F59E0B', text: 'white' }, 
+    { bg: '#EF4444', text: 'white' }, 
+    { bg: '#6366F1', text: 'white' }, 
+    { bg: '#14B8A6', text: 'white' }, 
+    { bg: '#F97316', text: 'white' }, 
+    { bg: '#A855F7', text: 'white' }, 
+    { bg: '#3B82F6', text: 'white' }, 
+    { bg: '#22C55E', text: 'white' }, 
+    { bg: '#EAB308', text: '#1A1A1A' }, 
+    { bg: '#F43F5E', text: 'white' }, 
   ], []);
 
-  // Hook para obter largura da janela com debounce
+  
   const windowWidth = useWindowWidth(150);
 
-  // Obter configuração do carrossel baseado na largura atual
+  
   const carouselConfig = useMemo(() => getCarouselConfig(windowWidth), [windowWidth]);
   const { visibleCards, inactiveWidth, activeWidth, height } = carouselConfig;
 
-  // Definir card ativo inicial como o primeiro
+  
   const [currentActiveIndex, setCurrentActiveIndex] = useState(0);
   const [carouselStartIndex, setCarouselStartIndex] = useState(0);
   const isManualNavigation = useRef(false);
 
-  const cardsPerNavigation = 1; // Quantos cards avançar por navegação
+  const cardsPerNavigation = 1; 
 
-  // Função para navegar para o próximo (apenas move o carrossel, não expande cards)
+  
   const handleNext = useCallback(() => {
     isManualNavigation.current = true;
     const maxStartIndex = Math.max(0, portfolioLinks.length - visibleCards);
@@ -67,7 +64,7 @@ const Portfolio = () => {
     }, 100);
   }, [carouselStartIndex, visibleCards, cardsPerNavigation]);
 
-  // Função para navegar para o anterior (apenas move o carrossel, não expande cards)
+  
   const handlePrev = useCallback(() => {
     isManualNavigation.current = true;
     const newStartIndex = Math.max(0, carouselStartIndex - cardsPerNavigation);
@@ -77,20 +74,20 @@ const Portfolio = () => {
     }, 100);
   }, [carouselStartIndex, cardsPerNavigation]);
 
-  // Função para atualizar carrossel quando o índice ativo muda por clique (apenas se necessário)
+  
   useEffect(() => {
-    // Não ajusta se foi navegação manual
+    
     if (isManualNavigation.current) {
       return;
     }
 
-    // Só ajusta se o card ativo estiver fora da área visível
+    
     setCarouselStartIndex((prevStartIndex) => {
       if (currentActiveIndex < prevStartIndex) {
-        // Card ativo está antes da área visível
+        
         return Math.max(0, currentActiveIndex);
       } else if (currentActiveIndex >= prevStartIndex + visibleCards) {
-        // Card ativo está depois da área visível
+        
         const maxStartIndex = Math.max(0, portfolioLinks.length - visibleCards);
         return Math.min(currentActiveIndex - visibleCards + 1, maxStartIndex);
       }
@@ -98,18 +95,18 @@ const Portfolio = () => {
     });
   }, [currentActiveIndex, visibleCards]);
 
-  // Calcular quais cards mostrar
+  
   const visibleCardsList = portfolioLinks.slice(
     carouselStartIndex,
     Math.min(carouselStartIndex + visibleCards, portfolioLinks.length)
   );
 
-  // Função auxiliar para calcular tamanho da fonte baseado na largura da tela
+  
   const getFontSize = useCallback((isActive) => {
     return getFontSizeUtil(windowWidth, isActive);
   }, [windowWidth]);
 
-  // Dimensões dos cards - memoizado baseado na configuração
+  
   const cardDimensions = useMemo(() => ({
     inactive: inactiveWidth,
     active: activeWidth,
@@ -118,7 +115,7 @@ const Portfolio = () => {
 
   return (
     <>
-      {/* Título da seção - fora do container que muda de cor */}
+      
       <div className="text-center pt-4 pb-1 sm:pb-2 px-2 sm:px-4 md:px-8 relative z-20 bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f]" id='projects-title'>
         <div className="relative inline-block">
           <h1
@@ -132,7 +129,7 @@ const Portfolio = () => {
             </span>
           </h1>
 
-          {/* Linha decorativa */}
+          
           <div className="relative z-10 flex items-center justify-center gap-2 sm:gap-3 mt-2 sm:mt-3 md:mt-4">
             <div className="h-0.5 sm:h-1 w-12 sm:w-16 bg-gradient-to-r from-transparent via-pink-300/80 to-pink-400/80 rounded-full"></div>
             <div className="flex gap-1 sm:gap-1.5">
@@ -145,17 +142,17 @@ const Portfolio = () => {
         </div>
       </div>
 
-      {/* Container principal */}
+      
       <div
         className='pt-0 pb-8 sm:pb-12 md:pb-16 px-2 sm:px-4 md:px-8 relative bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f]'
         id='projects'
       >
-        {/* Grid de fundo - mantendo o estilo futurista */}
+        
         <div className="absolute inset-0 tech-grid opacity-10"></div>
 
-        {/* Carrossel estilo CodePen */}
+        
         <div ref={aboutRef} className="flex items-center justify-center px-4 py-6 sm:py-12 relative z-10">
-          {/* Botão anterior */}
+          
           {carouselStartIndex > 0 && (
             <button
               onClick={handlePrev}
@@ -169,7 +166,7 @@ const Portfolio = () => {
             </button>
           )}
 
-          {/* Botão próximo */}
+          
           {carouselStartIndex + visibleCards < portfolioLinks.length && (
             <button
               onClick={handleNext}
@@ -197,16 +194,16 @@ const Portfolio = () => {
           >
             <div className="relative w-full h-full" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {(() => {
-                // Calcular larguras uma única vez para todos os cards (fora do map) - responsivo
+                
                 const inactiveWidth = cardDimensions.inactive;
                 const activeWidth = cardDimensions.active;
                 const containerWidth = Math.max(windowWidth * 0.95, (visibleCards - 1) * inactiveWidth + activeWidth);
 
-                // Calcular largura atual do card ativo (isso muda durante a animação)
+                
                 const activeGlobalIndex = currentActiveIndex;
                 const activeLocalIndex = activeGlobalIndex - carouselStartIndex;
 
-                // Calcular largura atual do card ativo (será usado por todos os cards)
+                
                 const cardWidths = visibleCardsList.map((_, idx) => {
                   const cardGlobalIndex = carouselStartIndex + idx;
                   const cardIsActive = cardGlobalIndex === activeGlobalIndex;
@@ -218,23 +215,23 @@ const Portfolio = () => {
                   const isActive = currentActiveIndex === globalIndex;
                   const color = cardColors[globalIndex % cardColors.length];
 
-                  // Apenas largura muda, altura permanece constante - responsivo
+                  
                   const width = isActive ? cardDimensions.active : cardDimensions.inactive;
                   const height = cardDimensions.height;
 
-                  // Recalcular cardWidths considerando a largura atual deste card se for o ativo
-                  // Isso permite que os cards se reposicionem conforme o card ativo expande
+                  
+                  
                   const adjustedCardWidths = [...cardWidths];
                   if (isActive && activeLocalIndex === localIndex) {
-                    // Substituir a largura do card ativo pela largura atual (que está animando de 180 para 500)
+                    
                     adjustedCardWidths[localIndex] = width;
                   }
 
-                  // Calcular posição baseada nas larguras ajustadas
+                  
                   const adjustedTotalWidth = adjustedCardWidths.reduce((sum, w) => sum + w, 0);
                   const adjustedBaseLeft = (containerWidth - adjustedTotalWidth) / 2;
 
-                  // Calcular posição incrementalmente, somando a largura de cada card anterior
+                  
                   let leftPosition = adjustedBaseLeft;
                   for (let i = 0; i < localIndex; i++) {
                     leftPosition += adjustedCardWidths[i];
@@ -259,7 +256,7 @@ const Portfolio = () => {
                       aria-label={`${t('portfolio.expandCard')} ${item.title}`}
                     >
                       <div className="relative w-full h-full flex flex-col p-3 sm:p-4 md:p-6 lg:p-8">
-                        {/* Ícone pequeno no topo esquerdo */}
+                        
                         <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 z-20">
                           <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
                             {item.image && (
@@ -272,7 +269,7 @@ const Portfolio = () => {
                           </div>
                         </div>
 
-                        {/* Título */}
+                        
                         <div className={`flex items-center justify-center ${isActive ? 'mb-2 sm:mb-3 md:mb-4' : 'flex-1'}`} style={{ height: isActive ? 'auto' : '100%' }}>
                           <h2
                             className="font-bold transition-all duration-700"
@@ -288,10 +285,10 @@ const Portfolio = () => {
                           </h2>
                         </div>
 
-                        {/* Conteúdo adicional quando expandido */}
+                        
                         {isActive && (
                           <div className="flex-1 flex flex-col items-center animate-fade-in overflow-y-auto">
-                            {/* Imagem completa do projeto */}
+                            
                             {item.image && (
                               <div className="w-full max-w-full mb-2 sm:mb-3 md:mb-4 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
                                 <img
@@ -303,7 +300,7 @@ const Portfolio = () => {
                               </div>
                             )}
 
-                            {/* Tags de tecnologias */}
+                            
                             <div className='flex justify-center items-center flex-wrap gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4'>
                               {item.stacks.slice(0, 3).map((stack) => (
                                 <span
@@ -320,7 +317,7 @@ const Portfolio = () => {
                               )}
                             </div>
 
-                            {/* Botão para ir para a página do projeto */}
+                            
                             <div className="flex justify-center">
                               <Link
                                 to={`/project/${item.title}`}
@@ -341,7 +338,7 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Indicadores de posição */}
+          
           <div className="absolute bottom-4 sm:bottom-6 md:bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1.5 sm:gap-2 z-50">
             {Array.from({ length: Math.ceil(portfolioLinks.length / visibleCards) }, (_, pageIndex) => {
               const isCurrentPage = carouselStartIndex >= pageIndex * visibleCards &&
@@ -353,7 +350,7 @@ const Portfolio = () => {
                   onClick={() => {
                     const newStartIndex = pageIndex * visibleCards;
                     setCarouselStartIndex(newStartIndex);
-                    // Não muda o card ativo, apenas move o carrossel
+                    
                   }}
                   className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                     isCurrentPage

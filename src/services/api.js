@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { API_CONFIG } from '../constants/config';
 
-/**
- * Instância do axios configurada com a URL base da API
- */
+
 const apiClient = axios.create({
   baseURL: API_CONFIG.baseURL,
   headers: {
@@ -27,40 +25,24 @@ apiClient.interceptors.response.use(
   }
 );
 
-/**
- * Serviço para buscar dados do portfólio
- */
+
 export const portfolioService = {
-  /**
-   * Busca todos os projetos
-   * @returns {Promise} Lista de projetos
-   */
+  
   getProjects: async () => {
     const response = await apiClient.get('/projects');
     return response.data;
   },
 
-  /**
-   * Busca um projeto específico
-   * @param {string} projectId - ID do projeto
-   * @returns {Promise} Dados do projeto
-   */
+  
   getProjectById: async (projectId) => {
     const response = await apiClient.get(`/projects/${projectId}`);
     return response.data;
   },
 };
 
-/**
- * Serviço para envio de mensagens de contato
- */
+
 export const contactService = {
-  /**
-   * Envia uma mensagem de contato
-   * @param {Object} messageData - Dados da mensagem { nome, email, assunto, mensagem }
-   * @returns {Promise} Resposta da API
-   * @throws {Error} Erro caso a requisição falhe
-   */
+  
   sendMessage: async (messageData) => {
     const response = await apiClient.post(API_CONFIG.endpoints.contact, messageData);
     return response.data;

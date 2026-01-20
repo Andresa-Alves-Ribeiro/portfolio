@@ -6,10 +6,7 @@ import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg';
 import { APP_CONFIG } from '../../constants/config';
 import { scrollToElement } from '../../utils/helpers';
 
-/**
- * Componente Footer - Rodapé futurista
- * @returns {JSX.Element} Rodapé com informações de contato e links
- */
+
 const Footer = () => {
     const { t } = useTranslation();
     const handleNavClick = useCallback((e) => {
@@ -22,16 +19,16 @@ const Footer = () => {
 
     return (
         <footer className="relative pt-12 md:pt-16 pb-0 border-t border-pink-500/20 bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f] text-white overflow-hidden w-full">
-            {/* Grid de fundo */}
+            
             <div className="absolute inset-0 tech-grid opacity-5"></div>
 
-            {/* Efeitos de luz */}
+            
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl"></div>
 
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
                 
-                {/* Seção Contato */}
+                
                 <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2">
                         <span className="text-pink-500">📧</span>
@@ -55,7 +52,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Seção Links */}
+                
                 <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2">
                         <span className="text-pink-500">🔗</span>
@@ -82,7 +79,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Seção Redes Sociais */}
+                
                 <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2">
                         <span className="text-pink-500">🌐</span>
@@ -120,7 +117,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Copyright */}
+            
             <div className="relative z-10 text-center w-full py-8 border-t border-pink-500/20 mt-8">
                 <p className="text-white/60 text-sm flex items-center justify-center gap-2">
                     <span>©</span>

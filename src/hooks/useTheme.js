@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 
-/**
- * Hook personalizado para gerenciar o tema da aplicação (claro/escuro)
- * @returns {Object} Objeto com isDarkMode e toggleTheme
- */
+
 export const useTheme = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     try {

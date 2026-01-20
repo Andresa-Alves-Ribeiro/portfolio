@@ -1,7 +1,4 @@
-/**
- * Configuração da aplicação
- * Valores podem ser sobrescritos por variáveis de ambiente
- */
+
 export const APP_CONFIG = {
   name: process.env.REACT_APP_NAME || 'Portfolio',
   description: 'Meu portfólio pessoal',
@@ -19,9 +16,7 @@ export const ROUTES = {
   projectDetails: '/project/:title',
 };
 
-/**
- * URLs da API
- */
+
 export const API_CONFIG = {
   baseURL: process.env.REACT_APP_API_URL || 'https://backend-portfolio-efg8.onrender.com',
   endpoints: {

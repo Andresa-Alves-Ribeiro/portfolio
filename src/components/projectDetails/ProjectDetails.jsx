@@ -7,10 +7,7 @@ import Vercel from '../../assets/vercel.svg';
 import Loading from '../loading';
 import Header from '../header';
 
-/**
- * Componente que exibe os detalhes de um projeto específico
- * @returns {JSX.Element} Página de detalhes do projeto
- */
+
 const ProjectDetails = () => {
   const { t } = useTranslation();
   const { title } = useParams();
@@ -81,12 +78,12 @@ const ProjectDetails = () => {
   if (notFound || !project) {
     return (
       <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f] text-white px-4 overflow-hidden">
-        {/* Header */}
+        
         <Header isInPresentation={false} showNavLinks={true} />
-        {/* Grid tecnológico de fundo */}
+        
         <div className="absolute inset-0 tech-grid opacity-20"></div>
         
-        {/* Efeito de luz que segue o mouse */}
+        
         <div 
           className="absolute w-96 h-96 rounded-full blur-3xl pointer-events-none transition-all duration-300"
           style={{
@@ -97,7 +94,7 @@ const ProjectDetails = () => {
           }}
         ></div>
 
-        {/* Linhas de conexão animadas */}
+        
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {Array.from({ length: 5 }, (_, i) => (
             <div
@@ -141,7 +138,7 @@ const ProjectDetails = () => {
           </div>
         </div>
 
-        {/* Partículas flutuantes */}
+        
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {Array.from({ length: 20 }, (_, i) => {
             const randomSize = Math.random() * 4 + 2;
@@ -171,12 +168,12 @@ const ProjectDetails = () => {
 
   return (
     <div className="relative min-h-screen flex justify-center items-center bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f] overflow-hidden py-20 px-4">
-      {/* Header */}
+      
       <Header isInPresentation={false} showNavLinks={true} />
-      {/* Grid tecnológico de fundo */}
+      
       <div className="absolute inset-0 tech-grid opacity-20"></div>
       
-      {/* Efeito de luz que segue o mouse */}
+      
       <div 
         className="absolute w-96 h-96 rounded-full blur-3xl pointer-events-none transition-all duration-300"
         style={{
@@ -187,7 +184,7 @@ const ProjectDetails = () => {
         }}
       ></div>
 
-      {/* Linhas de conexão animadas */}
+      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 5 }, (_, i) => (
           <div
@@ -202,13 +199,13 @@ const ProjectDetails = () => {
         ))}
       </div>
 
-      {/* Card principal com glass effect */}
+      
       <div className="relative z-10 max-w-6xl w-full mx-auto">
         <div className="glass-effect rounded-3xl shadow-[0_8px_32px_rgba(255,20,147,0.2)] border border-pink-500/30 overflow-hidden backdrop-blur-xl">
           <div className="flex flex-col lg:flex-row">
-            {/* Seção da imagem */}
+            
             <div className="relative w-full lg:w-[40%] min-h-[300px] lg:min-h-[500px] overflow-hidden">
-              {/* Efeito de brilho na borda da imagem */}
+              
               <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-transparent to-rose-500/20 pointer-events-none"></div>
               
               {!imageLoaded && (
@@ -233,13 +230,13 @@ const ProjectDetails = () => {
                 />
               )}
               
-              {/* Overlay gradiente na imagem */}
+              
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/80 via-transparent to-transparent pointer-events-none"></div>
             </div>
 
-            {/* Seção de informações */}
+            
             <div className="w-full lg:w-[60%] p-6 md:p-8 lg:p-12 flex flex-col justify-between">
-              {/* Botão voltar */}
+              
               <button 
                 onClick={handleGoBack}
                 aria-label={t('common.back')}
@@ -255,14 +252,14 @@ const ProjectDetails = () => {
               </button>
 
               <div className='flex flex-col justify-center h-full space-y-6'>
-                {/* Título */}
+                
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-wider">
                   <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
                     {project.title}
                   </span>
                 </h2>
 
-                {/* Stacks */}
+                
                 <div className="flex flex-wrap gap-2">
                   {project.stacks.map((stack) => (
                     <span
@@ -274,12 +271,12 @@ const ProjectDetails = () => {
                   ))}
                 </div>
 
-                {/* Descrição */}
+                
                 <p className="text-base md:text-lg leading-relaxed text-white/80">
                   {project.descriptionKey ? t(project.descriptionKey) : project.description}
                 </p>
 
-                {/* Links */}
+                
                 <div className="flex gap-6 items-center pt-4">
                   <a 
                     href={project.liveDemoUrl} 
@@ -317,7 +314,7 @@ const ProjectDetails = () => {
         </div>
       </div>
 
-      {/* Partículas flutuantes */}
+      
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {Array.from({ length: 20 }, () => {
           const randomSize = Math.random() * 4 + 2;
