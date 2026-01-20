@@ -68,15 +68,15 @@ const Skills = () => {
             className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f]" 
             id='skills'
         >
-            {/* Grid de fundo */}
+            
             <div className="absolute inset-0 tech-grid opacity-10"></div>
 
-            {/* Efeitos de luz */}
+            
             <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl"></div>
 
             <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8">
-                {/* Título da seção */}
+                
                 <div className="text-center mb-16">
                     <div className="relative inline-block">
                         <h1
@@ -87,7 +87,7 @@ const Skills = () => {
                             </span>
                         </h1>
 
-                        {/* Linha decorativa */}
+                        
                         <div className="flex items-center justify-center gap-3 mt-6">
                             <div className="h-px w-16 bg-gradient-to-r from-transparent via-pink-500 to-pink-500"></div>
                             <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
@@ -96,7 +96,7 @@ const Skills = () => {
                     </div>
                 </div>
 
-                {/* Grid de skills */}
+                
                 <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6 transition-all duration-1000 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
@@ -113,12 +113,12 @@ const Skills = () => {
                                 animationDelay: `${index * 0.05}s`,
                             }}
                         >
-                            {/* Efeito de brilho no hover */}
+                            
                             <div className={`absolute inset-0 bg-gradient-to-br from-pink-500/0 to-rose-500/0 rounded-xl transition-all duration-500 ${
                                 hoveredIndex === index ? 'from-pink-500/20 to-rose-500/20' : ''
                             }`}></div>
 
-                            {/* Ícone */}
+                            
                             <div className="relative z-10 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
                                 <img 
                                     src={skill.logo} 
@@ -127,14 +127,14 @@ const Skills = () => {
                                 />
                             </div>
 
-                            {/* Nome da skill */}
+                            
                             <div className="mt-4 text-center">
                                 <span className="text-xs md:text-sm font-medium text-white/80 group-hover:text-pink-400 transition-colors duration-300">
                                     {skill.name}
                                 </span>
                             </div>
 
-                            {/* Decorações nos cantos */}
+                            
                             <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-pink-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-pink-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </a>

@@ -2,13 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-/**
- * Componente de Loading genérico e reutilizável
- * @param {Object} props
- * @param {string} props.size - Tamanho do spinner ('sm', 'md', 'lg')
- * @param {string} props.text - Texto a ser exibido abaixo do spinner
- * @param {boolean} props.fullScreen - Se true, ocupa a tela inteira
- */
+
 const Loading = ({ size = 'md', text = null, fullScreen = false }) => {
   const { t } = useTranslation();
   const displayText = text !== null ? text : t('common.loading');
@@ -23,7 +17,7 @@ const Loading = ({ size = 'md', text = null, fullScreen = false }) => {
     : 'flex items-center justify-center p-8';
 
   return (
-    <div className={containerClasses}>
+    <div className={containerClasses} data-testid="loading-container">
       <div className="flex flex-col items-center gap-4">
         <svg
           className={`animate-spin ${sizeClasses[size]} text-primary`}

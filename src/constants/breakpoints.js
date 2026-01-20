@@ -1,7 +1,4 @@
-/**
- * Breakpoints responsivos para o projeto
- * Usado para determinar tamanhos de tela e ajustar layouts
- */
+
 export const BREAKPOINTS = {
   MOBILE: 640,
   TABLET: 768,
@@ -9,9 +6,7 @@ export const BREAKPOINTS = {
   LARGE_DESKTOP: 1280,
 };
 
-/**
- * Configurações de cards do carrossel por breakpoint
- */
+
 export const CAROUSEL_CONFIG = {
   MOBILE: {
     visibleCards: 3,
@@ -39,9 +34,7 @@ export const CAROUSEL_CONFIG = {
   },
 };
 
-/**
- * Tamanhos de fonte responsivos
- */
+
 export const FONT_SIZES = {
   MOBILE: {
     active: '1.5rem',
@@ -61,11 +54,7 @@ export const FONT_SIZES = {
   },
 };
 
-/**
- * Utilitário para determinar o breakpoint atual baseado na largura
- * @param {number} width - Largura da janela
- * @returns {string} Nome do breakpoint
- */
+
 export const getBreakpoint = (width) => {
   if (width < BREAKPOINTS.MOBILE) return 'MOBILE';
   if (width < BREAKPOINTS.TABLET) return 'TABLET_SMALL';
@@ -73,22 +62,13 @@ export const getBreakpoint = (width) => {
   return 'DESKTOP';
 };
 
-/**
- * Utilitário para obter configuração do carrossel baseado na largura
- * @param {number} width - Largura da janela
- * @returns {Object} Configuração do carrossel
- */
+
 export const getCarouselConfig = (width) => {
   const breakpoint = getBreakpoint(width);
   return CAROUSEL_CONFIG[breakpoint] || CAROUSEL_CONFIG.DESKTOP;
 };
 
-/**
- * Utilitário para obter tamanhos de fonte baseado na largura
- * @param {number} width - Largura da janela
- * @param {boolean} isActive - Se o card está ativo
- * @returns {string} Tamanho da fonte
- */
+
 export const getFontSize = (width, isActive) => {
   const breakpoint = getBreakpoint(width);
   const sizes = FONT_SIZES[breakpoint] || FONT_SIZES.DESKTOP;

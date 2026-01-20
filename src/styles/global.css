@@ -82,7 +82,7 @@
 }
 
 @layer utilities {
-  /* Scrollbar personalizada */
+  
   .custom-scrollbar::-webkit-scrollbar {
     width: 10px;
   }
@@ -101,7 +101,7 @@
   }
 }
 
-/* Animações complexas que não podem ser facilmente substituídas */
+
 @keyframes glitch {
   0%, 100% {
     clip: rect(44px, 450px, 56px, 0);
@@ -251,7 +251,7 @@
   }
 }
 
-/* Classes utilitárias para efeitos glitch */
+
 .glitch-skills {
   animation: glitch 500ms infinite;
 }
@@ -529,7 +529,7 @@
   animation: blink linear infinite 4s;
 }
 
-/* Estilos de Diário Infantil Feminino */
+
 @keyframes diaryPage {
   0%, 100% { transform: rotate(0deg) scale(1); }
   50% { transform: rotate(1deg) scale(1.01); }
@@ -655,7 +655,7 @@
 }
 
 
-/* Animação de gradiente discreta */
+
 @keyframes titleGradientMove {
   0% {
     background-position: 0% 50%;
@@ -668,7 +668,7 @@
   }
 }
 
-/* Animação de flutuação discreta */
+
 @keyframes titleFloatDiscrete {
   0%, 100% {
     transform: translateY(0px);
@@ -678,7 +678,7 @@
   }
 }
 
-/* Animação de glow discreto para o efeito de fundo */
+
 @keyframes titleGlowDiscrete {
   0%, 100% {
     opacity: 0.4;
@@ -689,7 +689,7 @@
 }
 
 
-/* Animações suaves para linhas decorativas dos títulos */
+
 @keyframes decorativeLine {
   0%, 100% {
     width: 3.5rem;
@@ -860,7 +860,7 @@
   animation: fade-in 1s ease-out;
 }
 
-/* Estilos específicos para Presentation - Diário */
+
 
 .diary-page::before {
   content: '';
@@ -890,7 +890,7 @@
   border-radius: 0 20px 20px 0;
 }
 
-/* Estilos para diário aberto realista */
+
 .perspective-1000 {
   perspective: 1000px;
 }
@@ -923,7 +923,7 @@
   transform: rotateY(0deg);
 }
 
-/* Animações para Timeline melhorada */
+
 @keyframes timelineGlow {
   0%, 100% {
     background-position: 0% 0%;
@@ -996,7 +996,7 @@
   animation-delay: 2s;
 }
 
-/* Classes específicas para Timeline */
+
 .timeline-glow-line {
   background: linear-gradient(to bottom, #ff69b4, #ffb6d9, #ff69b4);
   background-size: 100% 200%;
@@ -1018,7 +1018,7 @@
   mask-composite: exclude;
 }
 
-/* Estilos para cards modernos da timeline */
+
 .timeline-card-modern {
   background: white;
   border-radius: 1rem;
@@ -1054,7 +1054,7 @@
   animation: shimmer 2s infinite;
 }
 
-/* Estilos Futuristas */
+
 @keyframes gridMove {
   0% { transform: translate(0, 0); }
   100% { transform: translate(50px, 50px); }

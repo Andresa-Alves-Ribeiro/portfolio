@@ -20,22 +20,22 @@ describe('Loading Component', () => {
   });
 
   test('applies fullScreen class when fullScreen is true', () => {
-    const { container } = render(<Loading fullScreen />);
-    const loadingContainer = container.firstChild;
+    render(<Loading fullScreen />);
+    const loadingContainer = screen.getByTestId('loading-container');
     expect(loadingContainer).toHaveClass('min-h-screen');
   });
 
   test('applies correct size classes', () => {
-    const { container, rerender } = render(<Loading size="sm" />);
-    let spinner = container.querySelector('svg');
+    const { rerender } = render(<Loading size="sm" />);
+    let spinner = screen.getByLabelText('Carregando');
     expect(spinner).toHaveClass('h-4', 'w-4');
 
     rerender(<Loading size="md" />);
-    spinner = container.querySelector('svg');
+    spinner = screen.getByLabelText('Carregando');
     expect(spinner).toHaveClass('h-8', 'w-8');
 
     rerender(<Loading size="lg" />);
-    spinner = container.querySelector('svg');
+    spinner = screen.getByLabelText('Carregando');
     expect(spinner).toHaveClass('h-12', 'w-12');
   });
 });

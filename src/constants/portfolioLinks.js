@@ -1,9 +1,17 @@
 export const portfolioLinks = [
     {
+        title: 'Sistema de Chamada',
+        image: 'https://private-user-images.githubusercontent.com/94997593/537766922-d37f8a7f-4cda-4ce2-939a-6898439af51c.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njg5NDI2MzcsIm5iZiI6MTc2ODk0MjMzNywicGF0aCI6Ii85NDk5NzU5My81Mzc3NjY5MjItZDM3ZjhhN2YtNGNkYS00Y2UyLTkzOWEtNjg5ODQzOWFmNTFjLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAxMjAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMTIwVDIwNTIxN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdmMTIzOWZmZjExMTUxZWEwNzBiMzQ1YWU3ZjVlMWFhY2IyZDZhNzcxODE0MDJhODY2ODgwZDc2Mzc0MGI0MzImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.bau1KBwhS8TlFD3Mi9425dcHtXaLVCyya5NTej7jIDI',
+        stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'TAILWIND', 'RADIX UI', 'AXIOS', 'ESLINT', 'LUCIDE REACT'],
+        descriptionKey: 'projectDetails.descriptions.sistemaChamadas',
+        liveDemoUrl: 'https://sistema-chamadas-front.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/sistema-chamadas-front'
+    },
+    {
         title: 'DigitSign',
         image: 'https://github.com/user-attachments/assets/4d3d7f62-e692-4c8a-9cb2-324aa6d9c66c',
         stacks: ['REACT', 'NEXT', 'TYPESCRIPT', 'TAILWIND', 'ZUSTAND', 'PRISMA ORM', 'ESLINT', 'PRETTIER', 'JEST'],
-        description: 'DigitSign é um sistema de simulação de assinatura de documentos, fazendo upload e assinatura desses documentos.',
+        descriptionKey: 'projectDetails.descriptions.digitsign',
         liveDemoUrl: 'https://digitsign.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/digitsign'
     },

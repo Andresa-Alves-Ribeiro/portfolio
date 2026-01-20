@@ -110,6 +110,8 @@
     "vercelLogoAlt": "Logo Vercel - Ver demonstração ao vivo",
     "githubLogoAlt": "Logo GitHub - Ver código fonte",
     "descriptions": {
+      "sistemaChamadas": "Sistema de Chamada é um sistema de chamada para uma escola de música, onde é possível criar, editar e excluir chamadas, além de visualizar as chamadas cadastradas.",
+      "digitsign": "DigitSign é um sistema de simulação de assinatura de documentos, fazendo upload e assinatura desses documentos.",
       "spiderverse": "O objetivo deste projeto é uma aplicação interativa inspirada no universo do Homem-Aranha.",
       "expertNotes": "Esse projeto é uma aplicação interativa para a criação de notas por meio da fala e da escrita.",
       "currencyConverter": "Esse projeto é um sistema web que utiliza a API exchangerate.host para mostrar gráficos com a cotação do real em relação a outras moedas (dólar, euro e libra) ao longo de uma semana.",

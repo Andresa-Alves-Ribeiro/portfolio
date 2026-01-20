@@ -53,10 +53,10 @@ const Presentation = () => {
       id='presentation' 
       className="relative flex justify-center items-center min-h-screen pt-0 overflow-hidden bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f]"
     >
-      {/* Grid tecnológico de fundo */}
+      
       <div className="absolute inset-0 tech-grid opacity-20"></div>
       
-      {/* Efeito de luz que segue o mouse */}
+      
       <div 
         className="absolute w-96 h-96 rounded-full blur-3xl pointer-events-none transition-all duration-300"
         style={{
@@ -67,7 +67,7 @@ const Presentation = () => {
         }}
       ></div>
 
-      {/* Linhas de conexão animadas */}
+      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 5 }, (_, i) => {
           const lineId = `line-${i}`;
@@ -85,21 +85,21 @@ const Presentation = () => {
         })}
       </div>
 
-      {/* Header */}
+      
       <Header isInPresentation={isInPresentation} showNavLinks={true} />
 
-      {/* Conteúdo principal */}
+      
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="flex flex-col items-center justify-center min-h-screen text-center">
           
-          {/* Badge superior */}
+          
           <div className="mb-8 px-4 py-2 glass-effect rounded-full border border-pink-500/30">
             <span className="text-xs md:text-sm text-pink-400 font-medium tracking-wider">
               {t('presentation.badge')}
             </span>
           </div>
 
-          {/* Título principal com efeito neon */}
+          
           <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 tracking-tight leading-tight">
             <span className="block mb-2 neon-text">{t('presentation.title1')}</span>
             <span className="block bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
@@ -107,12 +107,12 @@ const Presentation = () => {
             </span>
           </h1>
 
-          {/* Subtítulo */}
+          
           <p className="text-lg md:text-xl lg:text-2xl text-white/70 mb-12 font-light tracking-wide max-w-2xl">
             {t('presentation.subtitle')}
           </p>
 
-          {/* Botão CTA */}
+          
           <button
             onClick={scrollToAbout}
             className="group relative px-8 py-4 md:px-10 md:py-5 border-2 border-pink-500 text-white font-semibold text-base md:text-lg tracking-wider uppercase transition-all duration-300 hover:bg-pink-500 hover:shadow-[0_0_30px_rgba(255,20,147,0.5)] hover:scale-105 overflow-hidden"
@@ -122,7 +122,7 @@ const Presentation = () => {
             <div className="absolute inset-0 bg-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
 
-          {/* Indicador de scroll */}
+          
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
             <button
               onClick={scrollToAbout}
@@ -138,7 +138,7 @@ const Presentation = () => {
         </div>
       </div>
 
-      {/* Partículas flutuantes */}
+      
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {Array.from({ length: 20 }, () => {
           const randomSize = Math.random() * 4 + 2;

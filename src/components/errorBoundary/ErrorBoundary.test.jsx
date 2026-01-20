@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { render, screen } from '@testing-library/react';
 import ErrorBoundary from './ErrorBoundary';
 
@@ -7,6 +8,9 @@ const ThrowError = ({ shouldThrow }) => {
     throw new Error('Test error');
   }
   return <div>No error</div>;
+};
+ThrowError.propTypes = {
+  shouldThrow: PropTypes.bool.isRequired,
 };
 
 describe('ErrorBoundary', () => {

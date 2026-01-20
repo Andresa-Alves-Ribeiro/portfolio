@@ -4,10 +4,7 @@ import { useForm } from 'react-hook-form';
 import { contactService } from '../../services/api';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
-/**
- * Componente de formulário de contato futurista
- * @returns {JSX.Element} Seção de contato com formulário
- */
+
 const Contact = () => {
   const { t } = useTranslation();
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -67,12 +64,12 @@ const Contact = () => {
 
   return (
     <div className="flex flex-col justify-center items-center py-16 md:py-24 bg-gradient-to-b from-[#0a0a0f] via-[#1a0a1a] to-[#0a0a0f]" id='contact'>
-      {/* Efeitos de luz suaves */}
+      
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl"></div>
 
       <div className="relative z-10 w-full max-w-2xl mx-auto px-4 md:px-8">
-        {/* Título da seção */}
+        
         <div className="text-center mb-12">
           <div className="relative inline-block">
             <h1 
@@ -83,7 +80,7 @@ const Contact = () => {
               </span>
             </h1>
             
-            {/* Linha decorativa */}
+            
             <div className="flex items-center justify-center gap-3 mt-6">
               <div className="h-px w-16 bg-gradient-to-r from-transparent via-pink-500/50 to-pink-500/50"></div>
               <div className="w-2 h-2 rounded-full bg-pink-500/60 animate-pulse"></div>
@@ -96,13 +93,13 @@ const Contact = () => {
           {t('contact.subtitle')}
         </p>
 
-        {/* Formulário */}
+        
         <form 
           className="glass-effect rounded-2xl p-6 md:p-8 border border-pink-500/20 transition-all duration-300 hover:border-pink-500/50 hover:shadow-[0_0_30px_rgba(255,20,147,0.2)]" 
           onSubmit={handleSubmit(onSubmit)} 
           ref={aboutRef}
         >
-          {/* Campo Nome */}
+          
           <label className="flex flex-col mb-6">
             <span className="text-white/90 font-medium mb-2 text-sm md:text-base">{t('contact.name')}</span>
             <div className="relative">
@@ -136,7 +133,7 @@ const Contact = () => {
             )}
           </label>
 
-          {/* Campo Email */}
+          
           <label className="flex flex-col mb-6">
             <span className="text-white/90 font-medium mb-2 text-sm md:text-base">{t('contact.email')}</span>
             <div className="relative">
@@ -170,7 +167,7 @@ const Contact = () => {
             )}
           </label>
 
-          {/* Campo Assunto */}
+          
           <label className="flex flex-col mb-6">
             <span className="text-white/90 font-medium mb-2 text-sm md:text-base">{t('contact.subject')}</span>
             <div className="relative">
@@ -204,7 +201,7 @@ const Contact = () => {
             )}
           </label>
 
-          {/* Campo Mensagem */}
+          
           <label className="flex flex-col mb-6">
             <span className="text-white/90 font-medium mb-2 text-sm md:text-base">{t('contact.message')}</span>
             <div className="relative">
@@ -237,7 +234,7 @@ const Contact = () => {
             )}
           </label>
 
-          {/* Botão de envio */}
+          
           <button 
             className={`group relative w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,20,147,0.5)] hover:scale-105 overflow-hidden ${
               isLoading 
@@ -261,7 +258,7 @@ const Contact = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-rose-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
 
-          {/* Mensagens de status */}
+          
           {formStatus === 'success' && (
             <div className="mt-6 p-4 glass-effect border border-green-500/50 rounded-lg text-center">
               <p className="text-green-400 font-semibold text-base">

@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 
-/**
- * Componente que carrega scripts externos para efeito de canvas/background
- * @returns {JSX.Element} Container para o canvas
- */
+
 const CanvasBackground = () => {
   useEffect(() => {
     const noiseScript = document.createElement('script');
@@ -23,7 +20,7 @@ const CanvasBackground = () => {
     document.body.appendChild(pipelineScript);
 
     return () => {
-      // Verificar se os elementos ainda existem antes de remover
+      
       if (document.body.contains(noiseScript)) {
         document.body.removeChild(noiseScript);
       }

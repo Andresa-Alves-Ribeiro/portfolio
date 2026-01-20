@@ -110,6 +110,8 @@
     "vercelLogoAlt": "Vercel logo - View live demo",
     "githubLogoAlt": "GitHub logo - View source code",
     "descriptions": {
+      "sistemaChamadas": "System Call is a call system for a music school, where it is possible to create, edit and delete calls, as well as view registered calls.",
+      "digitsign": "DigitSign is a document signing simulation system, uploading and signing these documents.",
       "spiderverse": "The goal of this project is an interactive application inspired by the Spider-Man universe.",
       "expertNotes": "This project is an interactive application for creating notes through speech and writing.",
       "currencyConverter": "This project is a web system that uses the exchangerate.host API to display charts with the Brazilian Real exchange rate against other currencies (dollar, euro, and pound) over a week.",
