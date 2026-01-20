@@ -9,8 +9,10 @@ export const useTheme = () => {
         return savedTheme === 'dark';
       }
 
-      if (typeof window !== 'undefined' && window.matchMedia) {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const prefersDark =
+        globalThis.window?.matchMedia?.('(prefers-color-scheme: dark)')?.matches;
+      if (prefersDark !== undefined) {
+        return prefersDark;
       }
 
       return false;
