@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl"></div>
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full max-w-8xl mx-auto px-6 md:px-12 lg:px-16">
                 
                 
                 <div className="glass-effect rounded-xl p-6 border border-pink-500/20">
