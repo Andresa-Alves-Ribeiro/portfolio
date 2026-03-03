@@ -24,6 +24,14 @@ export const portfolioLinks = [
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/spiderverse/'
     },
     {
+        title: 'Jogo da Memória Musical',
+        image: 'https://private-user-images.githubusercontent.com/94997593/557190797-8aaa7eb9-d242-4795-b73e-3d90b0c11ab7.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI1NTUzNTksIm5iZiI6MTc3MjU1NTA1OSwicGF0aCI6Ii85NDk5NzU5My81NTcxOTA3OTctOGFhYTdlYjktZDI0Mi00Nzk1LWI3M2UtM2Q5MGIwYzExYWI3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzAzVDE2MjQxOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFhYTM5OGQzYWRkZTFhYzY4MWY4NTQ4NjM5ZGIwYzdjOTI2OTkxOGMxOWI1MzA0OTFlYmY2NDU5MzQ5Zjc5MjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.A4weJxEh0ggnVXbioj7mI2YSKyxJJB0n54dL6mCNtDQ',
+        stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWIND', 'BOOTSTRAP', 'VITEST', 'SONNER'],
+        descriptionKey: 'projectDetails.descriptions.jogoDaMemoriaMusical',
+        liveDemoUrl: 'https://jogo-de-memoria-musical.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/jogo-de-memoria-musical'
+    },
+    {
         title: 'Expert Notes',
         image: 'https://raw.githubusercontent.com/Andresa-Alves-Ribeiro/Expert-Notes/main/public/assets/Home.png',
         stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWIND', 'RADIX', 'LUCIDE REACT', 'SONNER'],
