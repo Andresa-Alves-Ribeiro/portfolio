@@ -32,6 +32,30 @@ export const portfolioLinks = [
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/jogo-de-memoria-musical'
     },
     {
+        title: 'Inventor de Melodias',
+        image: 'https://github-production-user-asset-6210df.s3.amazonaws.com/94997593/591401712-70124e3c-da29-433e-8810-cc261c0162ee.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260512%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260512T233524Z&X-Amz-Expires=300&X-Amz-Signature=d9e419cc82fe72bab2cc0395421fb6e2e29bcfc5f3a5471a1a41e16ce05aec13&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng',
+        stacks: ['REACT', 'TAILWIND', 'JEST', 'REACT TESTING LIBRARY', 'PostCSS'],
+        descriptionKey: 'projectDetails.descriptions.expertNotes',
+        liveDemoUrl: 'https://invente-melodia.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/invente-melodia'
+    },
+    {
+        title: 'Digit Trainer',
+        image: 'https://github-production-user-asset-6210df.s3.amazonaws.com/94997593/591403699-d0d79055-dfec-4170-bde9-46807b28baf9.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260512%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260512T234324Z&X-Amz-Expires=300&X-Amz-Signature=c4b7bcdb507a10dd6f34ddf14e3103ed35d619330eb1fbfcce734f52864691b0&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng',
+        stacks: ['REACT', 'TAILWIND', 'VITE', 'ESLINT'],
+        descriptionKey: 'projectDetails.descriptions.expertNotes',
+        liveDemoUrl: 'https://digit-trainer.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Digit-Trainer'
+    },
+    {
+        title: 'Torre de Londres',
+        image: 'https://github-production-user-asset-6210df.s3.amazonaws.com/94997593/591405377-ff462547-dc82-4c6c-b172-f55edab74280.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260512%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260512T235309Z&X-Amz-Expires=300&X-Amz-Signature=2d63db73a09162d6c2f21c64f9987626d85997f93a3c1002f03f4e61cbabb50a&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng',
+        stacks: ['REACT', 'JAVASCRIPT', 'TAILWIND', 'VITE', 'ESLINT', 'WEB SPEECH API'],
+        descriptionKey: 'projectDetails.descriptions.expertNotes',
+        liveDemoUrl: 'https://torre-de-londres.vercel.app/',
+        repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Torre-de-Londres'
+    },
+    {
         title: 'Expert Notes',
         image: 'https://raw.githubusercontent.com/Andresa-Alves-Ribeiro/Expert-Notes/main/public/assets/Home.png',
         stacks: ['REACT', 'VITE', 'TYPESCRIPT', 'TAILWIND', 'RADIX', 'LUCIDE REACT', 'SONNER'],
