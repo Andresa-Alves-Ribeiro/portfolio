@@ -129,7 +129,10 @@
       "netflixClone": "Recriando Netfilx is a clone page of the Netflix streaming design.",
       "ipTracker": "IP Address Tracker is a page that shows your location by your IP and allows searches for other IPs.",
       "destinyRevealer": "Destiny Revealer is a page that answers your destiny based on a question.",
-      "marvelProject": "This project was inspired by game screens from the 90s/2000s, where you can select your favorite character from various options to play. I chose Marvel characters for the character list."
+      "marvelProject": "This project was inspired by game screens from the 90s/2000s, where you can select your favorite character from various options to play. I chose Marvel characters for the character list.",
+      "inventorMelodias": "Interactive web application for composing melodies on a table. Paint the cells, listen to the sounds while composing, and play the complete sequence with pauses and durations respected.",
+      "digitTrainer": "Web application to train auditory memory with digit sequences.",
+      "torreDeLondres": "Web game inspired by the Tower of London cognitive task."
     }
   },
   "notFound": {
