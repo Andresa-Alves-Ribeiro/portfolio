@@ -55,8 +55,6 @@ export const portfolioLinks = [
         liveDemoUrl: 'https://torre-de-londres.vercel.app/',
         repoUrl: 'https://github.com/Andresa-Alves-Ribeiro/Torre-de-Londres'
     },
-
-
     {
         title: 'Expert Notes',
         image: 'https://raw.githubusercontent.com/Andresa-Alves-Ribeiro/Expert-Notes/main/public/assets/Home.png',
